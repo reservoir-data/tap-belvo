@@ -3,7 +3,7 @@ name: Test tap-belvo
 on: [push]
 
 jobs:
-  linting:
+  test:
     runs-on: ubuntu-latest
     env:
       SETUPTOOLS_USE_DISTUTILS: stdlib
@@ -42,7 +42,7 @@ jobs:
         pipx inject tox tox-poetry
         tox --version
 
-    - name: Run lint command from tox.ini
+    - name: Run command from tox.ini
       env:
         TAP_BELVO_SECRET_ID: ${{ secrets.TAP_BELVO_SECRET_ID }}
         TAP_BELVO_PASSWORD: ${{ secrets.TAP_BELVO_PASSWORD }}
