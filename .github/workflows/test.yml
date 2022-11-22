@@ -46,5 +46,6 @@ jobs:
       env:
         TAP_BELVO_SECRET_ID: ${{ secrets.TAP_BELVO_SECRET_ID }}
         TAP_BELVO_PASSWORD: ${{ secrets.TAP_BELVO_PASSWORD }}
+        TAP_BELVO_BASE_URL: https://sandbox.belvo.com
       run: |
         tox -e ${{ matrix.session }}
