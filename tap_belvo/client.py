@@ -60,7 +60,6 @@ class BelvoPaginator(BaseHATEOASPaginator):
 class BelvoStream(RESTStream, metaclass=ABCMeta):
     """Belvo stream class."""
 
-    url_base = "https://api.mysample.com"
     records_jsonpath = "$.results[*]"  # Or override `parse_response`.
 
     @property
@@ -131,7 +130,8 @@ class BelvoStream(RESTStream, metaclass=ABCMeta):
 
         if self.replication_key:
             start_date = self.get_starting_timestamp(context)
-            params[f"{self.replication_key}__gte"] = start_date.date()
+            if start_date:
+                params[f"{self.replication_key}__gte"] = start_date.date()
 
         return params
     

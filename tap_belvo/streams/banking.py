@@ -35,7 +35,10 @@ class Transactions(BelvoStream):
         next_page_token: ParseResult | None,
     ) -> dict[str, Any]:
         params = super().get_url_params(context, next_page_token)
-        params["link"] = context["link_id"]
+
+        if context is not None:
+            params["link"] = context["link_id"]
+
         return params
 
 
