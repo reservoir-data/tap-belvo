@@ -1,3 +1,5 @@
+### A CI workflow template that runs linting and python testing
+
 name: Test tap-belvo
 
 on: [push]

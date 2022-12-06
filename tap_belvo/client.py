@@ -6,7 +6,7 @@ import json
 import sys
 from abc import ABCMeta, abstractmethod
 from functools import lru_cache
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 from urllib.parse import ParseResult, parse_qsl
 
 from requests_cache import install_cache
@@ -134,7 +134,7 @@ class BelvoStream(RESTStream, metaclass=ABCMeta):
                 params[f"{self.replication_key}__gte"] = start_date.date()
 
         return params
-    
+
     @property
     def is_timestamp_replication_key(self) -> bool:
         """Check is replication key is a timestamp.
