@@ -1,3 +1,5 @@
+"""Stream classes for tap-belvo."""
+
 from __future__ import annotations
 
 from tap_belvo.streams.banking import (

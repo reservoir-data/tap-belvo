@@ -34,6 +34,15 @@ class Transactions(BelvoStream):
         context: dict | None,
         next_page_token: ParseResult | None,
     ) -> dict[str, Any]:
+        """Get URL query parameters.
+
+        Args:
+            context: Stream sync context.
+            next_page_token: Next page URL, if available.
+
+        Returns:
+            Mapping of URL query parameters.
+        """
         params = super().get_url_params(context, next_page_token)
 
         if context is not None:

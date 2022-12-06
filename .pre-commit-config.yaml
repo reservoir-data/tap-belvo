@@ -38,3 +38,8 @@ repos:
     - flake8-annotations
     - flake8-docstrings
     exclude: "noxfile\\.py"
+
+- repo: https://github.com/charliermarsh/ruff-pre-commit
+  rev: v0.0.165
+  hooks:
+    - id: ruff

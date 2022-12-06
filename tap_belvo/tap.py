@@ -47,6 +47,7 @@ class TapBelvo(Tap):
         Returns:
             A list of Belvo streams.
         """
+        # TODO: Add tax declarations and tax returns
         return [
             links.Links(self),
             links.Institutions(self),
@@ -62,8 +63,6 @@ class TapBelvo(Tap):
             enrichment.RiskInsights(self),
             fiscal.Invoices(self),
             fiscal.TaxComplianceStatuses(self),
-            # fiscal.TaxDeclarations(self),
             fiscal.TaxRetentions(self),
-            # fiscal.TaxReturns(self),
             fiscal.TaxStatuses(self),
         ]
