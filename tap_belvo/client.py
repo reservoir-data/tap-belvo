@@ -36,7 +36,7 @@ install_cache("tap_belvo_cache", backend="sqlite", expire_after=3600)
 logger = logging.getLogger(__name__)
 
 
-@lru_cache
+@lru_cache(maxsize=None)
 def load_openapi() -> dict[str, Any]:
     """Load the OpenAPI specification from the package.
 
