@@ -3,10 +3,11 @@
 from __future__ import annotations
 
 import json
+import logging
 import sys
 from abc import ABCMeta, abstractmethod
 from functools import lru_cache
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 from urllib.parse import ParseResult, parse_qsl
 
 from requests_cache import install_cache
@@ -32,19 +33,24 @@ OPENAPI_FILENAME = "BelvoOpenFinanceApiSpec.json"
 PAGE_SIZE = 1000
 
 install_cache("tap_belvo_cache", backend="sqlite", expire_after=3600)
+logger = logging.getLogger(__name__)
 
 
 @lru_cache(maxsize=None)
 def load_openapi() -> dict[str, Any]:
     """Load the OpenAPI specification from the package.
+
     Returns:
         The OpenAPI specification as a dict.
     """
+    logger.info("Loading OpenAPI spec from package")
     with importlib_resources.files(openapi).joinpath(OPENAPI_FILENAME).open() as f:
         return json.load(f)
 
 
 class BelvoPaginator(BaseHATEOASPaginator):
+    """Belvo API paginator class."""
+
     def get_next_url(self, response: Response) -> str | None:
         """Get the next URL from the response.
 
@@ -134,7 +140,7 @@ class BelvoStream(RESTStream, metaclass=ABCMeta):
                 params[f"{self.replication_key}__gte"] = start_date.date()
 
         return params
-    
+
     @property
     def is_timestamp_replication_key(self) -> bool:
         """Check is replication key is a timestamp.
@@ -160,6 +166,7 @@ class BelvoStream(RESTStream, metaclass=ABCMeta):
     @property
     def schema(self) -> dict[str, Any]:
         """Return the schema for this stream.
+
         Returns:
             The schema for this stream.
         """
@@ -169,6 +176,7 @@ class BelvoStream(RESTStream, metaclass=ABCMeta):
     @abstractmethod
     def openapi_ref(self) -> str:
         """Return the OpenAPI component name for this stream.
+
         Returns:
             The OpenAPI reference for this stream.
         """

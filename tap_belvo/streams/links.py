@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-
 from tap_belvo.client import BelvoStream
+
 
 class Links(BelvoStream):
     """Links stream."""
@@ -20,7 +20,7 @@ class Links(BelvoStream):
         Args:
             record: The record to get the child context for.
             context: The parent context.
-        
+
         Returns:
             The child context.
         """

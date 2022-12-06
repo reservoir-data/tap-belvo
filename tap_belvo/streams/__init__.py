@@ -1,12 +1,15 @@
-from tap_belvo.streams.links import Links, Institutions
+"""Stream classes for tap-belvo."""
+
+from __future__ import annotations
+
 from tap_belvo.streams.banking import (
     Accounts,
-    Transactions,
     Balances,
-    Owners,
     InvestmentPortfolios,
     InvestmentTransactions,
+    Owners,
     ReceivableTransactions,
+    Transactions,
 )
 from tap_belvo.streams.enrichment import Incomes, RecurringExpenses, RiskInsights
 from tap_belvo.streams.fiscal import (
@@ -17,6 +20,7 @@ from tap_belvo.streams.fiscal import (
     TaxReturns,
     TaxStatuses,
 )
+from tap_belvo.streams.links import Institutions, Links
 
 __all__ = [
     "Links",

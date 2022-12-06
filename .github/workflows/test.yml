@@ -1,21 +1,25 @@
+### A CI workflow template that runs linting and python testing
+
 name: Test tap-belvo
 
 on: [push]
 
 jobs:
-  test:
+  tests:
     runs-on: ubuntu-latest
     env:
-      SETUPTOOLS_USE_DISTUTILS: stdlib
       PIP_CONSTRAINT: .github/workflows/constraints.txt
+      NOXSESSION: ${{ matrix.session }}-${{ matrix.python-version }}
+      FORCE_COLOR: "1"
     strategy:
       matrix:
         include:
         - {python-version: "3.10", session: "mypy"}
-        - {python-version: "3.10", session: "pytest"}
-        - {python-version: "3.9", session: "pytest"}
-        - {python-version: "3.8", session: "pytest"}
-        - {python-version: "3.7", session: "pytest"}
+        - {python-version: "3.11", session: "tests"}
+        - {python-version: "3.10", session: "tests"}
+        - {python-version: "3.9", session: "tests"}
+        - {python-version: "3.8", session: "tests"}
+        - {python-version: "3.7", session: "tests"}
 
     steps:
     - name: Checkout code
@@ -33,19 +37,19 @@ jobs:
 
     - name: Install Poetry
       run: |
-        pipx install poetry
+        pipx install poetry --python "python${{ matrix.python-version }}"
         poetry --version
 
-    - name: Install tox
+    - name: Install Nox
       run: |
-        pipx install tox
-        pipx inject tox tox-poetry
-        tox --version
+        pipx install nox
+        pipx inject nox nox-poetry
+        nox --version
 
-    - name: Run command from tox.ini
+    - name: Run Nox
       env:
         TAP_BELVO_SECRET_ID: ${{ secrets.TAP_BELVO_SECRET_ID }}
         TAP_BELVO_PASSWORD: ${{ secrets.TAP_BELVO_PASSWORD }}
         TAP_BELVO_BASE_URL: https://sandbox.belvo.com
       run: |
-        tox -e ${{ matrix.session }}
+        nox

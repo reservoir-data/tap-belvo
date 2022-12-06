@@ -11,7 +11,6 @@ class Incomes(BelvoStream):
     name = "enrichment_incomes"
     path = "/api/incomes"
     primary_keys = ["id"]
-    # replication_key = "created_at"
     openapi_ref = "Income"
 
 
