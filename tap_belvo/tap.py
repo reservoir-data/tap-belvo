@@ -56,7 +56,6 @@ class TapBelvo(Tap):
             banking.Balances(self),
             banking.Owners(self),
             banking.InvestmentPortfolios(self),
-            banking.InvestmentTransactions(self),
             banking.ReceivableTransactions(self),
             enrichment.Incomes(self),
             enrichment.RecurringExpenses(self),
