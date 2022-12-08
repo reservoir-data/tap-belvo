@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tap-belvo"
-version = "0.0.1"
+version = "0.0.0"
 description = "`tap-belvo` is a Singer tap for Belvo, built with the Meltano SDK for Singer Taps."
 authors = ["Edgar Ramírez-Mondragón <edgarrm358@gmail.com>"]
 keywords = [
