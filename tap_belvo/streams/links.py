@@ -14,7 +14,11 @@ class Links(BelvoStream):
     replication_key = "created_at"
     openapi_ref = "Link"
 
-    def get_child_context(self, record: dict, context: dict | None) -> dict:
+    def get_child_context(
+        self,
+        record: dict,
+        context: dict | None,  # noqa: ARG002
+    ) -> dict:
         """Return the child context.
 
         Args:
