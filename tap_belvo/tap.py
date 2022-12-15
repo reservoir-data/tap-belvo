@@ -55,8 +55,8 @@ class TapBelvo(Tap):
             banking.Transactions(self),
             banking.Balances(self),
             banking.Owners(self),
-            banking.InvestmentPortfolios(self),
-            banking.ReceivableTransactions(self),
+            # banking.InvestmentPortfolios(self),  # noqa: ERA001
+            # banking.ReceivableTransactions(self),  # noqa: ERA001
             enrichment.Incomes(self),
             enrichment.RecurringExpenses(self),
             enrichment.RiskInsights(self),

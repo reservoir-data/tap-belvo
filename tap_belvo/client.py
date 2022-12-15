@@ -126,7 +126,7 @@ class BelvoStream(RESTStream, metaclass=ABCMeta):
         Returns:
             Mapping of URL query parameters.
         """
-        params: dict = {
+        params: dict[str, Any] = {
             "page": 1,
             "page_size": PAGE_SIZE,
         }
