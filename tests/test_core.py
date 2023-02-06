@@ -47,4 +47,4 @@ def test_paginator():
     response._content = b'{"next": null}'
     paginator.advance(response)
     assert paginator.finished
-    assert paginator.count == 2
+    assert paginator.count == 2  # noqa: PLR2004
