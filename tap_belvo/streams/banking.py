@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
-from typing import Any
-from urllib.parse import ParseResult
+from typing import TYPE_CHECKING, Any
 
 from tap_belvo.client import BelvoStream
 from tap_belvo.streams.links import Links
+
+if TYPE_CHECKING:
+    from urllib.parse import ParseResult
 
 
 class Accounts(BelvoStream):
