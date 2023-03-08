@@ -45,14 +45,14 @@ files = [
 
 [[package]]
 name = "belvo-python"
-version = "0.36.0"
+version = "0.37.0"
 description = "Belvo Python SDK"
 category = "main"
 optional = false
 python-versions = ">=3.6, <4"
 files = [
-    {file = "belvo-python-0.36.0.tar.gz", hash = "sha256:13ba39107314f8d47c237958b4f7c95dc9675c3018f1299b903106cf6094c045"},
-    {file = "belvo_python-0.36.0-py2.py3-none-any.whl", hash = "sha256:d3590207535af245d88097140f03ee4fa2feaa3f0a6c3a3c251af5466f27a167"},
+    {file = "belvo-python-0.37.0.tar.gz", hash = "sha256:30164d31064ed56df7dab4dfb688e356fbe1dbe56c31cb7ec4bac9198688b113"},
+    {file = "belvo_python-0.37.0-py2.py3-none-any.whl", hash = "sha256:9fb48aea7aa202f1ed76d8865352666e4e55ab829a23f6abcfb5c8e6d53e0725"},
 ]
 
 [package.dependencies]
@@ -1258,4 +1258,4 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 [metadata]
 lock-version = "2.0"
 python-versions = "<3.12,>=3.7.1"
-content-hash = "baa5008ef6f73ffb0922023b08a2fc4775ed44e1d8dcaa9e23fb587928811b1a"
+content-hash = "b527d67024edef87ed5e9d13624ed3c8a3df18f06932c7a1b7156dabfb573af3"
