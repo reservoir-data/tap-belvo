@@ -2,11 +2,7 @@
 
 from __future__ import annotations
 
-import json
-import logging
-import sys
 from abc import ABCMeta, abstractmethod
-from functools import lru_cache
 from typing import TYPE_CHECKING, Any
 from urllib.parse import ParseResult, parse_qsl
 
@@ -17,35 +13,15 @@ from singer_sdk.authenticators import BasicAuthenticator
 from singer_sdk.helpers._typing import is_date_or_datetime_type
 from singer_sdk.pagination import BaseHATEOASPaginator
 
-from tap_belvo import openapi
-
-if sys.version_info >= (3, 9):
-    import importlib.resources as importlib_resources
-else:
-    import importlib_resources
-
+from tap_belvo.openapi import load_openapi
 
 if TYPE_CHECKING:
     from requests import Response
 
 
-OPENAPI_FILENAME = "BelvoOpenFinanceApiSpec.json"
 PAGE_SIZE = 1000
 
 install_cache("tap_belvo_cache", backend="sqlite", expire_after=3600)
-logger = logging.getLogger(__name__)
-
-
-@lru_cache(maxsize=None)
-def load_openapi() -> dict[str, Any]:
-    """Load the OpenAPI specification from the package.
-
-    Returns:
-        The OpenAPI specification as a dict.
-    """
-    logger.info("Loading OpenAPI spec from package")
-    with importlib_resources.files(openapi).joinpath(OPENAPI_FILENAME).open() as f:
-        return json.load(f)
 
 
 class BelvoPaginator(BaseHATEOASPaginator):

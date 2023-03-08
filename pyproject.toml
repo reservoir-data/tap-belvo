@@ -17,7 +17,6 @@ documentation = "https://github.com/edgarrmondragon/tap-belvo#readme"
 [tool.poetry.dependencies]
 python = "<3.12,>=3.7.1"
 singer-sdk = "0.21.0"
-belvo-python = ">=0.35,<0.37"
 requests-cache = ">=0.9.7,<1.1.0"
 
 [tool.poetry.dev-dependencies]
