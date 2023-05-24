@@ -47,7 +47,8 @@ class TapBelvo(Tap):
         Returns:
             A list of Belvo streams.
         """
-        # TODO: Add tax declarations and tax returns
+        # TODO(edgarrmondragon): Add tax declarations and tax returns
+        # https://github.com/edgarrmondragon/tap-belvo/issues/76
         return [
             links.Links(self),
             links.Institutions(self),
