@@ -1,5 +1,8 @@
 ci:
   autofix_prs: false
+  autofix_commit_msg: '[pre-commit.ci] auto fixes'
+  autoupdate_schedule: weekly
+  autoupdate_commit_msg: 'chore(deps): pre-commit autoupdate'
 
 repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -14,33 +17,22 @@ repos:
   - id: trailing-whitespace
 
 - repo: https://github.com/charliermarsh/ruff-pre-commit
-  rev: v0.0.254
+  rev: v0.0.270
   hooks:
     - id: ruff
 
-- repo: https://github.com/asottile/pyupgrade
-  rev: v3.3.1
-  hooks:
-  - id: pyupgrade
-    args: [--py36-plus]
-
 - repo: https://github.com/psf/black
-  rev: "23.1.0"
+  rev: "23.3.0"
   hooks:
   - id: black
 
 - repo: https://github.com/pre-commit/mirrors-mypy
-  rev: v1.1.1
+  rev: v1.3.0
   hooks:
   - id: mypy
     pass_filenames: true
     additional_dependencies:
     - types-requests
-
-- repo: https://github.com/pycqa/isort
-  rev: 5.12.0
-  hooks:
-  - id: isort
 
 - repo: https://github.com/pycqa/flake8
   rev: 6.0.0
@@ -48,6 +40,4 @@ repos:
   - id: flake8
     additional_dependencies:
     - darglint
-    - flake8-annotations
-    - flake8-docstrings
     exclude: "noxfile\\.py"
