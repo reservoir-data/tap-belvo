@@ -1,3 +1,10 @@
+[build-system]
+build-backend = "poetry_dynamic_versioning.backend"
+requires = [
+  "poetry-core>=1",
+  "poetry-dynamic-versioning",
+]
+
 [tool.poetry]
 name = "tap-belvo"
 version = "0.0.0"
@@ -22,6 +29,10 @@ requests-cache = ">=0.9.7,<1.1.0"
 [tool.poetry.dev-dependencies]
 pytest = "^7.3.2"
 
+[tool.poetry.scripts]
+# CLI declaration
+"tap-belvo" = "tap_belvo.tap:TapBelvo.cli"
+
 [tool.isort]
 profile = "black"
 multi_line_output = 3 # Vertical Hanging Indent
@@ -44,17 +55,6 @@ warn_unused_configs = true
 ignore_missing_imports = true
 module = ["backoff.*"]
 
-[build-system]
-build-backend = "poetry_dynamic_versioning.backend"
-requires = [
-  "poetry-core>=1",
-  "poetry-dynamic-versioning",
-]
-
-[tool.poetry.scripts]
-# CLI declaration
-"tap-belvo" = "tap_belvo.tap:TapBelvo.cli"
-
 [tool.poetry-dynamic-versioning]
 enable = true
 format-jinja = """
@@ -72,8 +72,9 @@ vcs = "git"
 
 [tool.ruff]
 ignore = [
-  "ANN101", # missing-type-self
-  "DJ", # flake8-django
+  "ANN101",  # missing-type-self
+  "DJ",      # flake8-django
+  "FIX002",  # line-contains-todo
 ]
 line-length = 88
 select = ["ALL"]
@@ -86,9 +87,9 @@ unfixable = [
 [tool.ruff.per-file-ignores]
 "noxfile.py" = ["ANN"]
 "tests/*" = [
-  "ANN201", # missing-return-type-public-function
-  "S101", # assert
-  "SLF001", # private-member-access
+  "ANN201",  # missing-return-type-public-function
+  "S101",    # assert
+  "SLF001",  # private-member-access
 ]
 
 [tool.ruff.isort]
