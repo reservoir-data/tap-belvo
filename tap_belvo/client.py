@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from abc import ABCMeta, abstractmethod
+from copy import deepcopy
 from typing import TYPE_CHECKING, Any
 from urllib.parse import ParseResult, parse_qsl
 
@@ -22,6 +23,37 @@ if TYPE_CHECKING:
 PAGE_SIZE = 1000
 
 install_cache("tap_belvo_cache", backend="sqlite", expire_after=3600)
+
+
+def _handle_schema_nullable(schema: dict[str, Any]) -> dict[str, Any]:
+    """Resolve x-nullable properties to standard JSON Schema nullable type.
+
+    Args:
+        schema: A JSON Schema dictionary.
+
+    Returns:
+        A new JSON Schema dictionary with 'x-nullable' resolved to [<type>, "null"].
+    """
+    result = deepcopy(schema)
+
+    if "object" in result["type"]:
+        for prop, prop_schema in result.get("properties", {}).items():
+            prop_type: str | list[str] = prop_schema.get("type", [])
+            types = [prop_type] if isinstance(prop_type, str) else prop_type
+            nullable: bool = prop_schema.get("nullable", False)
+
+            if nullable:
+                prop_schema["type"] = [*types, "null"]
+
+            result["properties"][prop] = _handle_schema_nullable(prop_schema)
+
+    elif "array" in result["type"]:
+        result["items"] = _handle_schema_nullable(result["items"])
+
+    if "enum" in result and None not in result["enum"]:
+        result["enum"].append(None)
+
+    return result
 
 
 class BelvoPaginator(BaseHATEOASPaginator):
@@ -146,7 +178,7 @@ class BelvoStream(RESTStream, metaclass=ABCMeta):
         Returns:
             The schema for this stream.
         """
-        return self._resolve_openapi_ref()
+        return _handle_schema_nullable(self._resolve_openapi_ref())
 
     @property
     @abstractmethod
