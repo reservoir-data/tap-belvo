@@ -12,7 +12,7 @@ class Invoices(BelvoStream):
     path = "/api/invoices"
     primary_keys = ["id"]
     replication_key = "created_at"
-    openapi_ref = "InvoiceWithId"
+    openapi_ref = "InvoiceWithIdSat"
 
 
 class TaxComplianceStatuses(BelvoStream):
@@ -63,4 +63,4 @@ class TaxStatuses(BelvoStream):
     path = "/api/tax-status"
     primary_keys = ["id"]
     replication_key = "created_at"
-    openapi_ref = "TaxStatus"
+    openapi_ref = "TaxStatusSat"
