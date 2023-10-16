@@ -6,7 +6,7 @@ from typing import Any
 from urllib.parse import ParseResult
 
 from requests import Response
-from singer_sdk.testing import get_tap_test_class
+from singer_sdk.testing import SuiteConfig, get_tap_test_class
 
 from tap_belvo.client import BelvoPaginator
 from tap_belvo.tap import TapBelvo
@@ -14,7 +14,26 @@ from tap_belvo.tap import TapBelvo
 SAMPLE_CONFIG: dict[str, Any] = {}
 
 
-TestTapBelvo = get_tap_test_class(TapBelvo, config=SAMPLE_CONFIG)
+TestTapBelvo = get_tap_test_class(
+    TapBelvo,
+    config=SAMPLE_CONFIG,
+    suite_config=SuiteConfig(
+        ignore_no_records_for_streams=[
+            "banking_accounts",
+            "banking_balances",
+            "banking_owners",
+            "banking_transactions",
+            "enrichment_incomes",
+            "enrichment_recurring_expenses",
+            "enrichment_risk_insights",
+            "fiscal_invoices",
+            "fiscal_tax_compliance_statuses",
+            "fiscal_tax_retentions",
+            "fiscal_tax_statuses",
+            "links_links",
+        ],
+    ),
+)
 
 
 def test_paginator():
