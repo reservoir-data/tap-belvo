@@ -6,7 +6,7 @@ from typing import Any
 from urllib.parse import ParseResult
 
 from requests import Response
-from singer_sdk.testing import get_standard_tap_tests
+from singer_sdk.testing import get_tap_test_class
 
 from tap_belvo.client import BelvoPaginator
 from tap_belvo.tap import TapBelvo
@@ -14,11 +14,7 @@ from tap_belvo.tap import TapBelvo
 SAMPLE_CONFIG: dict[str, Any] = {}
 
 
-def test_standard_tap_tests():
-    """Run standard tap tests from the SDK."""
-    tests = get_standard_tap_tests(TapBelvo, config=SAMPLE_CONFIG)
-    for test in tests:
-        test()
+TestTapBelvo = get_tap_test_class(TapBelvo, config=SAMPLE_CONFIG)
 
 
 def test_paginator():
