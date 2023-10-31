@@ -10,7 +10,7 @@ class Links(BelvoStream):
 
     name = "links_links"
     path = "/api/links"
-    primary_keys = ["id"]
+    primary_keys = ("id",)
     replication_key = "created_at"
     openapi_ref = "Link"
 
@@ -36,6 +36,6 @@ class Institutions(BelvoStream):
 
     name = "links_institutions"
     path = "/api/institutions"
-    primary_keys = ["id"]
+    primary_keys = ("id",)
     replication_key = None
     openapi_ref = "Institution"
