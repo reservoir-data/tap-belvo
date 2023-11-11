@@ -7,10 +7,10 @@ from copy import deepcopy
 from typing import TYPE_CHECKING, Any
 from urllib.parse import ParseResult, parse_qsl
 
+from requests.auth import HTTPBasicAuth
 from requests_cache import install_cache
 from singer_sdk import RESTStream
 from singer_sdk._singerlib import resolve_schema_references
-from singer_sdk.authenticators import BasicAuthenticator
 from singer_sdk.helpers._typing import is_date_or_datetime_type
 from singer_sdk.pagination import BaseHATEOASPaginator
 
@@ -86,20 +86,13 @@ class BelvoStream(RESTStream, metaclass=ABCMeta):
         return self.config["base_url"]
 
     @property
-    def authenticator(self) -> BasicAuthenticator:
+    def authenticator(self) -> HTTPBasicAuth:
         """Get an authenticator object.
 
         Returns:
             The authenticator instance for this REST stream.
         """
-        username = self.config["secret_id"]
-        password = self.config["password"]
-
-        return BasicAuthenticator.create_for_stream(
-            self,
-            username=username,
-            password=password,
-        )
+        return HTTPBasicAuth(self.config["secret_id"], self.config["password"])
 
     @property
     def http_headers(self) -> dict:
