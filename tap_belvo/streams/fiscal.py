@@ -10,7 +10,7 @@ class Invoices(BelvoStream):
 
     name = "fiscal_invoices"
     path = "/api/invoices"
-    primary_keys = ("id",)
+    primary_keys = ("id",)  # type: ignore[assignment]
     replication_key = "created_at"
     openapi_ref = "InvoiceWithIdSat"
 
@@ -20,7 +20,7 @@ class TaxComplianceStatuses(BelvoStream):
 
     name = "fiscal_tax_compliance_statuses"
     path = "/api/tax-compliance-status"
-    primary_keys = ("id",)
+    primary_keys = ("id",)  # type: ignore[assignment]
     replication_key = "created_at"
     openapi_ref = "TaxComplianceStatus"
 
@@ -31,7 +31,7 @@ class TaxDeclarations(BelvoStream):
 
     name = "fiscal_tax_declarations"
     path = "/api/tax-declarations"
-    primary_keys = ("id",)
+    primary_keys = ("id",)  # type: ignore[assignment]
     replication_key = "created_at"
     openapi_ref = "TaxDeclaration"
 
@@ -41,7 +41,7 @@ class TaxRetentions(BelvoStream):
 
     name = "fiscal_tax_retentions"
     path = "/api/tax-retentions"
-    primary_keys = ("id",)
+    primary_keys = ("id",)  # type: ignore[assignment]
     replication_key = "created_at"
     openapi_ref = "TaxRetentions"
 
@@ -51,7 +51,7 @@ class TaxReturns(BelvoStream):
 
     name = "fiscal_tax_returns"
     path = "/api/tax-returns"
-    primary_keys = ("id",)
+    primary_keys = ("id",)  # type: ignore[assignment]
     replication_key = "created_at"
     openapi_ref = "TaxReturn"
 
@@ -61,6 +61,6 @@ class TaxStatuses(BelvoStream):
 
     name = "fiscal_tax_statuses"
     path = "/api/tax-status"
-    primary_keys = ("id",)
+    primary_keys = ("id",)  # type: ignore[assignment]
     replication_key = "created_at"
     openapi_ref = "TaxStatusSat"

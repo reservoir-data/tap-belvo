@@ -16,7 +16,7 @@ class Accounts(BelvoStream):
 
     name = "banking_accounts"
     path = "/api/accounts"
-    primary_keys = ("id",)
+    primary_keys = ("id",)  # type: ignore[assignment]
     replication_key = "created_at"
     openapi_ref = "Account"
 
@@ -26,14 +26,14 @@ class Transactions(BelvoStream):
 
     name = "banking_transactions"
     path = "/api/transactions"
-    primary_keys = ("id",)
+    primary_keys = ("id",)  # type: ignore[assignment]
     replication_key = "created_at"
     openapi_ref = "Account"
     parent_stream_type = Links
 
     def get_url_params(
         self,
-        context: dict | None,
+        context: dict[Any, Any] | None,
         next_page_token: ParseResult | None,
     ) -> dict[str, Any]:
         """Get URL query parameters.
@@ -58,7 +58,7 @@ class Balances(BelvoStream):
 
     name = "banking_balances"
     path = "/api/balances"
-    primary_keys = ("id",)
+    primary_keys = ("id",)  # type: ignore[assignment]
     replication_key = "value_date"
     openapi_ref = "Balance"
 
@@ -68,7 +68,7 @@ class Owners(BelvoStream):
 
     name = "banking_owners"
     path = "/api/owners"
-    primary_keys = ("id",)
+    primary_keys = ("id",)  # type: ignore[assignment]
     replication_key = "created_at"
     openapi_ref = "Owner"
 
@@ -78,7 +78,7 @@ class InvestmentPortfolios(BelvoStream):
 
     name = "investment_portfolios"
     path = "/investments/portfolios"
-    primary_keys = ("id",)
+    primary_keys = ("id",)  # type: ignore[assignment]
     replication_key = None
     openapi_ref = "InvestmentsPortfolio"
 
@@ -88,7 +88,7 @@ class InvestmentTransactions(BelvoStream):
 
     name = "investment_transactions"
     path = "/investments/transactions"
-    primary_keys = ("id",)
+    primary_keys = ("id",)  # type: ignore[assignment]
     replication_key = "created_at"
     openapi_ref = "InvestmentsInstrumentTransaction"
 
@@ -98,6 +98,6 @@ class ReceivableTransactions(BelvoStream):
 
     name = "receivable_transactions"
     path = "/receivables/transactions"
-    primary_keys = ("id",)
+    primary_keys = ("id",)  # type: ignore[assignment]
     replication_key = "created_at"
     openapi_ref = "ReceivablesTransaction"

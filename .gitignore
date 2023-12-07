@@ -1,3 +1,6 @@
+# VSCode
+**/.vscode/*
+
 # Ignore meltano internal cache and sqlite systemdb
 .meltano/
 tap_belvo_cache.sqlite
