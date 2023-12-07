@@ -8,10 +8,10 @@ import sys
 from functools import lru_cache
 from typing import Any
 
-if sys.version_info >= (3, 9):
-    import importlib.resources as importlib_resources
+if sys.version_info < (3, 9):
+    import importlib_resources as resources
 else:
-    import importlib_resources
+    from importlib import resources
 
 logger = logging.getLogger(__name__)
 
@@ -25,5 +25,5 @@ def load_openapi() -> dict[str, Any]:
     """
     logger.info("Loading OpenAPI spec from package")
     filename = "BelvoOpenFinanceApiSpec.json"
-    with importlib_resources.files(__package__).joinpath(filename).open() as f:
-        return json.load(f)
+    with resources.files(__package__).joinpath(filename).open() as f:
+        return json.load(f)  # type: ignore[no-any-return]

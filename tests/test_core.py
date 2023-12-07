@@ -36,7 +36,7 @@ TestTapBelvo = get_tap_test_class(
 )
 
 
-def test_paginator():
+def test_paginator() -> None:
     """Validate paginator that uses the page offset."""
     response = Response()
     paginator = BelvoPaginator()

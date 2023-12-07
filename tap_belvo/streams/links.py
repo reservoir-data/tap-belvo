@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import typing as t
+
 from tap_belvo.client import BelvoStream
 
 
@@ -10,15 +12,15 @@ class Links(BelvoStream):
 
     name = "links_links"
     path = "/api/links"
-    primary_keys = ("id",)
+    primary_keys = ("id",)  # type: ignore[assignment]
     replication_key = "created_at"
     openapi_ref = "Link"
 
     def get_child_context(
         self,
-        record: dict,
-        context: dict | None,  # noqa: ARG002
-    ) -> dict:
+        record: dict[str, t.Any],
+        context: dict[t.Any, t.Any] | None,  # noqa: ARG002
+    ) -> dict[t.Any, t.Any]:
         """Return the child context.
 
         Args:
@@ -36,6 +38,6 @@ class Institutions(BelvoStream):
 
     name = "links_institutions"
     path = "/api/institutions"
-    primary_keys = ("id",)
+    primary_keys = ("id",)  # type: ignore[assignment]
     replication_key = None
     openapi_ref = "Institution"

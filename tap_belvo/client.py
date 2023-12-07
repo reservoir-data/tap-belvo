@@ -68,10 +68,10 @@ class BelvoPaginator(BaseHATEOASPaginator):
         Returns:
             The next URL.
         """
-        return response.json().get("next")
+        return response.json().get("next")  # type: ignore[no-any-return]
 
 
-class BelvoStream(RESTStream, metaclass=ABCMeta):
+class BelvoStream(RESTStream[ParseResult], metaclass=ABCMeta):
     """Belvo stream class."""
 
     records_jsonpath = "$.results[*]"  # Or override `parse_response`.
@@ -83,7 +83,7 @@ class BelvoStream(RESTStream, metaclass=ABCMeta):
         Returns:
             str: The URL base.
         """
-        return self.config["base_url"]
+        return self.config["base_url"]  # type: ignore[no-any-return]
 
     @property
     def authenticator(self) -> HTTPBasicAuth:
@@ -95,7 +95,7 @@ class BelvoStream(RESTStream, metaclass=ABCMeta):
         return HTTPBasicAuth(self.config["secret_id"], self.config["password"])
 
     @property
-    def http_headers(self) -> dict:
+    def http_headers(self) -> dict[str, str]:
         """Return the http headers needed.
 
         Returns:
@@ -115,7 +115,7 @@ class BelvoStream(RESTStream, metaclass=ABCMeta):
 
     def get_url_params(
         self,
-        context: dict | None,
+        context: dict[Any, Any] | None,
         next_page_token: ParseResult | None,
     ) -> dict[str, Any]:
         """Get URL query parameters.
