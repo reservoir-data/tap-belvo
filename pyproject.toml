@@ -30,7 +30,7 @@ dynamic = [
   "version",
 ]
 dependencies = [
-  'importlib_resources; python_version < "3.9"',
+  'importlib-resources; python_version < "3.9"',
   'pendulum~=3.0.0b1; python_version >= "3.12"',
   "requests",
   "requests-cache==1.*",
@@ -105,8 +105,9 @@ required-imports = ["from __future__ import annotations"]
 convention = "google"
 
 [tool.deptry.package_module_name_map]
+importlib-resources = "importlib_resources"
 mypy = "mypy"
-types-requests = "types_requests"
+types-requests = "requests"
 
 [tool.deptry.per_rule_ignores]
 DEP002 = [
@@ -114,7 +115,6 @@ DEP002 = [
   "mypy",
   "pendulum",
   "pytest",
-  "types-requests",
 ]
 
 [tool.pytest.ini_options]
