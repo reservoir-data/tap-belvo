@@ -16,7 +16,7 @@ class Accounts(BelvoStream):
 
     name = "banking_accounts"
     path = "/api/accounts"
-    primary_keys = ("id",)  # type: ignore[assignment]
+    primary_keys = ("id",)
     replication_key = "created_at"
     openapi_ref = "Account"
 
@@ -26,7 +26,7 @@ class Transactions(BelvoStream):
 
     name = "banking_transactions"
     path = "/api/transactions"
-    primary_keys = ("id",)  # type: ignore[assignment]
+    primary_keys = ("id",)
     replication_key = "created_at"
     openapi_ref = "Account"
     parent_stream_type = Links
@@ -58,7 +58,7 @@ class Balances(BelvoStream):
 
     name = "banking_balances"
     path = "/api/balances"
-    primary_keys = ("id",)  # type: ignore[assignment]
+    primary_keys = ("id",)
     replication_key = "value_date"
     openapi_ref = "Balance"
 
@@ -68,7 +68,7 @@ class Owners(BelvoStream):
 
     name = "banking_owners"
     path = "/api/owners"
-    primary_keys = ("id",)  # type: ignore[assignment]
+    primary_keys = ("id",)
     replication_key = "created_at"
     openapi_ref = "Owner"
 
@@ -78,7 +78,7 @@ class InvestmentPortfolios(BelvoStream):
 
     name = "investment_portfolios"
     path = "/investments/portfolios"
-    primary_keys = ("id",)  # type: ignore[assignment]
+    primary_keys = ("id",)
     replication_key = None
     openapi_ref = "InvestmentsPortfolio"
 
@@ -88,7 +88,7 @@ class InvestmentTransactions(BelvoStream):
 
     name = "investment_transactions"
     path = "/investments/transactions"
-    primary_keys = ("id",)  # type: ignore[assignment]
+    primary_keys = ("id",)
     replication_key = "created_at"
     openapi_ref = "InvestmentsInstrumentTransaction"
 
@@ -98,6 +98,6 @@ class ReceivableTransactions(BelvoStream):
 
     name = "receivable_transactions"
     path = "/receivables/transactions"
-    primary_keys = ("id",)  # type: ignore[assignment]
+    primary_keys = ("id",)
     replication_key = "created_at"
     openapi_ref = "ReceivablesTransaction"
