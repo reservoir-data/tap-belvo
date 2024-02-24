@@ -54,7 +54,6 @@ class TapBelvo(Tap):
             links.Institutions(self),
             banking.Accounts(self),
             banking.Transactions(self),
-            banking.Balances(self),
             banking.Owners(self),
             # banking.InvestmentPortfolios(self),  # noqa: ERA001
             # banking.ReceivableTransactions(self),  # noqa: ERA001
