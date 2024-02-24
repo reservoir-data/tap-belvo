@@ -54,7 +54,7 @@ class Transactions(BelvoStream):
 
 
 class Balances(BelvoStream):
-    """Balances stream."""
+    """DEPRECATED. Balances stream."""
 
     name = "banking_balances"
     path = "/api/balances"
