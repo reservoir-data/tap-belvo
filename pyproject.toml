@@ -70,7 +70,6 @@ check = "mypy --strict {args:tap_belvo tests}"
 [tool.ruff]
 line-length = 88
 src = ["tap_belvo", "tests"]
-target-version = "py38"
 
 [tool.ruff.lint]
 ignore = [
