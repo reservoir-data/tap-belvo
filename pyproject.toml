@@ -52,6 +52,9 @@ scripts."tap-belvo" = "tap_belvo.tap:TapBelvo.cli"
 [tool.hatch.version]
 source = "vcs"
 
+[tool.hatch.envs.default]
+installer = "uv"
+
 [tool.hatch.envs.sync.scripts]
 console = "tap-belvo {args}"
 jsonl = "tap-belvo {args} > tap-belvo.jsonl"
