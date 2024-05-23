@@ -11,6 +11,7 @@ from tap_belvo.streams.banking import (
     ReceivableTransactions,
     Transactions,
 )
+from tap_belvo.streams.core import Institutions, Links
 from tap_belvo.streams.enrichment import Incomes, RecurringExpenses, RiskInsights
 from tap_belvo.streams.fiscal import (
     Invoices,
@@ -20,7 +21,6 @@ from tap_belvo.streams.fiscal import (
     TaxReturns,
     TaxStatuses,
 )
-from tap_belvo.streams.links import Institutions, Links
 
 __all__ = [
     "Links",

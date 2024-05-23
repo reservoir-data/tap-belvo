@@ -5,7 +5,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING, Any
 
 from tap_belvo.client import BelvoStream
-from tap_belvo.streams.links import Links
+from tap_belvo.streams.core import Links
 
 if TYPE_CHECKING:
     from urllib.parse import ParseResult

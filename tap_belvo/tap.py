@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 
-from singer_sdk import Stream, Tap
+import singer_sdk
 from singer_sdk import typing as th
 
-from tap_belvo.streams import banking, enrichment, fiscal, links
+from tap_belvo.streams import banking, core, enrichment, fiscal
 
 
-class TapBelvo(Tap):
+class TapBelvo(singer_sdk.Tap):
     """Singer tap for Belvo."""
 
     name = "tap-belvo"
@@ -41,7 +41,7 @@ class TapBelvo(Tap):
         ),
     ).to_dict()
 
-    def discover_streams(self) -> list[Stream]:
+    def discover_streams(self) -> list[singer_sdk.Stream]:
         """Return a list of discovered streams.
 
         Returns:
@@ -50,8 +50,11 @@ class TapBelvo(Tap):
         # TODO(edgarrmondragon): Add tax declarations and tax returns
         # https://github.com/edgarrmondragon/tap-belvo/issues/76
         return [
-            links.Links(self),
-            links.Institutions(self),
+            core.Links(self),
+            core.Institutions(self),
+            # TODO(edgarrmondragon): Register this stream when it's available in the OpenAPI spec  # noqa: E501
+            # https://statics.belvo.io/openapi-specs/BelvoOpenFinanceApiSpec.json
+            # core.Consents(self),  # noqa: ERA001
             banking.Accounts(self),
             banking.Transactions(self),
             banking.Owners(self),

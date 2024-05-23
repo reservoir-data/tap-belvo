@@ -30,7 +30,7 @@ TestTapBelvo = get_tap_test_class(
             "fiscal_tax_compliance_statuses",
             "fiscal_tax_retentions",
             "fiscal_tax_statuses",
-            "links_links",
+            "links",
         ],
     ),
 )

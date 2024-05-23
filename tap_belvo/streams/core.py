@@ -10,7 +10,7 @@ from tap_belvo.client import BelvoStream
 class Links(BelvoStream):
     """Links stream."""
 
-    name = "links_links"
+    name = "links"
     path = "/api/links"
     primary_keys = ("id",)
     replication_key = "created_at"
@@ -36,8 +36,18 @@ class Links(BelvoStream):
 class Institutions(BelvoStream):
     """Institutions stream."""
 
-    name = "links_institutions"
+    name = "institutions"
     path = "/api/institutions"
     primary_keys = ("id",)
     replication_key = None
     openapi_ref = "Institution"
+
+
+class Consents(BelvoStream):
+    """Consents stream."""
+
+    name = "consents"
+    path = "/api/consents"
+    primary_keys = ("id",)
+    replication_key = None
+    openapi_ref = "Consent"
