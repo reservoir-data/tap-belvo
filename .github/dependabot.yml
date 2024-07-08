@@ -8,31 +8,41 @@ updates:
   - package-ecosystem: pip
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: weekly
     reviewers:
       - "edgarrmondragon"
     versioning-strategy: increase-if-necessary
     commit-message:
       prefix: "chore(deps): "
       prefix-development: "chore(deps-dev): "
+    groups:
+      development-dependencies:
+        dependency-type: development
+      runtime-dependencies:
+        dependency-type: production
+        update-types:
+          - "patch"
   - package-ecosystem: pip
     directory: "/.github/workflows"
     schedule:
-      interval: "daily"
-    reviewers:
-      - "edgarrmondragon"
-    commit-message:
-      prefix: "ci: "
-  - package-ecosystem: github-actions
-    directory: "/"
-    schedule:
-      interval: "weekly"
+      interval: monthly
     reviewers:
       - "edgarrmondragon"
     commit-message:
       prefix: "ci: "
     groups:
-      artifacts:
+      ci:
         patterns:
-          - "actions/*-load-artifact"
-          - "hynek/build-and-inspect-python-package"
+          - "*"
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: monthly
+    reviewers:
+      - "edgarrmondragon"
+    commit-message:
+      prefix: "ci: "
+    groups:
+      actions:
+        patterns:
+          - "*"
