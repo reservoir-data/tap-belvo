@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
+import typing as t
 from abc import ABCMeta, abstractmethod
 from copy import deepcopy
-from typing import TYPE_CHECKING, Any
 from urllib.parse import ParseResult, parse_qsl
 
 from requests.auth import HTTPBasicAuth
@@ -16,8 +16,9 @@ from singer_sdk.pagination import BaseHATEOASPaginator
 
 from tap_belvo.openapi import load_openapi
 
-if TYPE_CHECKING:
+if t.TYPE_CHECKING:
     from requests import Response
+    from singer_sdk.helpers.types import Context
 
 
 PAGE_SIZE = 1000
@@ -25,7 +26,7 @@ PAGE_SIZE = 1000
 install_cache("tap_belvo_cache", backend="sqlite", expire_after=3600)
 
 
-def _handle_schema_nullable(schema: dict[str, Any]) -> dict[str, Any]:
+def _handle_schema_nullable(schema: dict[str, t.Any]) -> dict[str, t.Any]:
     """Resolve x-nullable properties to standard JSON Schema nullable type.
 
     Args:
@@ -115,9 +116,9 @@ class BelvoStream(RESTStream[ParseResult], metaclass=ABCMeta):
 
     def get_url_params(
         self,
-        context: dict[Any, Any] | None,
+        context: Context | None,
         next_page_token: ParseResult | None,
-    ) -> dict[str, Any]:
+    ) -> dict[str, t.Any]:
         """Get URL query parameters.
 
         Args:
@@ -127,7 +128,7 @@ class BelvoStream(RESTStream[ParseResult], metaclass=ABCMeta):
         Returns:
             Mapping of URL query parameters.
         """
-        params: dict[str, Any] = {
+        params: dict[str, t.Any] = {
             "page": 1,
             "page_size": PAGE_SIZE,
         }
@@ -158,14 +159,14 @@ class BelvoStream(RESTStream[ParseResult], metaclass=ABCMeta):
         type_dict = self.schema.get("properties", {}).get(self.replication_key)
         return is_date_or_datetime_type(type_dict)
 
-    def _resolve_openapi_ref(self) -> dict[str, Any]:
+    def _resolve_openapi_ref(self) -> dict[str, t.Any]:
         schema = {"$ref": f"#/components/schemas/{self.openapi_ref}"}
         openapi = load_openapi()
         schema["components"] = openapi["components"]
         return resolve_schema_references(schema)
 
     @property
-    def schema(self) -> dict[str, Any]:
+    def schema(self) -> dict[str, t.Any]:
         """Return the schema for this stream.
 
         Returns:

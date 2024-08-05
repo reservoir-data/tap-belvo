@@ -6,6 +6,9 @@ import typing as t
 
 from tap_belvo.client import BelvoStream
 
+if t.TYPE_CHECKING:
+    from singer_sdk.helpers.types import Context
+
 
 class Links(BelvoStream):
     """Links stream."""
@@ -19,7 +22,7 @@ class Links(BelvoStream):
     def get_child_context(
         self,
         record: dict[str, t.Any],
-        context: dict[t.Any, t.Any] | None,  # noqa: ARG002
+        context: Context | None,  # noqa: ARG002
     ) -> dict[t.Any, t.Any]:
         """Return the child context.
 
