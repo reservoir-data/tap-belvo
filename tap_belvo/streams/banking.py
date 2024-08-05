@@ -2,13 +2,15 @@
 
 from __future__ import annotations
 
-from typing import TYPE_CHECKING, Any
+import typing as t
 
 from tap_belvo.client import BelvoStream
 from tap_belvo.streams.core import Links
 
-if TYPE_CHECKING:
+if t.TYPE_CHECKING:
     from urllib.parse import ParseResult
+
+    from singer_sdk.helpers.types import Context
 
 
 class Accounts(BelvoStream):
@@ -33,9 +35,9 @@ class Transactions(BelvoStream):
 
     def get_url_params(
         self,
-        context: dict[Any, Any] | None,
+        context: Context | None,
         next_page_token: ParseResult | None,
-    ) -> dict[str, Any]:
+    ) -> dict[str, t.Any]:
         """Get URL query parameters.
 
         Args:
