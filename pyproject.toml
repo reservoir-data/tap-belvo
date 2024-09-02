@@ -33,7 +33,7 @@ dependencies = [
   'importlib-resources; python_version < "3.9"',
   "requests",
   "requests-cache==1.*",
-  "singer-sdk~=0.39.0",
+  "singer-sdk~=0.40.0",
 ]
 optional-dependencies.testing = [
   "deptry>=0.12",
