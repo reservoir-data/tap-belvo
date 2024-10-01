@@ -17,6 +17,7 @@ on:
     - pyproject.toml
     - .github/workflows/test.yml
     - .github/workflows/constraints.txt
+  workflow_dispatch:
   schedule:
   - cron: "0 10 * * *"
 
