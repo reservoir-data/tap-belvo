@@ -17,10 +17,9 @@ keywords = [
 license = "Apache-2.0"
 maintainers = [ { name = "Edgar Ramírez-Mondragón", email = "edgarrm358@gmail.com" } ]
 authors = [ { name = "Edgar Ramírez-Mondragón", email = "edgarrm358@gmail.com" } ]
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 classifiers = [
   "Programming Language :: Python :: 3 :: Only",
-  "Programming Language :: Python :: 3.8",
   "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
@@ -31,7 +30,6 @@ dynamic = [
   "version",
 ]
 dependencies = [
-  "importlib-resources; python_version<'3.9'",
   "requests",
   "requests-cache==1.*",
   "singer-sdk~=0.41.0",
@@ -94,7 +92,6 @@ lint.isort.required-imports = [ "from __future__ import annotations" ]
 lint.pydocstyle.convention = "google"
 
 [tool.deptry.package_module_name_map]
-importlib-resources = "importlib_resources"
 mypy = "mypy"
 types-requests = "requests"
 
