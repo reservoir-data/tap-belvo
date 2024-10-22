@@ -4,19 +4,14 @@ from __future__ import annotations
 
 import json
 import logging
-import sys
-from functools import lru_cache
+from functools import cache
+from importlib import resources
 from typing import Any
-
-if sys.version_info < (3, 9):
-    import importlib_resources as resources
-else:
-    from importlib import resources
 
 logger = logging.getLogger(__name__)
 
 
-@lru_cache(maxsize=None)
+@cache
 def load_openapi() -> dict[str, Any]:
     """Load the OpenAPI specification from the package.
 
