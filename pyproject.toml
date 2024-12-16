@@ -32,7 +32,7 @@ dynamic = [
 dependencies = [
   "requests",
   "requests-cache==1.*",
-  "singer-sdk~=0.42.0",
+  "singer-sdk~=0.43.1",
 ]
 optional-dependencies.testing = [
   "deptry>=0.12",
