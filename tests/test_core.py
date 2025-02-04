@@ -62,4 +62,4 @@ def test_paginator() -> None:
     response._content = b'{"next": null}'
     paginator.advance(response)
     assert paginator.finished
-    assert paginator.count == 2  # noqa: PLR2004
+    assert paginator.count == 2  # type: ignore[unreachable] # noqa: PLR2004
