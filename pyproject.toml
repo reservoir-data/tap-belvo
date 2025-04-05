@@ -85,6 +85,7 @@ max_supported_python = "3.13"
 
 [tool.pytest.ini_options]
 addopts = [ "-vvv" ]
+filterwarnings = [ "error" ]
 
 [tool.mypy]
 enable_error_code = [

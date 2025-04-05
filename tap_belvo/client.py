@@ -10,9 +10,9 @@ from urllib.parse import ParseResult, parse_qsl
 from requests.auth import HTTPBasicAuth
 from requests_cache import install_cache
 from singer_sdk import RESTStream
-from singer_sdk._singerlib import resolve_schema_references
 from singer_sdk.helpers._typing import is_date_or_datetime_type
 from singer_sdk.pagination import BaseHATEOASPaginator
+from singer_sdk.singerlib import resolve_schema_references
 
 from tap_belvo.openapi import load_openapi
 
