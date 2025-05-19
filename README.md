@@ -1,4 +1,4 @@
-# `tap-belvo`
+# tap-belvo
 
 Singer tap for Belvo.
 
