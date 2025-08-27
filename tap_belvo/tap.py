@@ -48,7 +48,7 @@ class TapBelvo(singer_sdk.Tap):
             A list of Belvo streams.
         """
         # TODO(edgarrmondragon): Add tax declarations and tax returns
-        # https://github.com/edgarrmondragon/tap-belvo/issues/76
+        # https://github.com/reservoir-data/tap-belvo/issues/76
         return [
             core.Links(self),
             core.Institutions(self),
