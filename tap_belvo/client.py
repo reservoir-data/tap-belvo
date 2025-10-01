@@ -2,31 +2,35 @@
 
 from __future__ import annotations
 
-import typing as t
+import sys
 from abc import ABCMeta, abstractmethod
 from copy import deepcopy
+from importlib import resources
+from typing import TYPE_CHECKING, Any
 from urllib.parse import ParseResult, parse_qsl
 
 from requests.auth import HTTPBasicAuth
 from requests_cache import install_cache
-from singer_sdk import RESTStream
-from singer_sdk.helpers._typing import is_date_or_datetime_type
+from singer_sdk import OpenAPISchema, RESTStream
 from singer_sdk.pagination import BaseHATEOASPaginator
-from singer_sdk.singerlib import resolve_schema_references
 
-from tap_belvo.openapi import load_openapi
+if sys.version_info >= (3, 12):
+    from typing import override
+else:
+    from typing_extensions import override
 
-if t.TYPE_CHECKING:
+if TYPE_CHECKING:
     from requests import Response
     from singer_sdk.helpers.types import Context
 
 
 PAGE_SIZE = 1000
+OPENAPI = OpenAPISchema(resources.files("tap_belvo") / "openapi.json")
 
 install_cache("tap_belvo_cache", backend="sqlite", expire_after=3600)
 
 
-def _handle_schema_nullable(schema: dict[str, t.Any]) -> dict[str, t.Any]:
+def _handle_schema_nullable(schema: dict[str, Any]) -> dict[str, Any]:
     """Resolve x-nullable properties to standard JSON Schema nullable type.
 
     Args:
@@ -60,15 +64,9 @@ def _handle_schema_nullable(schema: dict[str, t.Any]) -> dict[str, t.Any]:
 class BelvoPaginator(BaseHATEOASPaginator):
     """Belvo API paginator class."""
 
+    @override
     def get_next_url(self, response: Response) -> str | None:
-        """Get the next URL from the response.
-
-        Args:
-            response: The response object.
-
-        Returns:
-            The next URL.
-        """
+        """Get the next URL from the response."""
         return response.json().get("next")  # type: ignore[no-any-return]
 
 
@@ -77,58 +75,28 @@ class BelvoStream(RESTStream[ParseResult], metaclass=ABCMeta):
 
     records_jsonpath = "$.results[*]"  # Or override `parse_response`.
 
+    @override
     @property
     def url_base(self) -> str:
-        """Return the URL base property.
-
-        Returns:
-            str: The URL base.
-        """
         return self.config["base_url"]  # type: ignore[no-any-return]
 
+    @override
     @property
     def authenticator(self) -> HTTPBasicAuth:
-        """Get an authenticator object.
-
-        Returns:
-            The authenticator instance for this REST stream.
-        """
         return HTTPBasicAuth(self.config["secret_id"], self.config["password"])
 
-    @property
-    def http_headers(self) -> dict[str, str]:
-        """Return the http headers needed.
-
-        Returns:
-            A dictionary of HTTP headers.
-        """
-        headers = {}
-        headers["User-Agent"] = f"{self.tap_name}/{self._tap.plugin_version}"
-        return headers
-
+    @override
     def get_new_paginator(self) -> BelvoPaginator:
-        """Get a new paginator instance.
-
-        Returns:
-            A new paginator instance.
-        """
         return BelvoPaginator()
 
+    @override
     def get_url_params(
         self,
         context: Context | None,
         next_page_token: ParseResult | None,
-    ) -> dict[str, t.Any]:
-        """Get URL query parameters.
-
-        Args:
-            context: Stream sync context.
-            next_page_token: Next offset.
-
-        Returns:
-            Mapping of URL query parameters.
-        """
-        params: dict[str, t.Any] = {
+    ) -> dict[str, Any]:
+        """Get URL query parameters."""
+        params: dict[str, Any] = {
             "page": 1,
             "page_size": PAGE_SIZE,
         }
@@ -136,50 +104,20 @@ class BelvoStream(RESTStream[ParseResult], metaclass=ABCMeta):
         if next_page_token:
             params.update(parse_qsl(next_page_token.query))
 
-        if self.replication_key:
-            start_date = self.get_starting_timestamp(context)
-            if start_date:
-                params[f"{self.replication_key}__gte"] = start_date.date()
+        if (
+            self.replication_key  # Only if the stream is running incrementally
+            and (start_date := self.get_starting_timestamp(context))
+        ):
+            params[f"{self.replication_key}__gte"] = start_date.date().isoformat()
 
         return params
 
+    @override
     @property
-    def is_timestamp_replication_key(self) -> bool:
-        """Check is replication key is a timestamp.
-
-        Developers can override to `True` in order to force this value, although this
-        should not be required in most use cases since the type can generally be
-        accurately detected from the JSON Schema.
-
-        Returns:
-            True if the stream uses a timestamp-based replication key.
-        """
-        if not self.replication_key:
-            return False
-        type_dict = self.schema.get("properties", {}).get(self.replication_key)
-        return is_date_or_datetime_type(type_dict)
-
-    def _resolve_openapi_ref(self) -> dict[str, t.Any]:
-        schema = {"$ref": f"#/components/schemas/{self.openapi_ref}"}
-        openapi = load_openapi()
-        schema["components"] = openapi["components"]
-        return resolve_schema_references(schema)
-
-    @property
-    def schema(self) -> dict[str, t.Any]:
-        """Return the schema for this stream.
-
-        Returns:
-            The schema for this stream.
-        """
-        return _handle_schema_nullable(self._resolve_openapi_ref())
+    def schema(self) -> dict[str, Any]:
+        return _handle_schema_nullable(OPENAPI.fetch_schema(self.openapi_ref))
 
     @property
     @abstractmethod
     def openapi_ref(self) -> str:
-        """Return the OpenAPI component name for this stream.
-
-        Returns:
-            The OpenAPI reference for this stream.
-        """
-        ...
+        """OpenAPI component name for this stream."""

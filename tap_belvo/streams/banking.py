@@ -2,12 +2,18 @@
 
 from __future__ import annotations
 
-import typing as t
+import sys
+from typing import TYPE_CHECKING, Any
 
 from tap_belvo.client import BelvoStream
 from tap_belvo.streams.core import Links
 
-if t.TYPE_CHECKING:
+if sys.version_info >= (3, 12):
+    from typing import override
+else:
+    from typing_extensions import override
+
+if TYPE_CHECKING:
     from urllib.parse import ParseResult
 
     from singer_sdk.helpers.types import Context
@@ -33,20 +39,12 @@ class Transactions(BelvoStream):
     openapi_ref = "Account"
     parent_stream_type = Links
 
+    @override
     def get_url_params(
         self,
         context: Context | None,
         next_page_token: ParseResult | None,
-    ) -> dict[str, t.Any]:
-        """Get URL query parameters.
-
-        Args:
-            context: Stream sync context.
-            next_page_token: Next page URL, if available.
-
-        Returns:
-            Mapping of URL query parameters.
-        """
+    ) -> dict[str, Any]:
         params = super().get_url_params(context, next_page_token)
 
         if context is not None:

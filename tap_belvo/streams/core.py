@@ -2,11 +2,17 @@
 
 from __future__ import annotations
 
-import typing as t
+import sys
+from typing import TYPE_CHECKING, Any
 
 from tap_belvo.client import BelvoStream
 
-if t.TYPE_CHECKING:
+if sys.version_info >= (3, 12):
+    from typing import override
+else:
+    from typing_extensions import override
+
+if TYPE_CHECKING:
     from singer_sdk.helpers.types import Context
 
 
@@ -19,20 +25,12 @@ class Links(BelvoStream):
     replication_key = "created_at"
     openapi_ref = "Link"
 
+    @override
     def get_child_context(
         self,
-        record: dict[str, t.Any],
-        context: Context | None,  # noqa: ARG002
-    ) -> dict[t.Any, t.Any]:
-        """Return the child context.
-
-        Args:
-            record: The record to get the child context for.
-            context: The parent context.
-
-        Returns:
-            The child context.
-        """
+        record: dict[str, Any],
+        context: Context | None,
+    ) -> dict[Any, Any]:
         return {"link_id": record["id"]}
 
 
@@ -43,7 +41,7 @@ class Institutions(BelvoStream):
     path = "/api/institutions"
     primary_keys = ("id",)
     replication_key = None
-    openapi_ref = "Institution"
+    openapi_ref = "InstitutionPublicApi"
 
 
 class Consents(BelvoStream):
@@ -53,4 +51,4 @@ class Consents(BelvoStream):
     path = "/api/consents"
     primary_keys = ("id",)
     replication_key = None
-    openapi_ref = "Consent"
+    openapi_ref = "Consents"
