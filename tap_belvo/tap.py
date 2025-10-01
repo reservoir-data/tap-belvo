@@ -2,10 +2,17 @@
 
 from __future__ import annotations
 
+import sys
+
 import singer_sdk
 from singer_sdk import typing as th
 
 from tap_belvo.streams import banking, core, enrichment, fiscal
+
+if sys.version_info >= (3, 12):
+    from typing import override
+else:
+    from typing_extensions import override
 
 
 class TapBelvo(singer_sdk.Tap):
@@ -41,19 +48,16 @@ class TapBelvo(singer_sdk.Tap):
         ),
     ).to_dict()
 
+    @override
     def discover_streams(self) -> list[singer_sdk.Stream]:
-        """Return a list of discovered streams.
-
-        Returns:
-            A list of Belvo streams.
-        """
         # TODO(edgarrmondragon): Add tax declarations and tax returns
         # https://github.com/reservoir-data/tap-belvo/issues/76
         return [
             core.Links(self),
             core.Institutions(self),
-            # TODO(edgarrmondragon): Register this stream when it's available in the OpenAPI spec  # noqa: E501
-            # https://statics.belvo.io/openapi-specs/BelvoOpenFinanceApiSpec.json
+            # TODO(edgarrmondragon): The `document_number` field seems to be incorrectly
+            # marked as required?
+            # https://developers.belvo.com/apis/belvoopenapispec/consents/listconsents
             # core.Consents(self),  # noqa: ERA001
             banking.Accounts(self),
             banking.Transactions(self),
