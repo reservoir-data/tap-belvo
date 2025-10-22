@@ -11910,7 +11910,7 @@
       "created_at__range": {
         "name": "created_at__range",
         "in": "query",
-        "description": "Return accounts that were last updated in Belvo's database between two dates (in `YYYY-MM-DD` format).",
+        "description": "Return accounts that were last updated in Belvo's database between two dates (in `YYYY-MM-DD` format). The first value indicates the start of the range and the second value indicates the end of the range.",
         "style": "form",
         "explode": false,
         "schema": {
@@ -11920,7 +11920,11 @@
             "type": "string",
             "format": "date",
             "example": "2022-03-03"
-          }
+          },
+          "example": [
+            "2022-01-01",
+            "2022-12-31"
+          ]
         }
       },
       "created_by__not_in": {
@@ -12129,7 +12133,7 @@
       "balance__available__range": {
         "name": "balance__available__range",
         "in": "query",
-        "description": "Return accounts that have a `balance.available` within a range of two values.",
+        "description": "Return accounts that have a `balance.available` within a range of two. The first value indicates the start of the range and the second value indicates the end of the range. values.",
         "style": "form",
         "explode": false,
         "schema": {
@@ -12140,7 +12144,11 @@
             "format": "float",
             "pattern": "^\\d{1,15}\\.\\d{2,4}$",
             "example": 4350.02
-          }
+          },
+          "example": [
+            100,
+            5000
+          ]
         }
       },
       "balance__current": {
@@ -12201,7 +12209,7 @@
       "balance__current__range": {
         "name": "balance__current__range",
         "in": "query",
-        "description": "Return accounts that have a `balance.current` within a range of two values.",
+        "description": "Return accounts that have a `balance.current` within a range of two. The first value indicates the start of the range and the second value indicates the end of the range. values.",
         "style": "form",
         "explode": false,
         "schema": {
@@ -12212,7 +12220,11 @@
             "format": "float",
             "pattern": "^\\d{1,15}\\.\\d{2,4}$",
             "example": 4350.02
-          }
+          },
+          "example": [
+            100,
+            5000
+          ]
         }
       },
       "category": {
@@ -12421,7 +12433,7 @@
       "collected_at__range": {
         "name": "collected_at__range",
         "in": "query",
-        "description": "Return items that were retrieved from the institution between two dates (`YYYY-MM-DD` or full `ISO-8601` timestamp).",
+        "description": "Return items that were retrieved from the institution between two dates (`YYYY-MM-DD` or full `ISO-8601` timestamp). The first value indicates the start of the range and the second value indicates the end of the range.",
         "style": "form",
         "explode": false,
         "schema": {
@@ -12431,7 +12443,11 @@
             "type": "string",
             "format": "date",
             "example": "2022-05-04"
-          }
+          },
+          "example": [
+            "2022-01-01",
+            "2022-12-31"
+          ]
         }
       },
       "account__balance__available": {
@@ -12492,7 +12508,7 @@
       "account__balance__available__range": {
         "name": "account__balance__available__range",
         "in": "query",
-        "description": "Return transactions that have a `account.balance.available` within a range of two values.",
+        "description": "Return transactions that have a `account.balance.available` within a. The first value indicates the start of the range and the second value indicates the end of the range. range of two values.",
         "style": "form",
         "explode": false,
         "schema": {
@@ -12503,7 +12519,11 @@
             "format": "float",
             "pattern": "^\\d{1,15}\\.\\d{2,4}$",
             "example": 4350.02
-          }
+          },
+          "example": [
+            100,
+            5000
+          ]
         }
       },
       "account__balance__current": {
@@ -12564,7 +12584,7 @@
       "account__balance__current__range": {
         "name": "account__balance__current__range",
         "in": "query",
-        "description": "Return transactions that have a `account.balance.current` within a range of two values.",
+        "description": "Return transactions that have a `account.balance.current` within a range. The first value indicates the start of the range and the second value indicates the end of the range. of two values.",
         "style": "form",
         "explode": false,
         "schema": {
@@ -12573,7 +12593,11 @@
           "items": {
             "type": "number",
             "example": 4350
-          }
+          },
+          "example": [
+            100,
+            5000
+          ]
         }
       },
       "account_type": {
@@ -12652,7 +12676,7 @@
       "accounting_date__range": {
         "name": "accounting_date__range",
         "in": "query",
-        "description": "Return transactions that were processed by the institution in this date range (`YYYY-MM-DD`).",
+        "description": "Return transactions that were processed by the institution in this date. The first value indicates the start of the range and the second value indicates the end of the range. range (`YYYY-MM-DD`).",
         "style": "form",
         "explode": false,
         "schema": {
@@ -12662,7 +12686,11 @@
             "type": "string",
             "format": "date",
             "example": "2022-05-06"
-          }
+          },
+          "example": [
+            "2022-01-01",
+            "2022-12-31"
+          ]
         }
       },
       "amount": {
@@ -12723,7 +12751,7 @@
       "amount__range": {
         "name": "amount__range",
         "in": "query",
-        "description": "Return results between this amount range.",
+        "description": "Return results between this amount range. The first value indicates the start of the range and the second value indicates the end of the range.",
         "style": "form",
         "explode": false,
         "schema": {
@@ -12734,7 +12762,11 @@
             "format": "float",
             "pattern": "^\\d{1,15}\\.\\d{2,4}$",
             "example": 2000.02
-          }
+          },
+          "example": [
+            100,
+            5000
+          ]
         }
       },
       "credit_card_data__bill_name__in": {
@@ -12882,7 +12914,7 @@
       "value_date__range": {
         "name": "value_date__range",
         "in": "query",
-        "description": "Return results for this date (`YYYY-MM-DD`) range.",
+        "description": "Return results for this date (`YYYY-MM-DD`) range. The first value indicates the start of the range and the second value indicates the end of the range.",
         "style": "form",
         "explode": false,
         "schema": {
@@ -12892,7 +12924,11 @@
             "type": "string",
             "format": "date",
             "example": "2022-05-06"
-          }
+          },
+          "example": [
+            "2022-01-01",
+            "2022-12-31"
+          ]
         }
       },
       "async": {
@@ -12960,7 +12996,7 @@
       "due_date__range": {
         "name": "due_date__range",
         "in": "query",
-        "description": "Return items that have a `due_date` between two dates (`YYYY-MM-DD`).",
+        "description": "Return items that have a `due_date` between two dates (`YYYY-MM-DD`). The first value indicates the start of the range and the second value indicates the end of the range.",
         "style": "form",
         "explode": false,
         "schema": {
@@ -12970,7 +13006,11 @@
             "type": "string",
             "format": "date",
             "example": "2022-05-04"
-          }
+          },
+          "example": [
+            "2022-01-01",
+            "2022-12-31"
+          ]
         }
       },
       "email": {
@@ -13092,16 +13132,21 @@
       "start_date__range": {
         "name": "start_date__range",
         "in": "query",
-        "description": "Return employments that started within these two dates, in `YYYY-MM-DD,YYYY-MM-DD` format.",
+        "description": "Return employments that started within these two dates, in `YYYY-MM-DD,YYYY-MM-DD` format. The first value indicates the start of the range and the second value indicates the end of the range.",
         "style": "form",
         "explode": false,
         "schema": {
           "type": "array",
+          "maxItems": 2,
           "items": {
             "type": "string",
             "format": "date",
             "example": "2022-05-06"
-          }
+          },
+          "example": [
+            "2022-01-01",
+            "2022-12-31"
+          ]
         }
       },
       "end_date": {
@@ -13157,16 +13202,21 @@
       "end_date__range": {
         "name": "end_date__range",
         "in": "query",
-        "description": "Return employments that finished within these two dates, in `YYYY-MM-DD,YYYY-MM-DD` format.",
+        "description": "Return employments that finished within these two dates, in `YYYY-MM-DD,YYYY-MM-DD` format. The first value indicates the start of the range and the second value indicates the end of the range.",
         "style": "form",
         "explode": false,
         "schema": {
           "type": "array",
+          "maxItems": 2,
           "items": {
             "type": "string",
             "format": "date",
             "example": "2022-05-06"
-          }
+          },
+          "example": [
+            "2022-01-01",
+            "2022-12-31"
+          ]
         }
       },
       "invoice_date": {
@@ -13222,7 +13272,7 @@
       "invoice_date__range": {
         "name": "invoice_date__range",
         "in": "query",
-        "description": "Return invoices issued within this date range (`YYYY-MM-DD`).",
+        "description": "Return invoices issued within this date range (`YYYY-MM-DD`). The first value indicates the start of the range and the second value indicates the end of the range.",
         "style": "form",
         "explode": false,
         "schema": {
@@ -13232,7 +13282,11 @@
             "type": "string",
             "format": "date",
             "example": "2022-05-06"
-          }
+          },
+          "example": [
+            "2022-01-01",
+            "2022-12-31"
+          ]
         }
       },
       "invoice_identification": {
@@ -13370,7 +13424,7 @@
       "total_amount__range": {
         "name": "total_amount__range",
         "in": "query",
-        "description": "Return invoices between these two values.",
+        "description": "Return invoices between these two values. The first value indicates the start of the range and the second value indicates the end of the range.",
         "style": "form",
         "explode": false,
         "schema": {
@@ -13381,7 +13435,11 @@
             "format": "float",
             "pattern": "^\\d{1,15}\\.\\d{2,4}$",
             "example": 541.02
-          }
+          },
+          "example": [
+            100,
+            5000
+          ]
         }
       },
       "ejercicio": {
@@ -13452,7 +13510,7 @@
       "ejercicio__range": {
         "name": "ejercicio__range",
         "in": "query",
-        "description": "Return tax returns for this range of years (`YYYY`).",
+        "description": "Return tax returns for this range of years (`YYYY`). The first value indicates the start of the range and the second value indicates the end of the range.",
         "style": "form",
         "explode": false,
         "schema": {
@@ -13465,7 +13523,11 @@
             "minLength": 4,
             "maxLength": 4,
             "example": 2017
-          }
+          },
+          "example": [
+            2015,
+            2021
+          ]
         }
       },
       "tipo_declaracion": {
@@ -13806,7 +13868,7 @@
       "updated_at__range": {
         "name": "updated_at__range",
         "in": "query",
-        "description": "Return accounts that were last updated in Belvo's database between two dates (in `YYYY-MM-DD` format).",
+        "description": "Return accounts that were last updated in Belvo's database between two dates (in `YYYY-MM-DD` format). The first value indicates the start of the range and the second value indicates the end of the range.",
         "style": "form",
         "explode": false,
         "schema": {
@@ -13816,7 +13878,11 @@
             "type": "string",
             "format": "date",
             "example": "2022-03-03"
-          }
+          },
+          "example": [
+            "2022-01-01",
+            "2022-12-31"
+          ]
         }
       },
       "charge": {
