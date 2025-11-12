@@ -50,8 +50,7 @@ scripts = [
 ]
 testing = [
   "deptry>=0.23",
-  "pytest>=8",
-  "pytest-subtests>=0.15",
+  "pytest>=9",
   "singer-sdk[testing]",
   "syrupy>=5",
 ]
@@ -97,6 +96,7 @@ lint.pydocstyle.convention = "google"
 max_supported_python = "3.14"
 
 [tool.pytest.ini_options]
+minversion = "9.0.0"
 addopts = [ "-vvv" ]
 filterwarnings = [
   "error",
