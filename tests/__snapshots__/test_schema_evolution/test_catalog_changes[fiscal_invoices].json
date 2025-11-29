@@ -551,6 +551,15 @@
     {
       "breadcrumb": [
         "properties",
+        "series"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
         "export_type"
       ],
       "metadata": {
@@ -739,6 +748,21 @@
                 "null"
               ]
             },
+            "discount": {
+              "description": "The discount amount applied to this invoice item.\n",
+              "format": "float",
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "identifier_number": {
+              "description": "The identification number of the item, as defined by the seller. This can be used to identify the product or service in the seller's system.\n",
+              "type": [
+                "string",
+                "null"
+              ]
+            },
             "pre_tax_amount": {
               "description": "The total price for this item before tax is applied (`quantity` x `unit_amount`).\n",
               "format": "float",
@@ -793,6 +817,13 @@
                       "number",
                       "null"
                     ]
+                  },
+                  "tax_type": {
+                    "description": "The tax type code for this retained tax, as defined by the legal entity in the country.\n",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
                   }
                 },
                 "required": [
@@ -820,8 +851,8 @@
                 "null"
               ]
             },
-            "tax_type": {
-              "description": "The item's tax type.\n",
+            "tax_subject_code": {
+              "description": "Indicates what tax this item is subject to, as defined by the legal entity in the country.\n",
               "type": [
                 "string",
                 "null"
@@ -856,6 +887,13 @@
                     "format": "float",
                     "type": [
                       "number",
+                      "null"
+                    ]
+                  },
+                  "tax_type": {
+                    "description": "The tax type code for this transferred tax, as defined by the legal entity in the country.\n",
+                    "type": [
+                      "string",
                       "null"
                     ]
                   },
@@ -1427,6 +1465,13 @@
           "null"
         ]
       },
+      "series": {
+        "description": "The series of the invoice, as defined by the taxpayer. This is an optional field used to group invoices.\n",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
       "status": {
         "description": "The status of the invoice. Can be either *Vigente* (valid) or *Cancelado*\n(cancelled).\n",
         "type": [
@@ -1481,6 +1526,13 @@
                     "number",
                     "null"
                   ]
+                },
+                "tax_type": {
+                  "description": "The tax type code for this retained tax, as defined by the legal entity in the country.\n",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 }
               },
               "type": "object"
@@ -1519,6 +1571,13 @@
                   "description": "The percentage of tax transferred.",
                   "format": "float",
                   "type": "number"
+                },
+                "tax_type": {
+                  "description": "The tax type code (TipoFactor) for this transferred tax, as defined by the legal entity in the country.\n",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
                 }
               },
               "type": "object"
