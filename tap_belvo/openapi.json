@@ -92,7 +92,7 @@
     },
     {
       "name": "Payment Intents (Brazil)",
-      "description": "\nA **payment intent** is a single point of access to create payments using any payment method offered by Belvo.\n\nA payment intent captures all payment information (such as the amount to be charged, the description of the payment, the provider, and so on) and guides your customers through the payment flow.\n\n> **Note:** For institutions that require the `username_type` in the `form_fields` array, you must send through this value in your PATCH request.\n"
+      "description": "\nA **payment intent** is a single point of access to create payments using any payment method offered by Belvo.\n\nA payment intent captures all payment information (such as the amount to be charged, the description of the payment, the provider, and so on) and guides your customers through the payment flow.\n"
     },
     {
       "name": "Payment Authorizations (Brazil)",
@@ -736,12 +736,6 @@
         "tags": [
           "Links"
         ],
-        "x-badges": [
-          {
-            "name": "BETA",
-            "position": "before"
-          }
-        ],
         "operationId": "RefreshHistoricalDataForLink",
         "summary": "Trigger a historical update for a link",
         "description": "{% admonition type=\"warning\" name=\"Concurrent Request Limit\" %}\n  To prevent duplicate requests, this endpoint has a 10-minute cooldown period per link. If you attempt to refresh the same link within 10 minutes of a previous request, you will receive a `409 Conflict` error with the message `\"The link has already been refreshed. Please wait X minutes before trying again.\"`.\n{% /admonition %}\n\nUse this method to trigger a historical update for a specific link (single or recurrent). Use the `fetch_resources` parameter to specify which resources you want to update. If you do not specify this parameter, the historical update will be performed for all resources supported by the institution that the link is associated with.\n\nOn a successful request, our API will respond with a `202` status code and a `request_id` that you can later use to associate a given `historical_update` webhook to this request.\n\n{% admonition type=\"info\" name=\"Does not update link definition\" %}\n  This endpoint does not update the link definition itself, only the historical data for the specified resources. If you want to change the link's `fetch_resources` permanently, you should use the **Modify a link's data retrieval** method instead.\n{% /admonition %}\n",
@@ -954,7 +948,7 @@
         ],
         "summary": "Generate a widget access token",
         "operationId": "GenerateWidgetAccessToken",
-        "description": "Generate a widget access token for the OFDA or Banking Aggregation widget.",
+        "description": "Generate a widget access token for our Hosted Widget.",
         "requestBody": {
           "required": true,
           "content": {
@@ -962,10 +956,16 @@
               "schema": {
                 "oneOf": [
                   {
-                    "$ref": "#/components/schemas/WidgetTokenRequestOFDA"
+                    "$ref": "#/components/schemas/WidgetTokenRequestBankingBrazil"
                   },
                   {
-                    "$ref": "#/components/schemas/WidgetTokenRequestBankingAggregation"
+                    "$ref": "#/components/schemas/WidgetTokenRequestEmploymentBrazil"
+                  },
+                  {
+                    "$ref": "#/components/schemas/WidgetTokenRequestEmploymentMexico"
+                  },
+                  {
+                    "$ref": "#/components/schemas/WidgetTokenRequestFiscalMexico"
                   }
                 ]
               }
@@ -3946,15 +3946,8 @@
           "Current Employments Mexico"
         ],
         "summary": "List current employments",
-        "x-badges": [
-          {
-            "name": "Coming Soon",
-            "position": "before",
-            "color": "#d97e1c"
-          }
-        ],
         "operationId": "ListCurrentEmployments",
-        "description": "{% admonition type=\"success\" name=\"Coming Soon!\" %}\n  This resource is currently in development and as such certain field names or values may change.\n{% /admonition %}\n\n## \u25b6\ufe0f Usage\n\nWith the List Current Employments method, you can:\n\n1. List current employments related to a specific `link.id` (using the `link` query parameter).\n2. Get the details of a specific `current-employment.id` (using the `id` query parameter).\n3. **[Not Recommended]** List all current employments related to your Belvo account (without using any query parameters).\n\n## \ud83d\udcd6 Pagination\n\nThis method returns a paginated response (default: 100 items per page). You can use the `page_size` query parameter to increase the number of items returned to a maximum of 1000 items. You can use the `page` query parameter to navigate through the results. For more details on how to navigate Belvo's paginated responses, see our <a href=\"https://developers.belvo.com/docs/belvo-pagination-tips\" target=\"_blank\">Pagination Tips</a> article.\n\n## \ud83d\udd26 Filtering Responses\n\nPlease see the query list below for a list of fields that you can filter your responses by. For more information on how to use filters, see our <a href=\"https://developers.belvo.com/docs/searching-and-filtering\" target=\"_blank\">Filtering responses</a> article.\n",
+        "description": "## \u25b6\ufe0f Usage\n\nWith the List Current Employments method, you can:\n\n1. List current employments related to a specific `link.id` (using the `link` query parameter).\n2. Get the details of a specific `current-employment.id` (using the `id` query parameter).\n3. **[Not Recommended]** List all current employments related to your Belvo account (without using any query parameters).\n\n## \ud83d\udcd6 Pagination\n\nThis method returns a paginated response (default: 100 items per page). You can use the `page_size` query parameter to increase the number of items returned to a maximum of 1000 items. You can use the `page` query parameter to navigate through the results. For more details on how to navigate Belvo's paginated responses, see our <a href=\"https://developers.belvo.com/docs/belvo-pagination-tips\" target=\"_blank\">Pagination Tips</a> article.\n\n## \ud83d\udd26 Filtering Responses\n\nPlease see the query list below for a list of fields that you can filter your responses by. For more information on how to use filters, see our <a href=\"https://developers.belvo.com/docs/searching-and-filtering\" target=\"_blank\">Filtering responses</a> article.\n",
         "parameters": [
           {
             "$ref": "#/components/parameters/id"
@@ -4062,14 +4055,7 @@
           "Current Employments Mexico"
         ],
         "summary": "Retrieve current employments",
-        "x-badges": [
-          {
-            "name": "Coming Soon",
-            "position": "before",
-            "color": "#d97e1c"
-          }
-        ],
-        "description": "{% admonition type=\"success\" name=\"Coming Soon!\" %}\n  This resource is currently in development and as such certain field names or values may change.\n{% /admonition %}\n\nRetrieve current employment information for a specific `link.id`.\n",
+        "description": "Retrieve current employment information for a specific `link.id`.\n",
         "operationId": "RetrieveCurrentEmployments",
         "requestBody": {
           "required": true,
@@ -4146,14 +4132,7 @@
           "Current Employments Mexico"
         ],
         "summary": "Get current employment details",
-        "x-badges": [
-          {
-            "name": "Coming Soon",
-            "position": "before",
-            "color": "#d97e1c"
-          }
-        ],
-        "description": "{% admonition type=\"success\" name=\"Coming Soon!\" %}\n  This resource is currently in development and as such certain field names or values may change.\n{% /admonition %}\n\nGet the details of a specific current employment record.\n",
+        "description": "Get the details of a specific current employment record.\n",
         "operationId": "getCurrentEmploymentDetails",
         "parameters": [
           {
@@ -4206,14 +4185,7 @@
           "Current Employments Mexico"
         ],
         "summary": "Delete current employment",
-        "x-badges": [
-          {
-            "name": "Coming Soon",
-            "position": "before",
-            "color": "#d97e1c"
-          }
-        ],
-        "description": "{% admonition type=\"success\" name=\"Coming Soon!\" %}\n  This resource is currently in development and as such certain field names or values may change.\n{% /admonition %}\n\nDelete a specific current employment record from your Belvo account.\n",
+        "description": "Delete a specific current employment record from your Belvo account.\n",
         "operationId": "deleteCurrentEmployment",
         "parameters": [
           {
@@ -8933,12 +8905,12 @@
         "operationId": "DetailChargeBrazil",
         "x-badges": [
           {
-            "name": "BETA",
+            "name": "Coming Soon",
             "position": "before"
           }
         ],
         "summary": "Get details about a Charge",
-        "description": "{% admonition type=\"warning\" name=\"In BETA\" %}\n  This endpoint is in BETA and **only** applicable for `Payments-BR.V2` . As such, minor changes or bugs may occur. If you encounter any issues, please contact your Belvo representative.\n{% /admonition %}\n\nGet the details about a specific Charge.\n",
+        "description": "{% admonition type=\"warning\" name=\"Coming Soon\" %}\n  This endpoint is in BETA and **only** applicable for `Payments-BR.V2` . As such, minor changes or bugs may occur. If you encounter any issues, please contact your Belvo representative.\n{% /admonition %}\n\nGet the details about a specific Charge.\n",
         "parameters": [
           {
             "$ref": "#/components/parameters/header_version"
@@ -9688,19 +9660,32 @@
           "Payment Intents (Brazil)"
         ],
         "operationId": "CreatePaymentIntentBrazil",
-        "summary": "Create a new payment intent",
-        "description": "Create a payment intent.\n\n**Note**: You can use this method to additionally create a customer and a payment intent in a single request (see the Customer and Payment Intent option).\n",
-        "parameters": [],
+        "summary": "Create a new Payment Intent",
+        "description": "Create a Payment Intent.\n\nYou can create Payment Intent in the following configurations:\n\n  |Beneficiary|Customer (Payer)|Example|\n  |---|---|---|\n  |Pix Key|Already registered with Belvo|Pix Key (With Existing Customer)|\n  |Pix Key|Register with Belvo at time of Payment Intent request|Pix Key (With New Customer)|\n  |Bank Account (Already Registered)|Already Registered |Bank Account (With Existing Customer)|\n  |Bank Account (Already Registered)|Register with Belvo at time of Payment Intent request|Bank Account (With New Customer)|\n  |Bank Account (Register at time of Payment Intent request)|Register with Belvo at time of Payment Intent request|Bank Account (With New Customer and Beneficiary Bank Account)|\n\n  {% admonition type=\"warning\" name=\"Pix Payments\" %}\n    When you create Payment Intents using a Pix Key, you have to make a **PATCH Complete a Payment Intent** request to complete the Payment Intent creation.\n  {% /admonition %}\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/header_idempotency_key"
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "oneOf": [
                   {
+                    "$ref": "#/components/schemas/CreatePaymentIntentPixKeys"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CreatePaymentIntentPixKeysAndCustomer"
+                  },
+                  {
                     "$ref": "#/components/schemas/CreatePaymentIntentOfpi"
                   },
                   {
                     "$ref": "#/components/schemas/CreatePaymentIntentAndCustomerOfpi"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CreatePaymentIntentAndBankAccountAndCustomerOfpi"
                   }
                 ]
               }
@@ -9709,15 +9694,34 @@
         },
         "responses": {
           "201": {
-            "description": "OK (Created). Click to view response details.",
+            "description": "OK (Created)",
+            "headers": {
+              "Belvo-Idempotency-Key": {
+                "$ref": "#/components/headers/header_idempotency_key_response"
+              },
+              "Belvo-Idempotency-Status": {
+                "$ref": "#/components/headers/header_idempotency_key_status_response"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
                   "oneOf": [
                     {
+                      "$ref": "#/components/schemas/PaymentIntentPixKeys"
+                    },
+                    {
                       "$ref": "#/components/schemas/PaymentIntentOfpi"
                     }
                   ]
+                },
+                "examples": {
+                  "PaymentIntentResponsePixKeyInitial": {
+                    "$ref": "#/components/examples/PaymentIntentResponsePixKeyInitial"
+                  },
+                  "PaymentIntentResponseOfpiBankAccount": {
+                    "$ref": "#/components/examples/PaymentIntentResponseOfpiBankAccount"
+                  }
                 }
               }
             }
@@ -9746,6 +9750,12 @@
           },
           "408": {
             "$ref": "#/components/responses/408_request_timeout_error"
+          },
+          "409": {
+            "$ref": "#/components/responses/409_idempotency_conflict_error"
+          },
+          "422": {
+            "$ref": "#/components/responses/422_idempotency_mismatch_error"
           },
           "500": {
             "$ref": "#/components/responses/500_unexpected_error"
@@ -9857,6 +9867,14 @@
         "responses": {
           "200": {
             "description": "OK",
+            "headers": {
+              "Belvo-Idempotency-Key": {
+                "$ref": "#/components/headers/header_idempotency_key_response"
+              },
+              "Belvo-Idempotency-Status": {
+                "$ref": "#/components/headers/header_idempotency_key_status_response"
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -9912,7 +9930,7 @@
             "name": "id",
             "required": true,
             "in": "path",
-            "description": "The `payment-intent.id` you want to get detailed information about.",
+            "description": "The `payment-intent.id` you want to complete the payment for.",
             "schema": {
               "type": "string",
               "format": "uuid",
@@ -9925,18 +9943,32 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/PatchPaymentIntentOfpi"
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/PatchPaymentIntentPixKeys"
+                  },
+                  {
+                    "$ref": "#/components/schemas/PatchPaymentIntentOfpi"
+                  }
+                ]
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "OK (Created)",
+            "description": "OK (Confirmed)",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PaymentIntentOfpi"
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PaymentIntentPixKeys"
+                    },
+                    {
+                      "$ref": "#/components/schemas/PaymentIntentOfpi"
+                    }
+                  ]
                 }
               }
             }
@@ -10302,12 +10334,12 @@
         "operationId": "CreatePaymentAuthorizationBrazil",
         "x-badges": [
           {
-            "name": "BETA",
+            "name": "Coming Soon",
             "position": "before"
           }
         ],
         "summary": "Create a new Payment Authorization",
-        "description": "{% admonition type=\"warning\" name=\"In BETA\" %}\n  This endpoint is in BETA. As such, minor changes or bugs may occur. If you encounter any issues, please contact your Belvo representative.\n{% /admonition %}\n\nCreate a Payment Authorization.\n",
+        "description": "{% admonition type=\"warning\" name=\"Coming Soon\" %}\n  This endpoint is currently undergoing development.. As such, minor changes or bugs may occur. If you encounter any issues, please contact your Belvo representative.\n{% /admonition %}\n\nCreate a Payment Authorization.\n",
         "parameters": [
           {
             "$ref": "#/components/parameters/header_version"
@@ -10320,10 +10352,10 @@
               "schema": {
                 "oneOf": [
                   {
-                    "$ref": "#/components/schemas/CreatePaymentAuthorizationFixed"
+                    "$ref": "#/components/schemas/CreatePaymentAuthorizationImmediate"
                   },
                   {
-                    "$ref": "#/components/schemas/CreatePaymentAuthorizationVariable"
+                    "$ref": "#/components/schemas/CreatePaymentAuthorizationScheduled"
                   }
                 ]
               }
@@ -10378,12 +10410,12 @@
         "operationId": "ListPaymentAuthorizationsBrazil",
         "x-badges": [
           {
-            "name": "BETA",
+            "name": "Coming Soon",
             "position": "before"
           }
         ],
         "summary": "List all Payment Authorizations",
-        "description": "{% admonition type=\"warning\" name=\"In BETA\" %}\n  This endpoint is in BETA. As such, minor changes or bugs may occur. If you encounter any issues, please contact your Belvo representative.\n{% /admonition %}\n\nList all Payment Authorizations associated with your Belvo account.\n",
+        "description": "{% admonition type=\"warning\" name=\"Coming Soon\" %}\n  This endpoint is currently undergoing development.. As such, minor changes or bugs may occur. If you encounter any issues, please contact your Belvo representative.\n{% /admonition %}\n\nList all Payment Authorizations associated with your Belvo account.\n",
         "parameters": [
           {
             "$ref": "#/components/parameters/header_version"
@@ -10520,12 +10552,12 @@
         "operationId": "DetailPaymentAuthorizationBrazil",
         "x-badges": [
           {
-            "name": "BETA",
+            "name": "Coming Soon",
             "position": "before"
           }
         ],
         "summary": "Get details about a Payment Authorization",
-        "description": "{% admonition type=\"warning\" name=\"In BETA\" %}\n  This endpoint is in BETA. As such, minor changes or bugs may occur. If you encounter any issues, please contact your Belvo representative.\n{% /admonition %}\n\nGet the details about a specific Payment Authorization.\n",
+        "description": "{% admonition type=\"warning\" name=\"Coming Soon\" %}\n  This endpoint is currently undergoing development.. As such, minor changes or bugs may occur. If you encounter any issues, please contact your Belvo representative.\n{% /admonition %}\n\nGet the details about a specific Payment Authorization.\n",
         "parameters": [
           {
             "$ref": "#/components/parameters/header_version"
@@ -10579,12 +10611,12 @@
         "operationId": "CancelPaymentAuthorizationBrazil",
         "x-badges": [
           {
-            "name": "BETA",
+            "name": "Coming Soon",
             "position": "before"
           }
         ],
         "summary": "Cancel a Payment Authorization",
-        "description": "{% admonition type=\"warning\" name=\"In BETA\" %}\n  This endpoint is in BETA. As such, minor changes or bugs may occur. If you encounter any issues, please contact your Belvo representative.\n{% /admonition %}\n\nCancel a Payment Authorization\n\nWe respond with a `204 - No Content` and will inform you via webhook that the Payment Authorization was canceled successfully.\n\n{% admonition type=\"warning\" name=\"Cancellation Time Restrictions\" %}\nThe latest you can cancel a Payment Authorization is by 22:00:00 (GMT-3) on the day before the next Charge date. If you miss the cutoff time, the Payment Authorization will be cancelled, **but the Charge will still be processed**.\n{% /admonition %}\n",
+        "description": "{% admonition type=\"warning\" name=\"Coming Soon\" %}\n  This endpoint is currently undergoing development.. As such, minor changes or bugs may occur. If you encounter any issues, please contact your Belvo representative.\n{% /admonition %}\n\nCancel a Payment Authorization\n\nWe respond with a `204 - No Content` and will inform you via webhook that the Payment Authorization was canceled successfully.\n\n{% admonition type=\"warning\" name=\"Cancellation Time Restrictions\" %}\nThe latest you can cancel a Payment Authorization is by 22:00:00 (GMT-3) on the day before the next Charge date. If you miss the cutoff time, the Payment Authorization will be cancelled, **but the Charge will still be processed**.\n{% /admonition %}\n",
         "parameters": [
           {
             "$ref": "#/components/parameters/header_version"
@@ -10637,93 +10669,6 @@
       }
     },
     "/payments/br/payment-authorizations/{payment_authorization_id}/charges/": {
-      "post": {
-        "tags": [
-          "Payment Authorizations (Brazil)"
-        ],
-        "operationId": "CreatePaymentAuthorizationChargeBrazil",
-        "x-badges": [
-          {
-            "name": "BETA",
-            "position": "before"
-          }
-        ],
-        "summary": "Create a new Charge",
-        "description": "{% admonition type=\"warning\" name=\"In BETA\" %}\n  This endpoint is in BETA. As such, minor changes or bugs may occur. If you encounter any issues, please contact your Belvo representative.\n{% /admonition %}\n\nCreate a new Charge for a Payment Authorization.\n",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/header_version"
-          },
-          {
-            "name": "payment_authorization_id",
-            "required": true,
-            "in": "path",
-            "description": "The `payment-authorization.id` the Charge belongs to.",
-            "schema": {
-              "type": "string",
-              "format": "uuid",
-              "example": "a3b92311-1888-449f-acaa-49ae28d68fcd"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/CreateChargePixAutomaticoDefaultBankAccount"
-                  },
-                  {
-                    "$ref": "#/components/schemas/CreateChargePixAutomaticoDifferentBankAccount"
-                  }
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "OK - Charge Created",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ChargeV2"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/400ValidationError"
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "$ref": "#/components/responses/401_payments_unauthorized_error"
-          },
-          "403": {
-            "$ref": "#/components/responses/403_access_denied_error"
-          },
-          "404": {
-            "$ref": "#/components/responses/404_not_found_error"
-          },
-          "408": {
-            "$ref": "#/components/responses/408_request_timeout_error"
-          },
-          "500": {
-            "$ref": "#/components/responses/500_unexpected_error"
-          }
-        }
-      },
       "get": {
         "tags": [
           "Payment Authorizations (Brazil)"
@@ -10731,12 +10676,12 @@
         "operationId": "ListPaymentAuthorizationChargesBrazil",
         "x-badges": [
           {
-            "name": "BETA",
+            "name": "Coming Soon",
             "position": "before"
           }
         ],
         "summary": "List all Charges for a Payment Authorization",
-        "description": "{% admonition type=\"warning\" name=\"In BETA\" %}\n  This endpoint is in BETA. As such, minor changes or bugs may occur. If you encounter any issues, please contact your Belvo representative.\n{% /admonition %}\n\nList all Charges associated with a Payment Authorization\n",
+        "description": "{% admonition type=\"warning\" name=\"Coming Soon\" %}\n  This endpoint is currently undergoing development.. As such, minor changes or bugs may occur. If you encounter any issues, please contact your Belvo representative.\n{% /admonition %}\n\nList all Charges associated with a Payment Authorization\n",
         "parameters": [
           {
             "name": "payment_authorization_id",
@@ -10827,12 +10772,12 @@
         "operationId": "DetailPaymentAuthorizationChargeBrazil",
         "x-badges": [
           {
-            "name": "BETA",
+            "name": "Coming Soon",
             "position": "before"
           }
         ],
         "summary": "Get details about a Charge for a Payment Authorization",
-        "description": "{% admonition type=\"warning\" name=\"In BETA\" %}\n  This endpoint is in BETA. As such, minor changes or bugs may occur. If you encounter any issues, please contact your Belvo representative.\n{% /admonition %}\n\nGet the details about a specific Charge associated with a Payment Authorization.\n",
+        "description": "{% admonition type=\"warning\" name=\"Coming Soon\" %}\n  This endpoint is currently undergoing development.. As such, minor changes or bugs may occur. If you encounter any issues, please contact your Belvo representative.\n{% /admonition %}\n\nGet the details about a specific Charge associated with a Payment Authorization.\n",
         "parameters": [
           {
             "$ref": "#/components/parameters/header_version"
@@ -10897,12 +10842,12 @@
         "operationId": "RetryPaymentAuthorizationChargeBrazil",
         "x-badges": [
           {
-            "name": "BETA",
+            "name": "Coming Soon",
             "position": "before"
           }
         ],
         "summary": "Retry a failed Charge for a Payment Authorization",
-        "description": "{% admonition type=\"warning\" name=\"In BETA\" %}\n  This endpoint is in BETA. As such, minor changes or bugs may occur. If you encounter any issues, please contact your Belvo representative.\n{% /admonition %}\n\nRetry a failed Charge for a given Payment Authorization.\n\n{% admonition type=\"warning\" name=\"Additional documentation\" %}\n  Please make sure to read the dedicated Retrying Charges and Linked Charges documentation before attempting to retry a charge.\n{% /admonition %}\n",
+        "description": "{% admonition type=\"warning\" name=\"Coming Soon\" %}\n  This endpoint is currently undergoing development.. As such, minor changes or bugs may occur. If you encounter any issues, please contact your Belvo representative.\n{% /admonition %}\n\nRetry a failed Charge for a given Payment Authorization.\n\n{% admonition type=\"warning\" name=\"Additional documentation\" %}\n  Please make sure to read the dedicated Retrying Charges and Linked Charges documentation before attempting to retry a charge.\n{% /admonition %}\n",
         "parameters": [
           {
             "$ref": "#/components/parameters/header_version"
@@ -10985,12 +10930,12 @@
         "operationId": "CancelPaymentAuthorizationChargeBrazil",
         "x-badges": [
           {
-            "name": "BETA",
+            "name": "Coming Soon",
             "position": "before"
           }
         ],
         "summary": "Cancel a scheduled Charge",
-        "description": "{% admonition type=\"warning\" name=\"In BETA\" %}\n  This endpoint is in BETA. As such, minor changes or bugs may occur. If you encounter any issues, please contact your Belvo representative.\n{% /admonition %}\n\nCancel a scheduled Charge.\n\nWe respond with a `204 - No Content` and will inform you via webhook that the charge was canceled successfully.\n\n{% admonition type=\"warning\" name=\"Cancellation Time Restriction\" %}\n  The latest you can cancel a scheduled Charge is by 22:00:00 (GMT-3) on the day before the Charge date. If you miss the cutoff time, you will receive an API error from Belvo and the payment will go through.\n{% /admonition %}\n",
+        "description": "{% admonition type=\"warning\" name=\"Coming Soon\" %}\n  This endpoint is currently undergoing development.. As such, minor changes or bugs may occur. If you encounter any issues, please contact your Belvo representative.\n{% /admonition %}\n\nCancel a scheduled Charge.\n\nWe respond with a `204 - No Content` and will inform you via webhook that the charge was canceled successfully.\n\n{% admonition type=\"warning\" name=\"Cancellation Time Restriction\" %}\n  The latest you can cancel a scheduled Charge is by 22:00:00 (GMT-3) on the day before the Charge date. If you miss the cutoff time, you will receive an API error from Belvo and the payment will go through.\n{% /admonition %}\n",
         "parameters": [
           {
             "$ref": "#/components/parameters/header_version"
@@ -13594,7 +13539,7 @@
       "header_version": {
         "name": "X-Belvo-API-Resource-Version",
         "in": "header",
-        "description": "Header indicating which version of the Payment API you want to use. Currently this is only applicable for Bank Accounts, Customers, and Payment Authorizations in Brazil. In the case that you are using our Payment Authorizations product, then you **must** send through this header set to `Payments-BR.V2`.\n\n{% admonition type=\"warning\" name=\"In BETA\" %}\n  This version is in BETA. As such, minor changes or bugs may occur. If you encounter any issues, please contact your Belvo representative.\n{% /admonition %}\n",
+        "description": "Header indicating which version of the Payment API you want to use. Currently this is only applicable for Bank Accounts, Customers, and Payment Authorizations in Brazil. In the case that you are using our Payment Authorizations product, then you **must** send through this header set to `Payments-BR.V2`.\n\n{% admonition type=\"warning\" name=\"Coming Soon\" %}\n  This version is in Coming Soon. As such, minor changes or bugs may occur. If you encounter any issues, please contact your Belvo representative.\n{% /admonition %}\n",
         "schema": {
           "type": "string",
           "enum": [
@@ -13883,6 +13828,16 @@
             "2022-01-01",
             "2022-12-31"
           ]
+        }
+      },
+      "header_idempotency_key": {
+        "name": "Belvo-Idempotency-Key",
+        "in": "header",
+        "description": "A UUID to ensure idempotent requests. This key helps prevent duplicate operations by allowing the server to recognize repeated requests with the same key and return the original response instead of processing the request again.\n\n{% admonition type=\"info\" name=\"Highly Recommended\" %}\n  We highly recommend including this header in any request where you want to ensure idempotency, such as creating resources or performing actions that should not be duplicated.\n{% /admonition %}\n\nYou may receive the following errors in the case that there is an issue with your request:\n\n- `409` Conflict: If a previous request is still being processed with the same idempotency key. Check the response `Belvo-Idempotency-Status` header for the current state of that idempotency key.\n- `422` Unprocessable Entity: If a new request uses an idempotency key that has been previously used in another request containing a different payload. In this case, you should change the idempotency key to a new unique value.\n",
+        "schema": {
+          "type": "string",
+          "format": "uuid",
+          "example": "82737f32-7730-4832-a985-dd86df70301c"
         }
       },
       "charge": {
@@ -14594,6 +14549,21 @@
         "description": "The type of link to create.\n\n- Use `single` to do ad hoc one-time POST requests for accounts, owners, and transactions.\n- Use `recurrent` to have Belvo access information on a recurrent basis so you always have fresh account, owner, balance, and transaction data.\n\nFor more information, see our <a href=\"https://developers.belvo.com/docs/links-and-institutions#links\" target=\"_blank\">Links</a> article.\n",
         "default": "recurrent"
       },
+      "fetch_resources_employment_brazil": {
+        "type": "array",
+        "description": "An array of resources that you would like to receive a historical update for.\n\nFor **Employments Brazil** (INSS), you can select the following resources:\n  - `EMPLOYMENTS`\n  - `OWNERS`\n",
+        "items": {
+          "type": "string",
+          "enum": [
+            "EMPLOYMENTS",
+            "OWNERS"
+          ]
+        },
+        "example": [
+          "EMPLOYMENTS",
+          "OWNERS"
+        ]
+      },
       "LinksRequestEmploymentBrazil": {
         "type": "object",
         "title": "Employment Links (Brazil)",
@@ -14630,17 +14600,7 @@
             "$ref": "#/components/schemas/EnumLinkAccessModeRequest"
           },
           "fetch_resources": {
-            "type": "array",
-            "description": "An array of resources that you would like to receive a historical update for.\n\nFor employment institutions, you can select the following resources:\n  - `OWNERS`\n  - `EMPLOYMENTS`\n  \n",
-            "items": {
-              "type": "string",
-              "description": "A Belvo resource that the institution supports.",
-              "example": "EMPLOYMENTS"
-            },
-            "example": [
-              "OWNERS",
-              "EMPLOYMENTS"
-            ]
+            "$ref": "#/components/schemas/fetch_resources_employment_brazil"
           },
           "credentials_storage": {
             "$ref": "#/components/schemas/credentials_storage"
@@ -14649,6 +14609,21 @@
             "$ref": "#/components/schemas/stale_in"
           }
         }
+      },
+      "fetch_resources_employment_mexico": {
+        "type": "array",
+        "description": "An array of resources that you would like to receive a historical update for.\n\nFor **Employment Records Mexico** (IMSS and ISSSTE), you can select the following resources:\n  - `EMPLOYMENT_RECORDS`\n\nAdditionally, you can opt-in to the following Employment Record specific resources (contact your representative as additional costs apply):\n  - `CURRENT_EMPLOYMENTS` (IMSS only)\n  - `EMPLOYMENT_METRICS` (IMSS only)\n",
+        "items": {
+          "type": "string",
+          "enum": [
+            "EMPLOYMENT_RECORDS",
+            "CURRENT_EMPLOYMENTS",
+            "EMPLOYMENT_METRICS"
+          ]
+        },
+        "example": [
+          "EMPLOYMENT_RECORDS"
+        ]
       },
       "LinksRequestEmploymentMexico": {
         "type": "object",
@@ -14683,17 +14658,7 @@
             "$ref": "#/components/schemas/EnumLinkAccessModeRequest"
           },
           "fetch_resources": {
-            "type": "array",
-            "description": "An array of resources that you would like to receive a historical update for.\n\nFor employment institutions, you can select the following resources:\n  - `EMPLOYMENT_RECORDS`\n  - `EMPLOYMENT_METRICS` (For Mexico's IMSS only)\n  \n",
-            "items": {
-              "type": "string",
-              "description": "A Belvo resource that the institution supports.",
-              "example": "EMPLOYMENT_RECORDS"
-            },
-            "example": [
-              "EMPLOYMENT_RECORDS",
-              "EMPLOYMENT_METRICS"
-            ]
+            "$ref": "#/components/schemas/fetch_resources_employment_mexico"
           },
           "credentials_storage": {
             "$ref": "#/components/schemas/credentials_storage"
@@ -14702,6 +14667,29 @@
             "$ref": "#/components/schemas/stale_in"
           }
         }
+      },
+      "fetch_resources_fiscal_mexico": {
+        "type": "array",
+        "description": "An array of resources that you would like to receive a historical update for.\n\nFor **Fiscal Mexico** (SAT), you can select the following resources:\n  - `FINANCIAL_STATEMENTS`\n  - `INVOICES`\n  - `TAX_COMPLIANCE_STATUS`\n  - `TAX_RETENTIONS`\n  - `TAX_RETURNS`\n  - `TAX_STATUS`\n",
+        "items": {
+          "type": "string",
+          "enum": [
+            "FINANCIAL_STATEMENTS",
+            "INVOICES",
+            "TAX_COMPLIANCE_STATUS",
+            "TAX_RETENTIONS",
+            "TAX_RETURNS",
+            "TAX_STATUS"
+          ]
+        },
+        "example": [
+          "FINANCIAL_STATEMENTS",
+          "INVOICES",
+          "TAX_COMPLIANCE_STATUS",
+          "TAX_RETENTIONS",
+          "TAX_RETURNS",
+          "TAX_STATUS"
+        ]
       },
       "LinksRequestFiscalMexico": {
         "type": "object",
@@ -14723,7 +14711,7 @@
             "type": "string",
             "pattern": "^.{12,13}$",
             "description": "The user's RFC (tax ID) used to log in to the institution.",
-            "example": 123456789101
+            "example": "123456789101"
           },
           "password": {
             "type": "string",
@@ -14739,21 +14727,7 @@
             "$ref": "#/components/schemas/EnumLinkAccessModeRequest"
           },
           "fetch_resources": {
-            "type": "array",
-            "description": "An array of resources that you would like to receive a historical update for.\n\nFor fiscal institutions, you can select the following resources:\n  - `FINANCIAL_STATEMENTS`\n  - `INVOICES`\n  - `TAX_COMPLIANCE_STATUS`\n  - `TAX_RETENTIONS`\n  - `TAX_RETURNS`\n  - `TAX_STATUS`\n  \n",
-            "items": {
-              "type": "string",
-              "description": "A Belvo resource that the institution supports.",
-              "example": "FINANCIAL_STATEMENTS"
-            },
-            "example": [
-              "FINANCIAL_STATEMENTS",
-              "INVOICES",
-              "TAX_COMPLIANCE_STATUS",
-              "TAX_RETENTIONS",
-              "TAX_RETURNS",
-              "TAX_STATUS"
-            ]
+            "$ref": "#/components/schemas/fetch_resources_fiscal_mexico"
           },
           "credentials_storage": {
             "$ref": "#/components/schemas/credentials_storage"
@@ -15354,9 +15328,34 @@
           }
         }
       },
-      "WidgetTokenRequestOFDA": {
+      "fetch_resources_ofda_brazil": {
+        "type": "array",
+        "description": "An array of resources that you would like to receive a historical update for.\n\nFor OFDA Brazil, you can select the following resources:\n  - `ACCOUNTS`\n  - `OWNERS`\n  - `TRANSACTIONS`\n  - `BILLS`\n\nAdditionally, you can opt-in to the following Open Finance specific resources (contact your representative as additional costs apply):\n  - `INVESTMENTS`\n  - `INVESTMENT_TRANSACTIONS`\n  - `EXHANGES`\n\nFor OFDA, you can enable Enrichment resources for extended insights (contact your representative as additional costs apply):\n  - `INCOMES`\n  - `RECURRING_EXPENSES`\n  - `RISK_INSIGHTS`\n",
+        "items": {
+          "type": "string",
+          "enum": [
+            "ACCOUNTS",
+            "TRANSACTIONS",
+            "OWNERS",
+            "BILLS",
+            "INVESTMENTS",
+            "INVESTMENT_TRANSACTIONS",
+            "EXHANGES",
+            "INCOMES",
+            "RECURRING_EXPENSES",
+            "RISK_INSIGHTS"
+          ]
+        },
+        "example": [
+          "ACCOUNTS",
+          "TRANSACTIONS",
+          "OWNERS",
+          "BILLS"
+        ]
+      },
+      "WidgetTokenRequestBankingBrazil": {
         "type": "object",
-        "title": "OFDA Brazil Access Token",
+        "title": "OFDA \ud83c\udde7\ud83c\uddf7 Brazil Access Token",
         "required": [
           "id",
           "password",
@@ -15379,27 +15378,11 @@
             "description": "The scopes parameter contains a list of permissions that allow your to create a link for the user. This is a required parameter and must be sent exactly as shown.\n",
             "example": "read_institutions,write_links,read_consents,write_consents,write_consent_callback,delete_consents"
           },
+          "fetch_resources": {
+            "$ref": "#/components/schemas/fetch_resources_ofda_brazil"
+          },
           "stale_in": {
             "$ref": "#/components/schemas/stale_in"
-          },
-          "fetch_resources": {
-            "type": "array",
-            "description": "An array of resources that you would like to receive a historical update for.\n\nFor banking institutions, you can select the following resources:\n  - `ACCOUNTS`\n  - `OWNERS`\n  - `TRANSACTIONS`\n  - `BILLS` (only for Brazil OFDA institutions)\n  - `INCOMES`\n  - `RECURRING_EXPENSES`\n  - `RISK_INSIGHTS`\n",
-            "items": {
-              "type": "string",
-              "enum": [
-                "ACCOUNTS",
-                "TRANSACTIONS",
-                "OWNERS",
-                "BILLS"
-              ]
-            },
-            "example": [
-              "ACCOUNTS",
-              "TRANSACTIONS",
-              "OWNERS",
-              "BILLS"
-            ]
           },
           "widget": {
             "type": "object",
@@ -15590,9 +15573,9 @@
           }
         }
       },
-      "WidgetTokenRequestBankingAggregation": {
+      "WidgetTokenRequestEmploymentBrazil": {
         "type": "object",
-        "title": "Aggregation (Employment and Fiscal) Access Token",
+        "title": "Employments \ud83c\udde7\ud83c\uddf7 Brazil Access Token",
         "required": [
           "id",
           "password",
@@ -15613,7 +15596,10 @@
           "scopes": {
             "type": "string",
             "description": "The scopes parameter contains a list of permissions that allow your to create a link for the user. This is a required parameter and must be sent exactly as shown.\n",
-            "example": "read_institutions,write_links,read_consents,write_consents,write_consent_callback,delete_consents"
+            "example": "read_institutions,write_links"
+          },
+          "fetch_resources": {
+            "$ref": "#/components/schemas/fetch_resources_employment_brazil"
           },
           "stale_in": {
             "$ref": "#/components/schemas/stale_in"
@@ -15621,31 +15607,289 @@
           "credentials_storage": {
             "$ref": "#/components/schemas/credentials_storage"
           },
+          "widget": {
+            "type": "object",
+            "description": "The `widget` object contains additional information about how to set up the widget, including custom branding, your terms and conditions, callback URLs, and information about the user you want to extract data for. \n",
+            "required": [
+              "branding"
+            ],
+            "properties": {
+              "callback_urls": {
+                "type": "object",
+                "description": "> \ud83d\udcd8 Only required for the Hosted Widget.\n\nIn the `callback_urls` object, you **must** add links to where your user should be redirected to in the following cases:\n\n- success (your user successfully connected their accounts)\n- exit (your user exited the widget before they completed the process)\n- event (an error occurred during the connection process)\n\nFor more information, check out the <a href=\"https://developers.belvo.com/docs/widget-for-webviews#3-handling-callback-events\" target=\"_blank\">callback_urls</a> section in our Hosted Widget (Multi-Region) guide.\n\n> \ud83d\udcd8 Callback Events\n>\n> Belvo will also send additional event information depending on the event. For more information, please make sure to check out the <a href=\"https://developers.belvo.com/docs/widget-for-webviews#3-handling-callback-events\" target=\"_blank\">Handling callback events</a> section of the Hosted Widget (Multi-Region) guide.\n",
+                "required": [
+                  "success",
+                  "exit",
+                  "event"
+                ],
+                "properties": {
+                  "success": {
+                    "type": "string",
+                    "description": "The URL your user is redirected to when they successfully connects their account.",
+                    "example": "your_deeplink_here://success"
+                  },
+                  "exit": {
+                    "type": "string",
+                    "description": "The URL your user is redirected to when they exit the process before connecting their account.",
+                    "example": "your_deeplink_here://exit"
+                  },
+                  "event": {
+                    "type": "string",
+                    "description": "The URL your user is redirected to when they encounter an error while connecting their account.",
+                    "example": "your_deeplink_here://error"
+                  }
+                }
+              },
+              "branding": {
+                "type": "object",
+                "description": "In the `branding` object, you **must** add your:\n- <a href=\"https://developers.belvo.com/docs/widget-branding-and-customization#add-a-company-icon\" target=\"_blank\">company_icon</a>\n- <a href=\"https://developers.belvo.com/docs/widget-branding-and-customization#add-a-company-logo\" target=\"_blank\">company_logo</a>\n- <a href=\"https://developers.belvo.com/docs/widget-branding-and-customization#add-your-company-name\" target=\"_blank\">company_name</a>\n- <a href=\"https://developers.belvo.com/docs/widget-branding-and-customization#add-a-link-to-your-privacy-policy\" target=\"_blank\">company_terms_url</a>\n\nYou can also optionally add a custom background color for when the widget opens, as well as disable Belvo's messaging regarding how many accounts have been connected.\n\nFor more information about the branding and customization options of the widget, check out our <a href=\"https://developers.belvo.com/docs/widget-branding-and-customization\" target=\"_blank\">dedicated guide</a>.\n",
+                "required": [
+                  "company_icon",
+                  "company_logo",
+                  "company_name",
+                  "company_terms_url"
+                ],
+                "properties": {
+                  "company_icon": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "You can add your company icon to the widget to make it more aligned with your brand. For more information, see the <a href=\"https://developers.belvo.com/docs/widget-branding-and-customization#add-a-company-icon\" target=\"_blank\">company_icon</a> section of our Branding and customization (Multi-Region) guide.",
+                    "example": "https://mysite.com/icon.svg"
+                  },
+                  "company_logo": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "You can add your company logo to the widget to make it more aligned with your brand. For more information, see the <a href=\"https://developers.belvo.com/docs/widget-branding-and-customization#add-a-company-logo\" target=\"_blank\">company_icon</a> section of our Branding and customization (Multi-Region) guide.",
+                    "example": "https://mysite.com/logo.svg"
+                  },
+                  "company_name": {
+                    "type": "string",
+                    "description": "You can add your company name to be displayed when the widget first starts. By default, it'll just display \"Link your account\". When you add your company name, the message will follow the format \"[company_name] uses Belvo to connect your account\". For more information, see the <a href=\"https://developers.belvo.com/docs/widget-branding-and-customization#add-your-company-name\" target=\"_blank\">company_name</a> section of our Branding and customization (Multi-Region) guide.",
+                    "example": "ACME"
+                  },
+                  "company_terms_url": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "You can add a link to your privacy policy (or terms and conditions) on the initial screen of the widget that, when clicked, will redirect your users to the linked webpage. This helps your users better understand what your use case is regarding the data you are requesting. For more information, see the <a href=\"https://developers.belvo.com/docs/widget-branding-and-customization#add-a-link-to-your-privacy-policy\" target=\"_blank\">company_terms_url</a> section of our Branding and customization (Multi-Region) guide.",
+                    "example": "https://belvo.com/terms-service/"
+                  },
+                  "overlay_background_color": {
+                    "type": "string",
+                    "description": "You can add a custom overlay color for when the widget loads in your desktop application. For more information, see the <a href=\"https://developers.belvo.com/docs/widget-branding-and-customization#add-a-custom-overlay-color\" target=\"_blank\">overlay_background_color</a> section of our Branding and customization (Multi-Region) guide.",
+                    "example": "#F0F2F4"
+                  },
+                  "social_proof": {
+                    "type": "boolean",
+                    "description": "You can choose to hide the \"Mais de 5 milh\u00f5es de usu\u00e1rios j\u00e1 conectaram com seguran\u00e7a suas contas.\" message that appears when your user selects their institution in the widget. For more information, see the <a href=\"https://developers.belvo.com/docs/widget-branding-and-customization#hide-messaging-in-the-account-connect-screen\" target=\"_blank\">social_proof</a> section of our Branding and customization (Multi-Region) guide.",
+                    "example": true
+                  }
+                }
+              },
+              "theme": {
+                "type": "array",
+                "description": "You can optionally add your brand colors to the widget using the `theme` parameter. \n\nFor more information regarding where these colors will appear in the widget, check out the dedicated <a href=\"https://developers.belvo.com/docs/widget-branding-and-customization#add-custom-colors-to-the-widget\" target=\"_blank\">Add custom colors to the widget</a> section of our Branding guide.\n",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "css_key",
+                    "value"
+                  ],
+                  "properties": {
+                    "css_key": {
+                      "type": "string",
+                      "description": "CSS variable name. Possible values include:\n- `--color-primary-base`\n- `--nav-bar-title-color`\n- `--nav-bar-icon-color`\n",
+                      "example": "--color-primary-base"
+                    },
+                    "value": {
+                      "type": "string",
+                      "description": "The HEX code for the `css_key`.",
+                      "example": "#907AD6"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "WidgetTokenRequestEmploymentMexico": {
+        "type": "object",
+        "title": "Employment Records \ud83c\uddf2\ud83c\uddfd Mexico Access Token",
+        "required": [
+          "id",
+          "password",
+          "scopes",
+          "stale_in",
+          "fetch_resources",
+          "widget"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Your Belvo secretId."
+          },
+          "password": {
+            "type": "string",
+            "description": "Your Belvo secretPassword."
+          },
+          "scopes": {
+            "type": "string",
+            "description": "The scopes parameter contains a list of permissions that allow your to create a link for the user. This is a required parameter and must be sent exactly as shown.\n",
+            "example": "read_institutions,write_links"
+          },
           "fetch_resources": {
-            "type": "array",
-            "description": "An array of resources that you would like to receive a historical update for.\n\nFor banking institutions, you can select the following resources:\n  - `ACCOUNTS`\n  - `BALANCES`\n  - `BILLS`\n  - `OWNERS`\n  - `INVESTMENTS`\n  - `INVESTMENT_TRANSACTIONS`\n  - `TRANSACTIONS`\n  - `INCOMES`\n  - `RECURRING_EXPENSES`\n  - `RISK_INSIGHTS`\n\n\nFor fiscal institutions, you can select the following resources:\n  - `FINANCIAL_STATEMENTS`\n  - `INVOICES`\n  - `TAX_COMPLIANCE_STATUS`\n  - `TAX_RETENTIONS`\n  - `TAX_RETURNS`\n  - `TAX_STATUS`\n\nFor employment institutions, you can select the following resources:\n  - `OWNERS`\n  - `EMPLOYMENT_RECORDS`(For Mexico's IMSS only)\n  - `EMPLOYMENT_METRICS` (For Mexico's IMSS only)\n  - `EMPLOYMENTS` (For Brazil's INSS only)\n",
-            "items": {
-              "type": "string",
-              "enum": [
-                "ACCOUNTS",
-                "TRANSACTIONS",
-                "OWNERS",
-                "BILLS"
-              ]
-            },
-            "example": [
-              "ACCOUNTS",
-              "TRANSACTIONS",
-              "OWNERS",
-              "BILLS"
-            ]
+            "$ref": "#/components/schemas/fetch_resources_employment_mexico"
+          },
+          "stale_in": {
+            "$ref": "#/components/schemas/stale_in"
+          },
+          "credentials_storage": {
+            "$ref": "#/components/schemas/credentials_storage"
           },
           "widget": {
             "type": "object",
             "description": "The `widget` object contains additional information about how to set up the widget, including custom branding, your terms and conditions, callback URLs, and information about the user you want to extract data for. \n",
             "required": [
-              "branding",
-              "consent"
+              "branding"
+            ],
+            "properties": {
+              "callback_urls": {
+                "type": "object",
+                "description": "> \ud83d\udcd8 Only required for the Hosted Widget.\n\nIn the `callback_urls` object, you **must** add links to where your user should be redirected to in the following cases:\n\n- success (your user successfully connected their accounts)\n- exit (your user exited the widget before they completed the process)\n- event (an error occurred during the connection process)\n\nFor more information, check out the <a href=\"https://developers.belvo.com/docs/widget-for-webviews#3-handling-callback-events\" target=\"_blank\">callback_urls</a> section in our Hosted Widget (Multi-Region) guide.\n\n> \ud83d\udcd8 Callback Events\n>\n> Belvo will also send additional event information depending on the event. For more information, please make sure to check out the <a href=\"https://developers.belvo.com/docs/widget-for-webviews#3-handling-callback-events\" target=\"_blank\">Handling callback events</a> section of the Hosted Widget (Multi-Region) guide.\n",
+                "required": [
+                  "success",
+                  "exit",
+                  "event"
+                ],
+                "properties": {
+                  "success": {
+                    "type": "string",
+                    "description": "The URL your user is redirected to when they successfully connects their account.",
+                    "example": "your_deeplink_here://success"
+                  },
+                  "exit": {
+                    "type": "string",
+                    "description": "The URL your user is redirected to when they exit the process before connecting their account.",
+                    "example": "your_deeplink_here://exit"
+                  },
+                  "event": {
+                    "type": "string",
+                    "description": "The URL your user is redirected to when they encounter an error while connecting their account.",
+                    "example": "your_deeplink_here://error"
+                  }
+                }
+              },
+              "branding": {
+                "type": "object",
+                "description": "In the `branding` object, you **must** add your:\n- <a href=\"https://developers.belvo.com/docs/widget-branding-and-customization#add-a-company-icon\" target=\"_blank\">company_icon</a>\n- <a href=\"https://developers.belvo.com/docs/widget-branding-and-customization#add-a-company-logo\" target=\"_blank\">company_logo</a>\n- <a href=\"https://developers.belvo.com/docs/widget-branding-and-customization#add-your-company-name\" target=\"_blank\">company_name</a>\n- <a href=\"https://developers.belvo.com/docs/widget-branding-and-customization#add-a-link-to-your-privacy-policy\" target=\"_blank\">company_terms_url</a>\n\nYou can also optionally add a custom background color for when the widget opens, as well as disable Belvo's messaging regarding how many accounts have been connected.\n\nFor more information about the branding and customization options of the widget, check out our <a href=\"https://developers.belvo.com/docs/widget-branding-and-customization\" target=\"_blank\">dedicated guide</a>.\n",
+                "required": [
+                  "company_icon",
+                  "company_logo",
+                  "company_name",
+                  "company_terms_url"
+                ],
+                "properties": {
+                  "company_icon": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "You can add your company icon to the widget to make it more aligned with your brand. For more information, see the <a href=\"https://developers.belvo.com/docs/widget-branding-and-customization#add-a-company-icon\" target=\"_blank\">company_icon</a> section of our Branding and customization (Multi-Region) guide.",
+                    "example": "https://mysite.com/icon.svg"
+                  },
+                  "company_logo": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "You can add your company logo to the widget to make it more aligned with your brand. For more information, see the <a href=\"https://developers.belvo.com/docs/widget-branding-and-customization#add-a-company-logo\" target=\"_blank\">company_icon</a> section of our Branding and customization (Multi-Region) guide.",
+                    "example": "https://mysite.com/logo.svg"
+                  },
+                  "company_name": {
+                    "type": "string",
+                    "description": "You can add your company name to be displayed when the widget first starts. By default, it'll just display \"Link your account\". When you add your company name, the message will follow the format \"[company_name] uses Belvo to connect your account\". For more information, see the <a href=\"https://developers.belvo.com/docs/widget-branding-and-customization#add-your-company-name\" target=\"_blank\">company_name</a> section of our Branding and customization (Multi-Region) guide.",
+                    "example": "ACME"
+                  },
+                  "company_terms_url": {
+                    "type": "string",
+                    "format": "uri",
+                    "description": "You can add a link to your privacy policy (or terms and conditions) on the initial screen of the widget that, when clicked, will redirect your users to the linked webpage. This helps your users better understand what your use case is regarding the data you are requesting. For more information, see the <a href=\"https://developers.belvo.com/docs/widget-branding-and-customization#add-a-link-to-your-privacy-policy\" target=\"_blank\">company_terms_url</a> section of our Branding and customization (Multi-Region) guide.",
+                    "example": "https://belvo.com/terms-service/"
+                  },
+                  "overlay_background_color": {
+                    "type": "string",
+                    "description": "You can add a custom overlay color for when the widget loads in your desktop application. For more information, see the <a href=\"https://developers.belvo.com/docs/widget-branding-and-customization#add-a-custom-overlay-color\" target=\"_blank\">overlay_background_color</a> section of our Branding and customization (Multi-Region) guide.",
+                    "example": "#F0F2F4"
+                  },
+                  "social_proof": {
+                    "type": "boolean",
+                    "description": "You can choose to hide the \"Mais de 5 milh\u00f5es de usu\u00e1rios j\u00e1 conectaram com seguran\u00e7a suas contas.\" message that appears when your user selects their institution in the widget. For more information, see the <a href=\"https://developers.belvo.com/docs/widget-branding-and-customization#hide-messaging-in-the-account-connect-screen\" target=\"_blank\">social_proof</a> section of our Branding and customization (Multi-Region) guide.",
+                    "example": true
+                  }
+                }
+              },
+              "theme": {
+                "type": "array",
+                "description": "You can optionally add your brand colors to the widget using the `theme` parameter. \n\nFor more information regarding where these colors will appear in the widget, check out the dedicated <a href=\"https://developers.belvo.com/docs/widget-branding-and-customization#add-custom-colors-to-the-widget\" target=\"_blank\">Add custom colors to the widget</a> section of our Branding guide.\n",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "css_key",
+                    "value"
+                  ],
+                  "properties": {
+                    "css_key": {
+                      "type": "string",
+                      "description": "CSS variable name. Possible values include:\n- `--color-primary-base`\n- `--nav-bar-title-color`\n- `--nav-bar-icon-color`\n",
+                      "example": "--color-primary-base"
+                    },
+                    "value": {
+                      "type": "string",
+                      "description": "The HEX code for the `css_key`.",
+                      "example": "#907AD6"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "WidgetTokenRequestFiscalMexico": {
+        "type": "object",
+        "title": "Fiscal \ud83c\uddf2\ud83c\uddfd Mexico Access Token",
+        "required": [
+          "id",
+          "password",
+          "scopes",
+          "stale_in",
+          "fetch_resources",
+          "widget"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Your Belvo secretId."
+          },
+          "password": {
+            "type": "string",
+            "description": "Your Belvo secretPassword."
+          },
+          "scopes": {
+            "type": "string",
+            "description": "The scopes parameter contains a list of permissions that allow your to create a link for the user. This is a required parameter and must be sent exactly as shown.\n",
+            "example": "read_institutions,write_links"
+          },
+          "fetch_resources": {
+            "$ref": "#/components/schemas/fetch_resources_fiscal_mexico"
+          },
+          "stale_in": {
+            "$ref": "#/components/schemas/stale_in"
+          },
+          "credentials_storage": {
+            "$ref": "#/components/schemas/credentials_storage"
+          },
+          "widget": {
+            "type": "object",
+            "description": "The `widget` object contains additional information about how to set up the widget, including custom branding, your terms and conditions, callback URLs, and information about the user you want to extract data for. \n",
+            "required": [
+              "branding"
             ],
             "properties": {
               "callback_urls": {
@@ -25339,6 +25583,12 @@
             "items": {
               "type": "object",
               "properties": {
+                "tax_type": {
+                  "type": "string",
+                  "nullable": true,
+                  "description": "The tax type code for this retained tax, as defined by the legal entity in the country.\n",
+                  "example": "Tasa"
+                },
                 "tax": {
                   "type": "string",
                   "description": "The type of retained tax (for example, ISR, IVA or IEPS).",
@@ -25373,6 +25623,12 @@
             "items": {
               "type": "object",
               "properties": {
+                "tax_type": {
+                  "type": "string",
+                  "nullable": true,
+                  "description": "The tax type code (TipoFactor) for this transferred tax, as defined by the legal entity in the country.\n",
+                  "example": "Tasa"
+                },
                 "tax": {
                   "type": "string",
                   "description": "The type of transferred tax (for example, ISR, IVA or IEPS).",
@@ -25423,6 +25679,12 @@
           "collected_at": {
             "$ref": "#/components/schemas/collected_at"
           },
+          "tax_type": {
+            "type": "string",
+            "nullable": true,
+            "description": "The tax type code for this retained tax, as defined by the legal entity in the country.\n",
+            "example": "Tasa"
+          },
           "tax": {
             "type": "string",
             "nullable": true,
@@ -25455,6 +25717,12 @@
         "properties": {
           "collected_at": {
             "$ref": "#/components/schemas/collected_at"
+          },
+          "tax_type": {
+            "type": "string",
+            "nullable": true,
+            "description": "The tax type code for this transferred tax, as defined by the legal entity in the country.\n",
+            "example": "Tasa"
           },
           "tax": {
             "type": "string",
@@ -25534,11 +25802,24 @@
             "description": "The price of one a singular item.",
             "example": 200
           },
-          "tax_type": {
+          "discount": {
+            "type": "number",
+            "nullable": true,
+            "format": "float",
+            "description": "The discount amount applied to this invoice item.\n",
+            "example": 10
+          },
+          "tax_subject_code": {
             "type": "string",
             "nullable": true,
-            "description": "The item's tax type.\n",
-            "example": null
+            "description": "Indicates what tax this item is subject to, as defined by the legal entity in the country.\n",
+            "example": "02"
+          },
+          "identifier_number": {
+            "type": "string",
+            "nullable": true,
+            "description": "The identification number of the item, as defined by the seller. This can be used to identify the product or service in the seller's system.\n",
+            "example": "PROD-12345"
           },
           "pre_tax_amount": {
             "type": "number",
@@ -26212,6 +26493,12 @@
             "nullable": true,
             "description": "The internal control number that the taxpayer assigns to the invoice.\n",
             "example": "26"
+          },
+          "series": {
+            "type": "string",
+            "nullable": true,
+            "description": "The series of the invoice, as defined by the taxpayer. This is an optional field used to group invoices.\n",
+            "example": "A"
           },
           "export_type": {
             "type": "string",
@@ -29296,7 +29583,7 @@
       "CreateCustomerOfpi": {
         "type": "object",
         "title": "V1 - Create Customer",
-        "description": "Create a customer for Payment Initiation (OFPI) Brazil \ud83c\udde7\ud83c\uddf7",
+        "description": "Create a customer for Payment Initiation",
         "required": [
           "identifier"
         ],
@@ -29351,12 +29638,12 @@
         "properties": {
           "code": {
             "type": "string",
-            "description": "A unique error code (`null`, `does_not_exist`, `required`, `already_registered`, `invalid_choice`, `max_length`, `min_length`, `blank`, `null`, `cancellation_error`) that allows you to classify and handle the error programmatically.\n",
+            "description": "A unique error code (`null`, `does_not_exist`, `required`, `already_registered`, `invalid_choice`, `max_length`, `min_length`, `blank`, `null`, `cancellation_error`, `idempotency_key_invalid`) that allows you to classify and handle the error programmatically.\n",
             "example": "required"
           },
           "message": {
             "type": "string",
-            "description": "A short description of the error.\n\n\nThe description can be (among others):\n\n  - `This field is required.`\n  - `Object with name=narnia does not exist.`\n  - `This field may not be null.`\n  - `This field may not be blank.`\n  - `This customer is already registered`\n  - `Ensure this field has at least 2 characters.`\n  - `Ensure this field has no more than 4 characters.`\n  - `Entered value is not valid.`\n  - `You must set all required fields: username, password, username_type.`\n  - `Payment Intent cannot be canceled because it is not SCHEDULED.`\n  - `Payment Intent cannot be canceled as the cutoff time (23:59:00) has passed.`\n",
+            "description": "A short description of the error.\n\n\nThe description can be (among others):\n\n  - `This field is required.`\n  - `Object with name=narnia does not exist.`\n  - `This field may not be null.`\n  - `This field may not be blank.`\n  - `This customer is already registered`\n  - `Ensure this field has at least 2 characters.`\n  - `Ensure this field has no more than 4 characters.`\n  - `Entered value is not valid.`\n  - `You must set all required fields: username, password, username_type.`\n  - `Payment Intent cannot be canceled because it is not SCHEDULED.`\n  - `Payment Intent cannot be canceled as the cutoff time (23:59:00) has passed.`\n  - `The provided idempotency key is invalid.`\n",
             "example": "This field is required."
           },
           "request_id": {
@@ -29418,7 +29705,7 @@
                 "minLength": 11,
                 "maxLength": 14,
                 "pattern": "^(?:[0-9]{11}|[0-9]{14})$",
-                "description": "The CPF (11 digits) or CNPJ (14 digits) of the account holder.\n\n{% admonition type=\"info\" name=\"Pix Autom\u00e1tico\" %}\n  In the case of Pix Autom\u00e1tico (`payment_method` is `PIX_OF_AUTOMATICO_FIXED` or `PIX_OF_AUTOMATICO_VARIABLE`), the `identifier` must be a CNPJ (14 digits).\n{% /admonition %}\n",
+                "description": "The CPF (11 digits) or CNPJ (14 digits) of the account holder.\n",
                 "example": "12345678901122"
               }
             }
@@ -29723,7 +30010,7 @@
                 "minLength": 11,
                 "maxLength": 14,
                 "pattern": "^(?:[0-9]{11}|[0-9]{14})$",
-                "description": "The CPF (11 digits) or CNPJ (14 digits) of the account holder.\n\n{% admonition type=\"info\" name=\"Pix Autom\u00e1tico\" %}\n  In the case of Pix Autom\u00e1tico (`payment_method` is `PIX_OF_AUTOMATICO_FIXED` or `PIX_OF_AUTOMATICO_VARIABLE`), the `identifier` must be a CNPJ (14 digits).\n{% /admonition %}\n",
+                "description": "The CPF (11 digits) or CNPJ (14 digits) of the account holder.\n",
                 "example": "12345678901122"
               }
             }
@@ -30192,7 +30479,7 @@
           "FAILED"
         ],
         "description": "The current status of the payment intent.\n",
-        "example": "PROCESSING"
+        "example": "REQUIRES_ACTION"
       },
       "EnumPaymentsCurrency": {
         "type": "string",
@@ -30412,7 +30699,7 @@
           "cpf": {
             "type": "string",
             "nullable": true,
-            "description": "The customer's CPF number. Only required when the `customer_type` is `BUSINESS`.\n\n\n**Note:** This value is obfuscated.\n",
+            "description": "The customer's CPF number. Provided when available; this value is obfuscated in responses.\n",
             "example": "23******00"
           }
         }
@@ -30463,7 +30750,7 @@
           "cpf": {
             "type": "string",
             "nullable": true,
-            "description": "The customer's CPF number. Only required when the `customer_type` is `BUSINESS`.\n\n\n**Note:** This value is obfuscated.\n",
+            "description": "The customer's CPF number. Provided when available; this value is obfuscated in responses.\n",
             "example": "23******00"
           }
         }
@@ -31400,7 +31687,7 @@
       },
       "PaymentIntentOfpi": {
         "type": "object",
-        "title": "Brazil \ud83c\udde7\ud83c\uddf7 OFPI",
+        "title": "Bank Account",
         "required": [
           "id",
           "created_at",
@@ -31515,7 +31802,7 @@
           },
           "charges": {
             "type": "array",
-            "description": "An array of charge objects related to this paymnet intent. If no charges are associated, we return an empty array.\n",
+            "description": "An array of charge objects related to this payment intent. If no charges are associated, we return an empty array.\n",
             "items": {
               "$ref": "#/components/schemas/ChargeBrazil"
             }
@@ -31800,6 +32087,241 @@
           }
         ]
       },
+      "PaymentIntentPaymentMethodDetailsBodyIndividualRequestPixKey": {
+        "type": "object",
+        "title": "INDIVIDUAL",
+        "description": "Details about the payment method when the customer (payer) is an individual customer.",
+        "required": [
+          "pix_key",
+          "payer_institution",
+          "callback_url"
+        ],
+        "properties": {
+          "pix_key": {
+            "type": "string",
+            "description": "The Pix key associated with the beneficiary of the transaction. Can be an email, phone number (including the country code, for example `+5511999998888`), CPF/CNPJ, or a random key.\n",
+            "example": "53497b80-81a2-4ea8-9296-83a909c05bdf"
+          },
+          "payer_institution": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Belvo's unique ID to reference the payer's institution.",
+            "example": "600f1b4a-1ef9-4f89-b341-1a35f0c32cc0"
+          },
+          "callback_url": {
+            "type": "string",
+            "description": "The callback URL that your user will be redirected to after confirming the payment in their banking application.",
+            "example": "https://www.acmecorp.com/checkout/3487321"
+          },
+          "schedule": {
+            "$ref": "#/components/schemas/schedule-2"
+          }
+        }
+      },
+      "PaymentIntentPaymentMethodDetailsBodyBusinessRequestPixKey": {
+        "type": "object",
+        "title": "BUSINESS",
+        "description": "Details about the payment method when the customer (payer) is a business customer.",
+        "required": [
+          "pix_key",
+          "payer_institution",
+          "callback_url",
+          "cpf"
+        ],
+        "properties": {
+          "pix_key": {
+            "type": "string",
+            "description": "The Pix key associated with the beneficiary of the transaction. Can be an email, phone number (including the country code, for example `+5511999998888`), CPF/CNPJ, or a random key.\n",
+            "example": "53497b80-81a2-4ea8-9296-83a909c05bdf"
+          },
+          "payer_institution": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Belvo's unique ID to reference the payer's institution.",
+            "example": "600f1b4a-1ef9-4f89-b341-1a35f0c32cc0"
+          },
+          "callback_url": {
+            "type": "string",
+            "description": "The callback URL that your user will be redirected to after confirming the payment in their banking application.",
+            "example": "https://www.acmecorp.com/checkout/3487321"
+          },
+          "cpf": {
+            "type": "string",
+            "description": "The customer's CPF number. Provided when available; this value is obfuscated in responses.\n",
+            "example": "09744477770"
+          },
+          "schedule": {
+            "$ref": "#/components/schemas/schedule-2"
+          }
+        }
+      },
+      "CreatePaymentIntentPixKeys": {
+        "type": "object",
+        "title": "Pix Keys (With Existing Customer)",
+        "description": "Create a Payment Intent using a Pix Key as the beneficiary details and using a previously created customer.\n\nNote: When using the Pix Keys method, you will need to make an additional PATCH request.\n",
+        "required": [
+          "amount",
+          "customer",
+          "description",
+          "allowed_payment_method_types",
+          "payment_method_details",
+          "confirm"
+        ],
+        "properties": {
+          "amount": {
+            "type": "string",
+            "pattern": "\\d+(?:\\.\\d{1,2})?",
+            "example": "1234.12",
+            "description": "Amount to be paid by your customer. You can send through numbers with up to two decimal points, separated by a `.` period. For example: `1234.12` \n"
+          },
+          "customer": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Belvo's unique ID to reference your previously created customer.\n",
+            "example": "06dc2f14-1217-4480-9b36-550a944a39d1"
+          },
+          "external_id": {
+            "$ref": "#/components/schemas/external_id__payments"
+          },
+          "description": {
+            "type": "string",
+            "description": "A human-readable description of the payment.\n",
+            "example": "Shoe payment"
+          },
+          "statement_description": {
+            "type": "string",
+            "maxLength": 50,
+            "description": "A description that will appear on the customer's bank statement (recommended).\n\n\n> **Note**: If you do not use the `statement_description` parameter, the `description` value will be used as the statement description.\n",
+            "example": "Super Shoe Store - Brown Sneakers"
+          },
+          "allowed_payment_method_types": {
+            "type": "array",
+            "description": "A list of payment method types allowed in this payment intent. For Brazil (OFPI), this value must be set to `open_finance`.",
+            "minItems": 1,
+            "maxItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/EnumPaymentLinkAllowedPaymentMethod"
+            }
+          },
+          "payment_method_details": {
+            "type": "object",
+            "description": "Details about the OFPI payment method.",
+            "required": [
+              "open_finance"
+            ],
+            "properties": {
+              "open_finance": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/PaymentIntentPaymentMethodDetailsBodyIndividualRequestPixKey"
+                  },
+                  {
+                    "$ref": "#/components/schemas/PaymentIntentPaymentMethodDetailsBodyBusinessRequestPixKey"
+                  }
+                ]
+              }
+            }
+          },
+          "confirm": {
+            "type": "boolean",
+            "default": false,
+            "description": "Boolean that confirms the payment intent.\n\n**Note:** Sending this parameter set to `true` confirms the payment intent.\n",
+            "example": false
+          },
+          "metadata": {
+            "type": "object",
+            "description": "Optional and customizable object where you can provide any additional key-value pairs for your internal purposes. For example, an internal reference number for the payment intent.\n\n\n\u26a0\ufe0f **Note**: You can only provide up to 50 keys (keys can have up to 50 characters each and each value can be up to 500 characters). We do not support nested objects, only ASCII values.\n",
+            "example": {
+              "internal_reference_id": "GGq73487w2"
+            }
+          },
+          "provider": {
+            "$ref": "#/components/schemas/EnumPaymentLinkProvider"
+          }
+        }
+      },
+      "CreatePaymentIntentPixKeysAndCustomer": {
+        "type": "object",
+        "title": "Pix Keys (With New Customer)",
+        "description": "Create a Payment Intent using a Pix Key as the beneficiary details and using a previously created customer.\n\nNote: When using the Pix Keys method, you will need to make an additional PATCH request.\n",
+        "required": [
+          "amount",
+          "customer",
+          "description",
+          "allowed_payment_method_types",
+          "payment_method_details",
+          "confirm"
+        ],
+        "properties": {
+          "amount": {
+            "type": "string",
+            "pattern": "\\d+(?:\\.\\d{1,2})?",
+            "example": "1234.12",
+            "description": "Amount to be paid by your customer. You can send through numbers with up to two decimal points, separated by a `.` period. For example: `1234.12` \n"
+          },
+          "customer": {
+            "$ref": "#/components/schemas/CreateCustomerOfpi"
+          },
+          "external_id": {
+            "$ref": "#/components/schemas/external_id__payments"
+          },
+          "description": {
+            "type": "string",
+            "description": "A human-readable description of the payment.\n",
+            "example": "Shoe payment"
+          },
+          "statement_description": {
+            "type": "string",
+            "maxLength": 50,
+            "description": "A description that will appear on the customer's bank statement (recommended).\n\n\n> **Note**: If you do not use the `statement_description` parameter, the `description` value will be used as the statement description.\n",
+            "example": "Super Shoe Store - Brown Sneakers"
+          },
+          "allowed_payment_method_types": {
+            "type": "array",
+            "description": "A list of payment method types allowed in this payment intent. For Brazil (OFPI), this value must be set to `open_finance`.",
+            "minItems": 1,
+            "maxItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/EnumPaymentLinkAllowedPaymentMethod"
+            }
+          },
+          "payment_method_details": {
+            "type": "object",
+            "description": "Details about the OFPI payment method.",
+            "required": [
+              "open_finance"
+            ],
+            "properties": {
+              "open_finance": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/PaymentIntentPaymentMethodDetailsBodyIndividualRequestPixKey"
+                  },
+                  {
+                    "$ref": "#/components/schemas/PaymentIntentPaymentMethodDetailsBodyBusinessRequestPixKey"
+                  }
+                ]
+              }
+            }
+          },
+          "confirm": {
+            "type": "boolean",
+            "default": false,
+            "description": "Boolean that confirms the payment intent.\n\n**Note:** Sending this parameter set to `true` confirms the payment intent.\n",
+            "example": false
+          },
+          "metadata": {
+            "type": "object",
+            "description": "Optional and customizable object where you can provide any additional key-value pairs for your internal purposes. For example, an internal reference number for the payment intent.\n\n\n\u26a0\ufe0f **Note**: You can only provide up to 50 keys (keys can have up to 50 characters each and each value can be up to 500 characters). We do not support nested objects, only ASCII values.\n",
+            "example": {
+              "internal_reference_id": "GGq73487w2"
+            }
+          },
+          "provider": {
+            "$ref": "#/components/schemas/EnumPaymentLinkProvider"
+          }
+        }
+      },
       "PaymentIntentPaymentMethodDetailsBodyIndividualRequestOfpi": {
         "type": "object",
         "title": "INDIVIDUAL",
@@ -31864,21 +32386,20 @@
           },
           "cpf": {
             "type": "string",
-            "description": "The customer's CPF number. Only required when the `customer_type` is `BUSINESS`.\n",
+            "description": "The customer's CPF number. Provided when available; this value is obfuscated in responses.\n",
             "example": "09744477770"
           }
         }
       },
       "CreatePaymentIntentOfpi": {
         "type": "object",
-        "title": "Payment Intent (Only)",
-        "description": "Create a payment intent using a previously created customer.",
+        "title": "Bank Account (With Existing Customer)",
+        "description": "Create a payment intent using a bank account as the beneficiary and a previously created customer.",
         "required": [
           "amount",
           "customer",
           "description",
           "allowed_payment_method_types",
-          "selected_payment_method_type",
           "payment_method_details",
           "confirm"
         ],
@@ -32015,21 +32536,20 @@
           },
           "cpf": {
             "type": "string",
-            "description": "The customer's CPF number. Only required when the `customer_type` is `BUSINESS`.\n",
+            "description": "The customer's CPF number. Provided when available; this value is obfuscated in responses.\n",
             "example": "09744477770"
           }
         }
       },
       "CreatePaymentIntentAndCustomerOfpi": {
         "type": "object",
-        "title": "Customer, Bank Account, and Payment Intent",
-        "description": "Create a customer, bank account, and payment intent for Brazil (OFPI).\n",
+        "title": "Bank Account (With New Customer)",
+        "description": "Create a payment intent using a bank account as the beneficiary and a register a new customer.",
         "required": [
           "amount",
           "customer",
           "description",
           "allowed_payment_method_types",
-          "selected_payment_method_type",
           "payment_method_details",
           "confirm"
         ],
@@ -32104,8 +32624,670 @@
           }
         }
       },
+      "CreatePaymentIntentAndBankAccountAndCustomerOfpi": {
+        "type": "object",
+        "title": "Bank Account (With New Customer and Beneficiary Bank Account)",
+        "description": "Create a customer, bank account, and payment intent for Brazil (OFPI).\n",
+        "required": [
+          "amount",
+          "customer",
+          "description",
+          "allowed_payment_method_types",
+          "payment_method_details",
+          "confirm"
+        ],
+        "properties": {
+          "amount": {
+            "type": "string",
+            "title": "string",
+            "pattern": "\\d+(?:\\.\\d{1,2})?",
+            "example": "1234.12",
+            "description": "Amount to be paid by your customer. For OFPI, you can send through numbers with up to two decimal points, separated by a `.` period. For example: `1234.12`\n"
+          },
+          "customer": {
+            "$ref": "#/components/schemas/CreateCustomerOfpi"
+          },
+          "external_id": {
+            "$ref": "#/components/schemas/external_id__payments"
+          },
+          "description": {
+            "type": "string",
+            "description": "A human-readable description of the payment.\n",
+            "example": "Shoe payment"
+          },
+          "statement_description": {
+            "type": "string",
+            "maxLength": 50,
+            "description": "A description that will appear on the customer's bank statement (recommended).\n\n\n> **Note**: If you do not use the `statement_description` parameter, the `description` value will be used as the statement description.\n",
+            "example": "Super Shoe Store - Brown Sneakers"
+          },
+          "allowed_payment_method_types": {
+            "type": "array",
+            "description": "A list of payment method types allowed in this payment intent. For Brazil (OFPI), this value must be set to `open_finance`.",
+            "minItems": 1,
+            "maxItems": 1,
+            "items": {
+              "$ref": "#/components/schemas/EnumPaymentLinkAllowedPaymentMethod"
+            }
+          },
+          "payment_method_details": {
+            "type": "object",
+            "description": "Details about the OFPI payment method.",
+            "required": [
+              "open_finance"
+            ],
+            "properties": {
+              "open_finance": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/PaymentIntentPaymentMethodDetailsBodyIndividualRequestOfpiBankAccount"
+                  },
+                  {
+                    "$ref": "#/components/schemas/PaymentIntentPaymentMethodDetailsBodyBusinessRequestOfpiBankAccount"
+                  }
+                ]
+              }
+            }
+          },
+          "confirm": {
+            "type": "boolean",
+            "default": false,
+            "description": "Boolean that confirms the payment intent.\n\n> \ud83d\udcd8 Provide `payer_institution`\n>\n> In order to confirm the payment intent (`confirm: true`), you must provide the `payer_institution` parameter.\n\n**Note:** Sending this parameter set to `true` confirms the payment intent.\n",
+            "example": false
+          },
+          "metadata": {
+            "type": "object",
+            "description": "Optional and customizable object where you can provide any additional key-value pairs for your internal purposes. For example, an internal reference number for the payment intent.\n\n\n\u26a0\ufe0f **Note**: You can only provide up to 50 keys (keys can have up to 50 characters each and each value can be up to 500 characters). We do not support nested objects, only ASCII values.\n",
+            "example": {
+              "internal_reference_id": "GGq73487w2"
+            }
+          },
+          "provider": {
+            "$ref": "#/components/schemas/EnumPaymentLinkProvider"
+          }
+        }
+      },
+      "PaymentIntentPaymentMethodDetailsBodyIndividualPixKeys": {
+        "type": "object",
+        "description": "Payment method type selected.",
+        "required": [
+          "pix_key",
+          "payer_institution",
+          "callback_url"
+        ],
+        "properties": {
+          "pix_key": {
+            "type": "string",
+            "description": "The Pix key associated with the beneficiary of the transaction. Can be an email, phone number (including the country code, for example `+5511999998888`), CPF/CNPJ, or a random key.\n\n{% admonition type=\"info\" name=\"Pix Key Masking\" %}\n  In the case that the provided Pix Key is a CPF, email address, or phone number, value in `payment_method_details.open_finance.pix_key` will be masked. If it is a CNPJ or random Pix Key UUID, the value will not be masked.\n{% /admonition %}\n",
+            "example": "53497b80-81a2-4ea8-9296-83a909c05bdf"
+          },
+          "payer_institution": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Belvo's unique ID to reference the payer's institution.",
+            "example": "600f1b4a-1ef9-4f89-b341-1a35f0c32cc0"
+          },
+          "callback_url": {
+            "type": "string",
+            "description": "The callback URL that your user will be redirected to after confirming the payment in their banking application.\n",
+            "example": "https://www.acmecorp.com/checkout/3487321"
+          },
+          "cpf": {
+            "type": "string",
+            "nullable": true,
+            "description": "The customer's CPF number. Provided when available; this value is obfuscated in responses.\n",
+            "example": "23******00"
+          },
+          "schedule": {
+            "$ref": "#/components/schemas/schedule"
+          }
+        }
+      },
+      "PaymentIntentPaymentMethodDetailsIndividualPixKeys": {
+        "type": "object",
+        "title": "INDIVIDUAL",
+        "description": "Details about the Pix Key payment method.",
+        "required": [
+          "open_finance"
+        ],
+        "properties": {
+          "open_finance": {
+            "$ref": "#/components/schemas/PaymentIntentPaymentMethodDetailsBodyIndividualPixKeys"
+          }
+        }
+      },
+      "PaymentIntentPaymentMethodDetailsBodyBusinessPixKeys": {
+        "type": "object",
+        "description": "Payment method type selected.",
+        "required": [
+          "pix_key",
+          "payer_institution",
+          "callback_url",
+          "cpf"
+        ],
+        "properties": {
+          "pix_key": {
+            "type": "string",
+            "description": "The Pix key associated with the beneficiary of the transaction. Can be an email, phone number (including the country code, for example `+5511999998888`), CPF/CNPJ, or a random key.\n\n{% admonition type=\"info\" name=\"Pix Key Masking\" %}\n  In the case that the provided Pix Key is a CPF, email address, or phone number, value in `payment_method_details.open_finance.pix_key` will be masked. If it is a CNPJ or random Pix Key UUID, the value will not be masked.\n{% /admonition %}\n",
+            "example": "53497b80-81a2-4ea8-9296-83a909c05bdf"
+          },
+          "payer_institution": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Belvo's unique ID to reference the payer's institution.",
+            "example": "600f1b4a-1ef9-4f89-b341-1a35f0c32cc0"
+          },
+          "schedule": {
+            "$ref": "#/components/schemas/schedule"
+          },
+          "callback_url": {
+            "type": "string",
+            "description": "The callback URL that your user will be redirected to after confirming the payment in their banking application.\n",
+            "example": "https://www.acmecorp.com/checkout/3487321"
+          },
+          "cpf": {
+            "type": "string",
+            "nullable": true,
+            "description": "The customer's CPF number. Provided when available; this value is obfuscated in responses.\n",
+            "example": "23******00"
+          }
+        }
+      },
+      "PaymentIntentPaymentMethodDetailsBusinessPixKeys": {
+        "type": "object",
+        "title": "BUSINESS",
+        "description": "Details about the Pix Key payment method.",
+        "required": [
+          "open_finance"
+        ],
+        "properties": {
+          "open_finance": {
+            "$ref": "#/components/schemas/PaymentIntentPaymentMethodDetailsBodyBusinessPixKeys"
+          }
+        }
+      },
+      "PaymentMethodInformationPixKeysInitial": {
+        "type": "object",
+        "title": "Initial",
+        "description": "Information about the Pix Key payment method at the time of payment intent creation. It will only include the `pix_key_details` property, which you need to show your user to confirm that their details are correct. After they confirm and you send through the PATCH request, this object will be populated with additional properties (see the **Confirmed** schema).\n",
+        "properties": {
+          "open_finance": {
+            "type": "object",
+            "title": "Pix Key",
+            "properties": {
+              "pix_key_details": {
+                "type": "object",
+                "description": "Details about the Pix Key used for the payment. You need to display this information to your user for them to confirm that the details are correct. After they confirm, you can send a PATCH request to confirm the Payment Intent.",
+                "properties": {
+                  "identifier": {
+                    "type": "string",
+                    "description": "The masked identifier of the owner.\n",
+                    "example": "23******00"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "The name of the Pix Key holder.",
+                    "example": "Jo\u00e3o da Silva"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "PaymentMethodInformationPixKeysConfirmed": {
+        "type": "object",
+        "title": "Confirmed",
+        "description": "Information about the Pix Key payment method after the payment intent has been confirmed via a PATCH request.\n",
+        "properties": {
+          "open_finance": {
+            "type": "object",
+            "title": "Pix Key",
+            "properties": {
+              "provider_request_id": {
+                "type": "string",
+                "nullable": true,
+                "description": "Unique ID for the payment, as sent by the provider.\n",
+                "example": "978c0c97ea847e78e8849634473c1f1"
+              },
+              "redirect_url": {
+                "type": "string",
+                "nullable": true,
+                "description": "The URL that redirects the payer to their institution's website to authorize the payment.\n",
+                "example": "https://wakandanational.com/"
+              },
+              "end_to_end_id": {
+                "type": "string",
+                "nullable": true,
+                "description": "A unique ID for the transaction in the Brazil's PIX payment system.",
+                "example": "F203262942022211117487a213b1d140"
+              },
+              "settlement_date": {
+                "type": "string",
+                "format": "date",
+                "description": "The `settlement_date` field indicates the date on which a scheduled payment (charge) is planned to be settled. This field is relevant in various states of the charge's lifecycle:\n\n  - Scheduled Charges: When a charge has the status `SCHEDULED`, this field represents the planned settlement date.\n  - Completed Charges: When a charge has the status `SUCCEEDED`, this field reflects the date that the payment was made.\n  - Failed or Canceled Charges: When a charge has the status `CANCELED` or `FAILED`, this field will still contain the originally calculated settlement date, indicating when the charge was intended to be settled.\n\n\n> **Note**: The `settlement_date` does not change based on the success or failure of the charge. It consistently reflects the original planned settlement date.\n",
+                "example": "2024-10-22"
+              },
+              "pix_key_details": {
+                "type": "object",
+                "description": "Details about the Pix key used for the payment.",
+                "properties": {
+                  "identifier": {
+                    "type": "string",
+                    "description": "The masked identifier of the owner.\n",
+                    "example": "23******00"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "The name of the Pix key holder.",
+                    "example": "Jo\u00e3o da Silva"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "ChargePaymentMethodDetailsPixContent": {
+        "type": "object",
+        "description": "Information about the payer of a Pix payment.",
+        "properties": {
+          "payer_institution": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Unique identifier for the payer's institution.\n",
+            "example": "db201c6a-e0ee-4caa-92d6-72b480d6d86f"
+          },
+          "pix_key": {
+            "type": "string",
+            "description": "The Pix key associated with the beneficiary of the transaction. Can be an email, phone number, CPF/CNPJ, or a random key.\n",
+            "example": "a80d5a9d-20ae-479a-8dd7-ff3443bcbbfc"
+          },
+          "schedule": {
+            "$ref": "#/components/schemas/schedule"
+          }
+        }
+      },
+      "ChargePaymentMethodDetailsPix": {
+        "type": "object",
+        "title": "Pix",
+        "description": "Details about the payment method.\n",
+        "properties": {
+          "open_finance": {
+            "$ref": "#/components/schemas/ChargePaymentMethodDetailsPixContent"
+          }
+        }
+      },
+      "ChargeBrazilPix": {
+        "type": "object",
+        "required": [
+          "id",
+          "created_at",
+          "failure_code",
+          "failure_message",
+          "status",
+          "updated_at",
+          "amount",
+          "beneficiary",
+          "provider",
+          "metadata",
+          "payment_method_details",
+          "payment_method_information"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/id"
+          },
+          "created_at": {
+            "$ref": "#/components/schemas/created_at"
+          },
+          "updated_at": {
+            "type": "string",
+            "nullable": true,
+            "format": "date-time",
+            "description": "The ISO-8601 timestamp of when the status of the charge was last updated.\n",
+            "example": "2022-02-09T08:45:50.406032Z"
+          },
+          "created_by": {
+            "$ref": "#/components/schemas/created_by"
+          },
+          "customer": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Belvo's unique ID for the customer that the charge was created for.",
+            "example": "531aa631-70a0-4eeb-ab97-51dea3e90c89"
+          },
+          "payment_intent": {
+            "type": "string",
+            "format": "uuid",
+            "description": "The `payment_intent.id` associated with this charge.",
+            "example": "50c04229-7b1d-4a53-951c-8ad53e10c6ca"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "CANCELED",
+              "PENDING",
+              "SCHEDULED",
+              "SUCCEEDED",
+              "FAILED",
+              "PARTIAL"
+            ],
+            "description": "The current status of the charge. Can be one of the following values:\n\n  - `CANCELED`\n  - `PENDING`\n  - `SCHEDULED`\n  - `SUCCEEDED`\n  - `FAILED`\n  - `PARTIAL`\n",
+            "example": "PENDING"
+          },
+          "amount": {
+            "type": "string",
+            "nullable": true,
+            "description": "The amount of the charge.\n",
+            "example": "100.12"
+          },
+          "currency": {
+            "type": "string",
+            "enum": [
+              "BRL"
+            ],
+            "description": "The currency of the amount paid. For \ud83c\udde7\ud83c\uddf7 Brazil, the value must be `BRL` (Brazilian Real).\n",
+            "example": "BRL"
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of the payment.\n",
+            "example": "Training shoes"
+          },
+          "statement_description": {
+            "type": "string",
+            "maxLength": 50,
+            "description": "The description that will appear on the customer's bank statement (if provided).\n",
+            "example": "Super Shoe Store - Brown Sneakers"
+          },
+          "beneficiary": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true,
+            "description": "Belvo's unique ID used to identify the beneficiary\u2019s bank account. In the case that the beneficiary is a Pix Key, this field will be `null`.",
+            "example": null
+          },
+          "provider": {
+            "$ref": "#/components/schemas/EnumPaymentLinkProvider"
+          },
+          "payment_method_type": {
+            "type": "string",
+            "enum": [
+              "open_finance"
+            ],
+            "description": "Selected payment method type. For \ud83c\udde7\ud83c\uddf7 Brazil's OFPI, the value must be `open_finance`.\n",
+            "example": "open_finance"
+          },
+          "payment_method_details": {
+            "$ref": "#/components/schemas/ChargePaymentMethodDetailsPix"
+          },
+          "payment_method_information": {
+            "$ref": "#/components/schemas/PaymentMethodInformationPixKeysConfirmed"
+          },
+          "payer_information": {
+            "$ref": "#/components/schemas/ChargePayerInformation"
+          },
+          "transactions": {
+            "description": "For Pix Key payments, this will be an empty array.",
+            "example": []
+          },
+          "failure_code": {
+            "type": "string",
+            "nullable": true,
+            "description": "Error code that explains the reason behind a payment being unsuccessful (if applicable).\n",
+            "example": null
+          },
+          "failure_message": {
+            "type": "string",
+            "nullable": true,
+            "description": "Further information regarding the `failure_code`.\n",
+            "example": null
+          },
+          "metadata": {
+            "type": "object",
+            "description": "Optional and customizable object where you can provide any additional key-value pairs for your internal purposes. For example, an internal reference number.\n\n\n\u26a0\ufe0f **Note**: You can only provide up to 50 keys (keys can have up to 50 characters each and each value can be up to 500 characters). We do not support nested objects, only ASCII values.\n",
+            "example": {
+              "internal_reference_id": "GGq73487w2"
+            }
+          }
+        }
+      },
+      "PaymentIntentPixKeys": {
+        "type": "object",
+        "title": "Pix Key",
+        "required": [
+          "id",
+          "created_at",
+          "created_by",
+          "customer",
+          "allowed_payment_method_types",
+          "amount",
+          "currency",
+          "description",
+          "failure_code",
+          "failure_message",
+          "next_step",
+          "last_error",
+          "payment_method_details",
+          "payment_method_information",
+          "provider",
+          "status",
+          "updated_at",
+          "selected_payment_method_type"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/id"
+          },
+          "customer": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Belvo's unique ID for the customer related to this payment intent.",
+            "example": "1c83ead8-6665-429c-a17a-ddc76cb3a95e"
+          },
+          "external_id": {
+            "$ref": "#/components/schemas/external_id__payments"
+          },
+          "created_at": {
+            "$ref": "#/components/schemas/created_at"
+          },
+          "created_by": {
+            "$ref": "#/components/schemas/created_by"
+          },
+          "updated_at": {
+            "type": "string",
+            "nullable": true,
+            "format": "date-time",
+            "description": "The ISO-8601 timestamp of when the payment intent was last updated.\n",
+            "example": "2022-02-09T08:45:50.406032Z"
+          },
+          "status": {
+            "$ref": "#/components/schemas/EnumPaymentIntentStatus"
+          },
+          "amount": {
+            "type": "string",
+            "description": "Amount to be paid by your customer.\n",
+            "example": "1234.12"
+          },
+          "currency": {
+            "$ref": "#/components/schemas/EnumPaymentsCurrency"
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of the payment.\n",
+            "example": "Training shoes"
+          },
+          "statement_description": {
+            "type": "string",
+            "maxLength": 50,
+            "description": "A description that will appear on the customer's bank statement (recommended).\n\n\n> **Note**: If you do not use the `statement_description` parameter, the `description` value will be used as the statement description.\n",
+            "example": "Super Shoe Store - Brown Sneakers"
+          },
+          "selected_payment_method_type": {
+            "$ref": "#/components/schemas/EnumPaymentLinkAllowedPaymentMethod"
+          },
+          "allowed_payment_method_types": {
+            "type": "array",
+            "description": "A list of payment method types allowed in this payment intent. For OFPI, the value will be `open_finance`.",
+            "items": {
+              "type": "string",
+              "example": "open_finance"
+            }
+          },
+          "payment_method_details": {
+            "description": "Details about the Pix Key payment method.",
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PaymentIntentPaymentMethodDetailsIndividualPixKeys"
+              },
+              {
+                "$ref": "#/components/schemas/PaymentIntentPaymentMethodDetailsBusinessPixKeys"
+              }
+            ]
+          },
+          "payment_method_information": {
+            "description": "Information about the Pix Key payment method.\n\nAt the time of payment intent creation, it will only include the `open_finance.pix_key_details` property, which you need to show your user to confirm that their details are correct (see the **Initial** schema).\n\nAfter they confirm their details in your application and you send through the PATCH request, this object will be populated with additional properties (see the **Confirmed** schema).\n",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PaymentMethodInformationPixKeysInitial"
+              },
+              {
+                "$ref": "#/components/schemas/PaymentMethodInformationPixKeysConfirmed"
+              }
+            ]
+          },
+          "failure_code": {
+            "type": "string",
+            "nullable": true,
+            "description": "Error code that explains the reason behind a payment being unsuccessful (if applicable).\n",
+            "example": null
+          },
+          "failure_message": {
+            "type": "string",
+            "nullable": true,
+            "description": "Further information regarding the `failure_code`.\n",
+            "example": null
+          },
+          "metadata": {
+            "type": "object",
+            "description": "Optional and customizable object where you can provide any additional key-value pairs for your internal purposes. For example, an internal reference number.\n\n\n\u26a0\ufe0f **Note**: You can only provide up to 50 keys (keys can have up to 50 characters each and each value can be up to 500 characters). We do not support nested objects, only ASCII values.\n",
+            "example": {
+              "internal_reference_id": "GGq73487w2"
+            }
+          },
+          "charges": {
+            "type": "array",
+            "description": "An array of charge objects related to this payment intent. If no charges are associated, we return an empty array.\n",
+            "items": {
+              "$ref": "#/components/schemas/ChargeBrazilPix"
+            }
+          },
+          "provider": {
+            "$ref": "#/components/schemas/EnumPaymentLinkProvider"
+          },
+          "last_error": {
+            "deprecated": true,
+            "description": "**Note**: This field has been deprecated and will be removed from the API in the future.\n\n*Information about the error you ran into in the previous step of the payment intent, if applicable. This error can occur when something unexpected happened during the payment intent process.*\n",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/LastErrorPaymentError"
+              }
+            ]
+          },
+          "next_step": {
+            "deprecated": true,
+            "description": "**Note**: This field has been deprecated and will be removed from the API in the future.\n\n*Object detailing the next steps you should follow for a specific `next_step` type.*\n",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/NextStepDisplayPaymentMethodInformation"
+              },
+              {
+                "$ref": "#/components/schemas/NextStepNeedsRedirect"
+              },
+              {
+                "$ref": "#/components/schemas/NextStepDisplayConfirmationRequiredOfpi"
+              },
+              {
+                "$ref": "#/components/schemas/NextStepDisplayPaymentProcessing"
+              },
+              {
+                "$ref": "#/components/schemas/NextStepDisplayPaymentSucceeded"
+              },
+              {
+                "$ref": "#/components/schemas/NextStepDisplayPaymentFailed"
+              }
+            ]
+          }
+        }
+      },
+      "409IdempotencyConflictError": {
+        "type": "object",
+        "title": "Idempotency Conflict Error",
+        "required": [
+          "code",
+          "message",
+          "request_id"
+        ],
+        "description": "The API responds with this error when it receives a request containing an idempotency key that has been previously used in another request which hasn't yet finished processing. To correctly maintain an idempotent state, the server cannot process duplicate requests simultaneously.\n",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "A unique error code (`idempotency_key_conflict`) that allows you to classify and handle the error programmatically.\n",
+            "example": "idempotency_key_conflict"
+          },
+          "message": {
+            "type": "string",
+            "description": "A short description of the error.\n\nFor `idempotency_key_conflict` errors, the description is:\n\n  - `A request with this idempotency key is already being processed.`\n",
+            "example": "A request with this idempotency key is already being processed."
+          },
+          "request_id": {
+            "$ref": "#/components/schemas/request_id"
+          }
+        }
+      },
+      "422IdempotencyMismatchError": {
+        "type": "object",
+        "title": "Idempotency Key Mismatch Error",
+        "required": [
+          "code",
+          "message",
+          "request_id"
+        ],
+        "description": "This error occurs when a request is made with an idempotency key that was previously used with a different request payload. Each unique idempotency key must be associated with the same request body.\n",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "A unique error code (`idempotency_payload_mismatch`) that allows you to classify and handle the error programmatically.\n",
+            "example": "idempotency_payload_mismatch"
+          },
+          "message": {
+            "type": "string",
+            "description": "A short description of the error.\n\nFor `idempotency_payload_mismatch` errors, the description is:\n\n  - `A different request with the same idempotency key already exists.`\n",
+            "example": "A different request with the same idempotency key already exists."
+          },
+          "request_id": {
+            "$ref": "#/components/schemas/request_id"
+          }
+        }
+      },
+      "PatchPaymentIntentPixKeys": {
+        "type": "object",
+        "title": "Pix Key",
+        "required": [
+          "confirm"
+        ],
+        "properties": {
+          "confirm": {
+            "type": "boolean",
+            "description": "Boolean that indicates whether this request confirms the payment intent. Must be set to `true` to confirm the payment intent.\n",
+            "example": true
+          }
+        }
+      },
       "PatchPaymentIntentOfpi": {
         "type": "object",
+        "title": "Bank Account",
         "required": [
           "payment_method_details"
         ],
@@ -32138,47 +33320,20 @@
           },
           "confirm": {
             "type": "boolean",
-            "default": false,
-            "description": "Boolean that indicates whether this request confirms the payment intent. \n\n\n**Note:** You'll need to send this parameter set to `true` when the payment intent next_step returns `ready_to_confirm: true`, meaning the payment intent is ready to be confirmed. \n",
+            "description": "Boolean that indicates whether this request confirms the payment intent. \n",
             "example": true
           }
         }
       },
-      "ContractDebtor": {
+      "PaymentConfigurationImmediate": {
         "type": "object",
-        "description": "Details regarding the \"owner\" of the contract. This is the person or entity who is indebted to the beneficiary (which can be different from the payer). For example, the contract could be in a parent's name (`contract_debtor`) though it is one of the children that is actual making the payments (`payer`).",
-        "required": [
-          "identifier",
-          "name"
-        ],
-        "properties": {
-          "identifier": {
-            "type": "string",
-            "minLength": 11,
-            "maxLength": 14,
-            "pattern": "^(?:[0-9]{11}|[0-9]{14})$",
-            "description": "The CPF or CNPJ of the debtor. For CPF, must be 11 characters. For CNPJ, must be 14 characters.\n",
-            "example": "12345678901"
-          },
-          "name": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 120,
-            "pattern": "^([A-Za-z\u00c0-\u00d6\u00d8-\u00f6\u00f8-\u00ff,.@:&*+_<>()!?/\\\\$%\\d' -]{0,120})$",
-            "description": "The full name of the debtor.",
-            "example": "Jo\u00e3o da Silva"
-          }
-        }
-      },
-      "PaymentConfigurationFixed": {
-        "type": "object",
-        "title": "PIX_OF_AUTOMATIC_FIXED",
-        "description": "Configuration details for the `PIX_OF_AUTOMATIC_FIXED` payment method.",
+        "title": "PIX_OF_IMMEDIATE",
+        "description": "Configuration details for the `PIX_OF_IMMEDIATE` payment method.",
         "properties": {
           "amount": {
             "type": "string",
             "pattern": "^-?\\d{1,15}\\.\\d{2,4}$",
-            "description": "{% admonition type=\"warning\" name=\"Only for Fixed Payments\" %}\n  For Fixed Payments Only (`PIX_OF_AUTOMATIC_FIXED`).\n{% /admonition %}\n\nThe amount that your customer will be charged.\n",
+            "description": "The amount that your customer will be charged.\n",
             "example": "10000.05"
           },
           "statement_description": {
@@ -32187,49 +33342,7 @@
             "maxLength": 140,
             "pattern": "[\\w\\W\\s]{1,140}",
             "description": "The description that will appear on your customer's bank statement.",
-            "example": "Monthly Gym - Premium Plan"
-          },
-          "frequency": {
-            "type": "string",
-            "enum": [
-              "WEEKLY",
-              "MONTHLY",
-              "QUARTERLY",
-              "BIANNUAL",
-              "YEARLY"
-            ],
-            "description": "The frequency that the payments will be made. Can be either:\n- `WEEKLY`\n- `MONTHLY`\n- `QUARTERLY`\n- `BIANNUAL`\n- `YEARLY`\n",
-            "example": "MONTHLY"
-          },
-          "start_date": {
-            "type": "string",
-            "format": "date",
-            "description": "The date that the authorization (and the first payment of the 'cycle') will begin, in `YYYY-MM-DD` format.\n",
-            "example": "2025-06-01"
-          },
-          "end_date": {
-            "type": "string",
-            "format": "date",
-            "nullable": true,
-            "description": "The date that the authorization will end, in `YYYY-MM-DD` format. If no `end_date` is sent through, the Payment Authorization will be valid for an indefinite term.\n",
-            "example": "2026-06-01"
-          },
-          "contract_id": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 35,
-            "pattern": "^[a-zA-Z0-9]{1,35}$",
-            "description": "The ID of the merchant's contract with the customer for the service.\n",
-            "example": "PREMIUMPLAN123456"
-          },
-          "contract_debtor": {
-            "$ref": "#/components/schemas/ContractDebtor"
-          },
-          "retries": {
-            "type": "boolean",
-            "default": false,
-            "description": "Boolean that indicates whether payment retries are allowed. By default, this is set to `false`.\n",
-            "example": true
+            "example": "Blue Suede Shoes - Premium"
           },
           "authorization_url": {
             "type": "string",
@@ -32238,43 +33351,19 @@
             "maxLength": 2048,
             "description": "The URL where the user should be redirected to authorize the payment.",
             "example": "https://auth.belvo.com/authorize?token=abc123def456"
-          },
-          "first_payment": {
-            "type": "object",
-            "description": "Details regarding the first immediate payment. (Only applicable for `PIX_OF_AUTOMATIC_FIXED` and `PIX_OF_AUTOMATIC_VARIABLE`.)\n",
-            "properties": {
-              "date": {
-                "type": "string",
-                "format": "date",
-                "description": "The date that the payment must be made, in `YYYY-MM-DD` format.\n",
-                "example": "2025-05-15"
-              },
-              "amount": {
-                "type": "string",
-                "pattern": "^-?\\d{1,15}\\.\\d{2,4}$",
-                "description": "The amount to be paid. The value can never exceed the `amount` (Fixed) or `maximum_amount` (Variable) set in the Payment Authorization.\n",
-                "example": "3000.02"
-              }
-            }
           }
         }
       },
-      "PaymentConfigurationVariable": {
+      "PaymentConfigurationScheduled": {
         "type": "object",
-        "title": "PIX_OF_AUTOMATIC_VARIABLE",
-        "description": "Configuration details for the `PIX_OF_AUTOMATIC_VARIABLE` payment method.",
+        "title": "PIX_OF_SCHEDULED",
+        "description": "Configuration details for the `PIX_OF_SCHEDULED` payment method.",
         "properties": {
-          "minimum_amount": {
+          "amount": {
             "type": "string",
             "pattern": "^-?\\d{1,15}\\.\\d{2,4}$",
-            "description": "{% admonition type=\"warning\" name=\"Only for Variable Payments\" %}\n  For Variable Payments Only (`PIX_OF_AUTOMATIC_VARIABLE`).\n{% /admonition %}\n\nThe minimum amount that your customer will be charged.\n",
-            "example": "10000.01"
-          },
-          "maximum_amount": {
-            "type": "string",
-            "pattern": "^-?\\d{1,15}\\.\\d{2,4}$",
-            "description": "{% admonition type=\"warning\" name=\"Only for Variable Payments\" %}\n  For Variable Payments Only (`PIX_OF_AUTOMATIC_VARIABLE`).\n{% /admonition %}\n\nThe maximum amount that your customer will be charged.\n",
-            "example": "50000.50"
+            "description": "The amount that your customer will be charged.\n",
+            "example": "10000.05"
           },
           "statement_description": {
             "type": "string",
@@ -32282,49 +33371,21 @@
             "maxLength": 140,
             "pattern": "[\\w\\W\\s]{1,140}",
             "description": "The description that will appear on your customer's bank statement.",
-            "example": "Monthly Gym - Premium Plan"
+            "example": "Blue Suede Shoes - Premium"
           },
-          "frequency": {
-            "type": "string",
-            "enum": [
-              "WEEKLY",
-              "MONTHLY",
-              "QUARTERLY",
-              "BIANNUAL",
-              "YEARLY"
-            ],
-            "description": "The frequency that the payments will be made. Can be either:\n- `WEEKLY`\n- `MONTHLY`\n- `QUARTERLY`\n- `BIANNUAL`\n- `YEARLY`\n",
-            "example": "MONTHLY"
-          },
-          "start_date": {
-            "type": "string",
-            "format": "date",
-            "description": "The date that the authorization (and the first payment of the 'cycle') will begin, in `YYYY-MM-DD` format.\n",
-            "example": "2025-06-01"
-          },
-          "end_date": {
-            "type": "string",
-            "format": "date",
-            "nullable": true,
-            "description": "The date that the authorization will end, in `YYYY-MM-DD` format. If no `end_date` is sent through, the Payment Authorization will be valid for an indefinite term.\n",
-            "example": "2026-06-01"
-          },
-          "contract_id": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 35,
-            "pattern": "^[a-zA-Z0-9]{1,35}$",
-            "description": "The ID of the merchant's contract with the customer for the service.\n",
-            "example": "PREMIUMPLAN123456"
-          },
-          "contract_debtor": {
-            "$ref": "#/components/schemas/ContractDebtor"
-          },
-          "retries": {
-            "type": "boolean",
-            "default": false,
-            "description": "Boolean that indicates whether payment retries are allowed. By default, this is set to `false`.\n",
-            "example": true
+          "dates": {
+            "type": "array",
+            "description": "The date that the payment is scheduled to be made, in `YYYY-MM-DD` format.",
+            "minItems": 1,
+            "maxItems": 1,
+            "items": {
+              "type": "string",
+              "format": "date",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+            },
+            "example": [
+              "2025-10-30"
+            ]
           },
           "authorization_url": {
             "type": "string",
@@ -32333,24 +33394,6 @@
             "maxLength": 2048,
             "description": "The URL where the user should be redirected to authorize the payment.",
             "example": "https://auth.belvo.com/authorize?token=abc123def456"
-          },
-          "first_payment": {
-            "type": "object",
-            "description": "Details regarding the first immediate payment. (Only applicable for `PIX_OF_AUTOMATIC_FIXED` and `PIX_OF_AUTOMATIC_VARIABLE`.)\n",
-            "properties": {
-              "date": {
-                "type": "string",
-                "format": "date",
-                "description": "The date that the payment must be made, in `YYYY-MM-DD` format.\n",
-                "example": "2025-05-15"
-              },
-              "amount": {
-                "type": "string",
-                "pattern": "^-?\\d{1,15}\\.\\d{2,4}$",
-                "description": "The amount to be paid. The value can never exceed the `amount` (Fixed) or `maximum_amount` (Variable) set in the Payment Authorization.\n",
-                "example": "3000.02"
-              }
-            }
           }
         }
       },
@@ -32461,11 +33504,11 @@
           "payment_method": {
             "type": "string",
             "enum": [
-              "PIX_OF_AUTOMATIC_FIXED",
-              "PIX_OF_AUTOMATIC_VARIABLE"
+              "PIX_OF_IMMEDIATE",
+              "PIX_OF_SCHEDULED"
             ],
             "description": "The payment method that was authorized.\n",
-            "example": "PIX_OF_AUTOMATIC_FIXED"
+            "example": "PIX_OF_IMMEDIATE"
           },
           "payer": {
             "type": "object",
@@ -32521,10 +33564,10 @@
             "description": "Configuration details for the payment method.",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/PaymentConfigurationFixed"
+                "$ref": "#/components/schemas/PaymentConfigurationImmediate"
               },
               {
-                "$ref": "#/components/schemas/PaymentConfigurationVariable"
+                "$ref": "#/components/schemas/PaymentConfigurationScheduled"
               }
             ]
           },
@@ -32603,7 +33646,7 @@
                 "minLength": 11,
                 "maxLength": 14,
                 "pattern": "^(?:[0-9]{11}|[0-9]{14})$",
-                "description": "The CPF (11 digits) or CNPJ (14 digits) of the account holder.\n\n{% admonition type=\"info\" name=\"Pix Autom\u00e1tico\" %}\n  In the case of Pix Autom\u00e1tico (`payment_method` is `PIX_OF_AUTOMATICO_FIXED` or `PIX_OF_AUTOMATICO_VARIABLE`), the `identifier` must be a CNPJ (14 digits).\n{% /admonition %}\n",
+                "description": "The CPF (11 digits) or CNPJ (14 digits) of the account holder.\n",
                 "example": "12345678901122"
               },
               "name": {
@@ -32674,28 +33717,10 @@
         "description": "The Belvo ID of the bank account you previously registered that will receive funds.\n\n{% admonition type=\"warning\" name=\"Bank Account from Payments-BR.V2\" %}\n  The provided bank account ID must be one that was created using the `Payments-BR.V2` version of our API. For example, using either the Bank Account Details option when created the Payment Authorization, or the Register Bank Account endpoint with the `X-Belvo-API-Resource-Version: Payments-BR.V2` header.\n  If you provide an ID that is not `Payments-BR.V2` version compliant, you will receive the following error: `The bank account does not exist or is invalid.`.\n{% /admonition %}\n",
         "example": "b6278377-f710-4d1a-a026-7bab757256d0"
       },
-      "payments__first_payment": {
+      "CreatePaymentAuthorizationImmediate": {
         "type": "object",
-        "description": "{% admonition type=\"warning\" name=\"In Beta\" %}\n  This feature is currently in beta and only available for selected customers. If you are interested in using this feature, please contact your Belvo representative.\n{% /admonition %}\n\nDetails regarding the first immediate payment. (Only applicable for `PIX_OF_AUTOMATIC_FIXED` and `PIX_OF_AUTOMATIC_VARIABLE`.)\n\nIf you set the `date` to today's date, the first payment will be charged immediately (instant Pix). If you set a future date, it must be before the `start_date` of the Payment Authorization.\n\n{% admonition type=\"danger\" name=\"First Payment Failure\" %}\n  The first payment can only be made once, and it cannot be retried if it fails. If the first payment fails, you will need to make this initial payment through a different method, such as using our <a href=\"https://developers.belvo.com/products/payments_brazil/payments-brazil-pix-via-open-finance-overview\" target=\"_blank\">Pix via Open Finance</a> product.\n  \n  The Payment Authorization remains valid even if the first payment fails.\n{% /admonition %}\n",
-        "properties": {
-          "date": {
-            "type": "string",
-            "format": "date",
-            "description": "The date that the payment must be made, in `YYYY-MM-DD` format. Can be set to \"today's\" date. If the date is a future date, it must be before the `start_date`.\n",
-            "example": "2025-05-15"
-          },
-          "amount": {
-            "type": "number",
-            "format": "float",
-            "description": "The amount to be paid. The value can never exceed the `amount` (Fixed) or `maximum_amount` (Variable) set in the Payment Authorization.\n",
-            "example": 3000.02
-          }
-        }
-      },
-      "CreatePaymentAuthorizationFixed": {
-        "type": "object",
-        "title": "Fixed",
-        "description": "Create a Fixed Payment Authorization.",
+        "title": "Immediate",
+        "description": "Create an Immediate Payment Authorization.",
         "required": [
           "payment_method",
           "description",
@@ -32708,10 +33733,10 @@
           "payment_method": {
             "type": "string",
             "enum": [
-              "PIX_OF_AUTOMATIC_FIXED"
+              "PIX_OF_IMMEDIATE"
             ],
-            "description": "The payment method to authorize. For fixed payments, this must be set to `PIX_OF_AUTOMATIC_FIXED`.\n",
-            "example": "PIX_OF_AUTOMATIC_FIXED"
+            "description": "The payment method to authorize. For immediate one-time payments, this must be set to `PIX_OF_IMMEDIATE`.\n",
+            "example": "PIX_OF_IMMEDIATE"
           },
           "description": {
             "type": "string",
@@ -32719,7 +33744,139 @@
             "minLength": 1,
             "maxLength": 140,
             "pattern": "[\\w\\W\\s]{1,140}",
-            "example": "Monthly gym subscription payment"
+            "example": "Blue Suede Shoes - Premium 3429123"
+          },
+          "external_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "(Highly Recommended) The merchant's internal ID for the authorization.",
+            "example": "c169a8a9-e9f5-48db-9f4a-818caef9356b"
+          },
+          "return_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "The URL that the user should be redirected to after authorizing the payment in the institution.",
+            "example": "https://merchant.com/return"
+          },
+          "payer": {
+            "type": "object",
+            "description": "Details regarding the payer.",
+            "required": [
+              "customer"
+            ],
+            "properties": {
+              "customer": {
+                "description": "Details of the customer making payments to the beneficiary. You can either provide the customer's CPF or CNPJ, or their Belvo ID. If you provide the Belvo ID, it must be a UUID of a customer that has already been created in Belvo. If you provide the CPF or CNPJ, we will check if the customer exists in Belvo. If the customer exists, we return their Belvo ID. If not, we create a new customer and return the newly assigned Belvo ID.\n",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/CustomerObject"
+                  },
+                  {
+                    "$ref": "#/components/schemas/CustomerId"
+                  }
+                ]
+              },
+              "institution": {
+                "type": "string",
+                "description": "The Belvo ID of the institution that they payer will use to pay for the merchant's service. To get the Belvo ID of an institution, use the [Institutions endpoint](https://developers.belvo.com/apis/belvoopenapispec/payment-institutions-(brazil)/listpaymentinstitutionsbrazil).",
+                "example": "ef685cf7-d143-4671-a1e5-4d1d019a3f5c"
+              },
+              "representative_identifier": {
+                "type": "string",
+                "minLength": 14,
+                "maxLength": 14,
+                "pattern": "^[0-9]{14}$",
+                "description": "In the case that the customer is a business, this is the CPF of the representative authorized to make payments for the business.\n",
+                "example": "12345678901234"
+              }
+            }
+          },
+          "beneficiary": {
+            "type": "object",
+            "description": "Details regarding the beneficiary of the payment.",
+            "required": [
+              "type",
+              "target"
+            ],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "BANK_ACCOUNT"
+                ],
+                "description": "The type of beneficiary account. At present, this must be set to `BANK_ACCOUNT`.",
+                "example": "BANK_ACCOUNT"
+              },
+              "target": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/BankAccountObject"
+                  },
+                  {
+                    "$ref": "#/components/schemas/BankAccountId"
+                  }
+                ],
+                "description": "Details regarding the bank account that will receive funds. You can either provide the complete details of the bank account or the Belvo ID. If you provide the complete bank account details, we will check if the bank account exists in Belvo. If the bank account exists, we return their Belvo ID. If not, we create a new bank account and return the newly assigned Belvo ID."
+              }
+            }
+          },
+          "payment_method_configuration": {
+            "type": "object",
+            "description": "Details regarding the payment.",
+            "required": [
+              "amount",
+              "statement_description"
+            ],
+            "properties": {
+              "amount": {
+                "type": "number",
+                "format": "float",
+                "description": "The amount that your customer will be charged.\n",
+                "example": 10000.05
+              },
+              "statement_description": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 140,
+                "pattern": "[\\w\\W\\s]{1,140}",
+                "description": "The description that will appear on your customer's bank statement.",
+                "example": "Blue Suede Shoes - Premium"
+              }
+            }
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/metadata__payments"
+          }
+        }
+      },
+      "CreatePaymentAuthorizationScheduled": {
+        "type": "object",
+        "title": "Scheduled",
+        "description": "Create a Scheduled Payment Authorization.",
+        "required": [
+          "payment_method",
+          "description",
+          "return_url",
+          "payer",
+          "beneficiary",
+          "payment_method_configuration"
+        ],
+        "properties": {
+          "payment_method": {
+            "type": "string",
+            "enum": [
+              "PIX_OF_SCHEDULED"
+            ],
+            "description": "The payment method to authorize. For scheduled one-time payments, this must be set to `PIX_OF_SCHEDULED`.\n",
+            "example": "PIX_OF_SCHEDULED"
+          },
+          "description": {
+            "type": "string",
+            "description": "An internal description for the merchant.",
+            "minLength": 1,
+            "maxLength": 140,
+            "pattern": "[\\w\\W\\s]{1,140}",
+            "example": "Layaway Shoe Payment 3429123"
           },
           "external_id": {
             "type": "string",
@@ -32801,16 +33958,13 @@
             "required": [
               "amount",
               "statement_description",
-              "frequency",
-              "start_date",
-              "contract_id",
-              "contract_debtor"
+              "dates"
             ],
             "properties": {
               "amount": {
                 "type": "number",
                 "format": "float",
-                "description": "{% admonition type=\"warning\" name=\"Only for Fixed Payments\" %}\n  For Fixed Payments Only (`PIX_OF_AUTOMATIC_FIXED`).\n{% /admonition %}\n\nThe amount that your customer will be charged.\n",
+                "description": "The amount that your customer will be charged.\n",
                 "example": 10000.05
               },
               "statement_description": {
@@ -32819,334 +33973,23 @@
                 "maxLength": 140,
                 "pattern": "[\\w\\W\\s]{1,140}",
                 "description": "The description that will appear on your customer's bank statement.",
-                "example": "Monthly Gym - Premium Plan"
+                "example": "Blue Suede Shoes - Premium"
               },
-              "frequency": {
-                "type": "string",
-                "enum": [
-                  "WEEKLY",
-                  "MONTHLY",
-                  "QUARTERLY",
-                  "BIANNUAL",
-                  "YEARLY"
-                ],
-                "description": "The frequency that the payments will be made. Can be either:\n- `WEEKLY`\n- `MONTHLY`\n- `QUARTERLY`\n- `BIANNUAL`\n- `YEARLY`\n",
-                "example": "MONTHLY"
-              },
-              "start_date": {
-                "type": "string",
-                "format": "date",
-                "description": "The date that the authorization (and the first payment of the 'cycle') will begin, in `YYYY-MM-DD` format. Must be at least two days from the current date.\n",
-                "example": "2025-06-01"
-              },
-              "end_date": {
-                "type": "string",
-                "format": "date",
-                "description": "{% admonition type=\"info\" name=\"Only send when end_date is known\" %}\n  If you know the end date of the authorization, you can send it through. If not, you can omit sending this field. However, do not send an empty string or `null` as the value for this field, as this will cause an error.\n{% /admonition %}\n\nThe date that the authorization will end, in `YYYY-MM-DD` format. If no `end_date` is sent through, the Payment Authorization will be valid for an indefinite term.\n",
-                "example": "2026-06-01"
-              },
-              "contract_id": {
-                "type": "string",
-                "minLength": 1,
-                "maxLength": 35,
-                "pattern": "^[a-zA-Z0-9]{1,35}$",
-                "description": "The ID of the marchant's contract with the customer for the service.\n",
-                "example": "PREMIUMPLAN123456"
-              },
-              "contract_debtor": {
-                "$ref": "#/components/schemas/ContractDebtor"
-              },
-              "retries": {
-                "type": "boolean",
-                "default": false,
-                "description": "Boolean that indicates whether payment retries are allowed. By default, this is set to `false`.\n",
-                "example": true
-              },
-              "first_payment": {
-                "$ref": "#/components/schemas/payments__first_payment"
-              }
-            }
-          },
-          "metadata": {
-            "$ref": "#/components/schemas/metadata__payments"
-          }
-        }
-      },
-      "CreatePaymentAuthorizationVariable": {
-        "type": "object",
-        "title": "Variable",
-        "description": "Create a Variable Payment Authorization.",
-        "required": [
-          "payment_method",
-          "description",
-          "return_url",
-          "payer",
-          "beneficiary",
-          "payment_method_configuration"
-        ],
-        "properties": {
-          "payment_method": {
-            "type": "string",
-            "enum": [
-              "PIX_OF_AUTOMATIC_VARIABLE"
-            ],
-            "description": "The payment method to authorize. For variable payments, this must be set to `PIX_OF_AUTOMATIC_VARIABLE`.\n",
-            "example": "PIX_OF_AUTOMATIC_VARIABLE"
-          },
-          "description": {
-            "type": "string",
-            "description": "An internal description for the merchant.",
-            "minLength": 1,
-            "maxLength": 140,
-            "pattern": "[\\w\\W\\s]{1,140}",
-            "example": "Monthly gym subscription payment"
-          },
-          "external_id": {
-            "type": "string",
-            "format": "uuid",
-            "description": "(Highly Recommended) The merchant's internal ID for the authorization.",
-            "example": "c169a8a9-e9f5-48db-9f4a-818caef9356b"
-          },
-          "return_url": {
-            "type": "string",
-            "format": "uri",
-            "description": "The URL that the user should be redirected to after authorizing the payment in the institution.",
-            "example": "https://merchant.com/return"
-          },
-          "payer": {
-            "type": "object",
-            "description": "Details regarding the payer.",
-            "required": [
-              "customer"
-            ],
-            "properties": {
-              "customer": {
-                "description": "Details of the customer making payments to the beneficiary. You can either provide the customer's CPF or CNPJ, or their Belvo ID. If you provide the CPF or CNPJ, we will check if the customer exists in Belvo. If the customer exists, we return their Belvo ID. If not, we create a new customer and return the newly assigned Belvo ID.\n",
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/CustomerObject"
-                  },
-                  {
-                    "$ref": "#/components/schemas/CustomerId"
-                  }
+              "dates": {
+                "type": "array",
+                "description": "The date that the payment is scheduled to be made, in `YYYY-MM-DD` format. Must be at least one day into the future.",
+                "minItems": 1,
+                "maxItems": 1,
+                "items": {
+                  "type": "string",
+                  "format": "date",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                },
+                "example": [
+                  "2025-10-30"
                 ]
-              },
-              "institution": {
-                "type": "string",
-                "description": "The Belvo ID of the institution that they payer will use to pay for the merchant's service. To get the Belvo ID of an institution, use the [Institutions endpoint](https://developers.belvo.com/apis/belvoopenapispec/payment-institutions-(brazil)/listpaymentinstitutionsbrazil).",
-                "example": "ef685cf7-d143-4671-a1e5-4d1d019a3f5c"
-              },
-              "representative_identifier": {
-                "type": "string",
-                "minLength": 14,
-                "maxLength": 14,
-                "pattern": "^[0-9]{14}$",
-                "description": "In the case that the customer is a business, this is the CPF of the representative authorized to make payments for the business.\n",
-                "example": "12345678901234"
               }
             }
-          },
-          "beneficiary": {
-            "type": "object",
-            "description": "Details regarding the beneficiary of the payment.",
-            "required": [
-              "type",
-              "target"
-            ],
-            "properties": {
-              "type": {
-                "type": "string",
-                "enum": [
-                  "BANK_ACCOUNT"
-                ],
-                "description": "The type of beneficiary account. At present, this must be set to `BANK_ACCOUNT`.",
-                "example": "BANK_ACCOUNT"
-              },
-              "target": {
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/BankAccountObject"
-                  },
-                  {
-                    "$ref": "#/components/schemas/BankAccountId"
-                  }
-                ],
-                "description": "Details regarding the bank account that will receive funds. You can either provide the complete details of the bank account or the Belvo ID. If you provide the complete bank account details, we will check if the bank account exists in Belvo. If the bank account exists, we return their Belvo ID. If not, we create a new bank account and return the newly assigned Belvo ID."
-              }
-            }
-          },
-          "payment_method_configuration": {
-            "type": "object",
-            "description": "Details regarding the payment.",
-            "required": [
-              "minimum_amount",
-              "maximum_amount",
-              "statement_description",
-              "frequency",
-              "start_date",
-              "contract_id",
-              "contract_debtor"
-            ],
-            "properties": {
-              "minimum_amount": {
-                "type": "number",
-                "format": "float",
-                "description": "{% admonition type=\"warning\" name=\"Only for Variable Payments\" %}\n  For Variable Payments Only (`PIX_OF_AUTOMATIC_VARIABLE`).\n{% /admonition %}\n\nThe minimum amount that your customer will be charged.\n",
-                "example": 10000.01
-              },
-              "maximum_amount": {
-                "type": "number",
-                "format": "float",
-                "description": "{% admonition type=\"warning\" name=\"Only for Variable Payments\" %}\n  For Variable Payments Only (`PIX_OF_AUTOMATIC_VARIABLE`).\n{% /admonition %}\n\nThe maximum amount that your customer can be charged. Note that during the consent granting process, the customer can set a maximum amount that is lower than this value.\n",
-                "example": 50000.5
-              },
-              "statement_description": {
-                "type": "string",
-                "minLength": 1,
-                "maxLength": 140,
-                "pattern": "[\\w\\W\\s]{1,140}",
-                "description": "The description that will appear on your customer's bank statement.",
-                "example": "Monthly Gym - Premium Plan"
-              },
-              "frequency": {
-                "type": "string",
-                "enum": [
-                  "WEEKLY",
-                  "MONTHLY",
-                  "QUARTERLY",
-                  "BIANNUAL",
-                  "YEARLY"
-                ],
-                "description": "The frequency that the payments will be made. Can be either:\n- `WEEKLY`\n- `MONTHLY`\n- `QUARTERLY`\n- `BIANNUAL`\n- `YEARLY`\n",
-                "example": "MONTHLY"
-              },
-              "start_date": {
-                "type": "string",
-                "format": "date",
-                "description": "The date that the authorization (and the first payment of the 'cycle') will begin, in `YYYY-MM-DD` format. Must be at least two days from the current date.\n",
-                "example": "2025-06-01"
-              },
-              "end_date": {
-                "type": "string",
-                "format": "date",
-                "description": "{% admonition type=\"info\" name=\"Only send when end_date is known\" %}\n  If you know the end date of the authorization, you can send it through. If not, you can omit sending this field. However, do not send an empty string or `null` as the value for this field, as this will cause an error.\n{% /admonition %}\n\nThe date that the authorization will end, in `YYYY-MM-DD` format. If no `end_date` is sent through, the Payment Authorization will be valid for an indefinite term.\n",
-                "example": "2026-06-01"
-              },
-              "contract_id": {
-                "type": "string",
-                "minLength": 1,
-                "maxLength": 35,
-                "pattern": "^[a-zA-Z0-9]{1,35}$",
-                "description": "The ID of the marchant's contract with the customer for the service.\n",
-                "example": "PREMIUMPLAN123456"
-              },
-              "contract_debtor": {
-                "$ref": "#/components/schemas/ContractDebtor"
-              },
-              "retries": {
-                "type": "boolean",
-                "default": false,
-                "description": "Boolean that indicates whether payment retries are allowed. By default, this is set to `false`.\n",
-                "example": true
-              },
-              "first_payment": {
-                "$ref": "#/components/schemas/payments__first_payment"
-              }
-            }
-          },
-          "metadata": {
-            "$ref": "#/components/schemas/metadata__payments"
-          }
-        }
-      },
-      "CreateChargePixAutomaticoDefaultBankAccount": {
-        "type": "object",
-        "title": "Charge for Default Bank Account",
-        "description": "Create a Charge for the default bank account associated with the Payment Authorization.",
-        "required": [
-          "amount",
-          "date",
-          "statement_description"
-        ],
-        "properties": {
-          "amount": {
-            "type": "number",
-            "format": "float",
-            "minimum": 0.01,
-            "description": "The amount of the payment.\n\n- For `PIX_OF_AUTOMATIC_FIXED`, this must be the same value as you sent in the authorization.\n- For `PIX_OF_AUTOMATIC_VARIABLE`, this must be between the `minimum` and `maximum` values as you sent in the authorization.\n",
-            "example": 100.01
-          },
-          "date": {
-            "type": "string",
-            "format": "date",
-            "description": "The date that the payment must be made, in `YYYY-MM-DD` format. Must be at least two days after the current date.\n",
-            "example": "2025-05-15"
-          },
-          "statement_description": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 140,
-            "pattern": "[\\w\\W\\s]{1,140}",
-            "description": "The description that will appear on your customer's bank statement.",
-            "example": "Monthly Gym - Premium Plan"
-          },
-          "external_id": {
-            "$ref": "#/components/schemas/external_id__payments"
-          },
-          "metadata": {
-            "$ref": "#/components/schemas/metadata__payments"
-          }
-        }
-      },
-      "CreateChargePixAutomaticoDifferentBankAccount": {
-        "type": "object",
-        "title": "Charge for Different Bank Account",
-        "description": "Create a Charge for a bank account that was not originally associated with the Payment Authorization.",
-        "required": [
-          "amount",
-          "date",
-          "statement_description",
-          "beneficiary"
-        ],
-        "properties": {
-          "amount": {
-            "type": "number",
-            "format": "float",
-            "minimum": 0.01,
-            "description": "The amount of the payment.\n\n- For `PIX_OF_AUTOMATIC_FIXED`, this must be the same value as you sent in the authorization.\n- For `PIX_OF_AUTOMATIC_VARIABLE`, this must be between the `minimum` and `maximum` values as you sent in the authorization.\n",
-            "example": 100.01
-          },
-          "date": {
-            "type": "string",
-            "format": "date",
-            "description": "The date that the payment must be made, in `YYYY-MM-DD` format. Must be at least two days after the current date.\n",
-            "example": "2025-05-15"
-          },
-          "statement_description": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 140,
-            "pattern": "[\\w\\W\\s]{1,140}",
-            "description": "The description that will appear on your customer's bank statement.",
-            "example": "Monthly Gym - Premium Plan"
-          },
-          "beneficiary": {
-            "type": "object",
-            "description": "Details of the bank account that will receive the payment.",
-            "required": [
-              "target"
-            ],
-            "properties": {
-              "target": {
-                "type": "string",
-                "format": "uuid",
-                "description": "The Belvo ID of the bank account you previously registered that will receive funds. For more information on how to register a bank account, see the [Register Bank Account endpoint](https://developers.belvo.com/apis/belvoopenapispec/bank-accounts-(brazil)/registerbankaccountbrazil).",
-                "example": "046f9af7-1813-4830-b4e6-5231e8111ca1"
-              }
-            }
-          },
-          "external_id": {
-            "$ref": "#/components/schemas/external_id__payments"
           },
           "metadata": {
             "$ref": "#/components/schemas/metadata__payments"
@@ -33907,6 +34750,50 @@
               "type": "array",
               "items": {
                 "$ref": "#/components/schemas/401UnauthorizedError"
+              }
+            }
+          }
+        }
+      },
+      "409_idempotency_conflict_error": {
+        "description": "Idempotency Conflict",
+        "headers": {
+          "Belvo-Idempotency-Key": {
+            "$ref": "#/components/headers/header_idempotency_key_response"
+          },
+          "Belvo-Idempotency-Status": {
+            "$ref": "#/components/headers/header_idempotency_key_status_response"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "array",
+              "description": "This error occurs when a request with the same idempotency key is already being processed. Check the `Belvo-Idempotency-Status` response header to determine the use status of the idempotency key.\n",
+              "items": {
+                "$ref": "#/components/schemas/409IdempotencyConflictError"
+              }
+            }
+          }
+        }
+      },
+      "422_idempotency_mismatch_error": {
+        "description": "Unprocessable Entity - Idempotency Key Mismatch",
+        "headers": {
+          "Belvo-Idempotency-Key": {
+            "$ref": "#/components/headers/header_idempotency_key_response"
+          },
+          "Belvo-Idempotency-Status": {
+            "$ref": "#/components/headers/header_idempotency_key_status_response"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "array",
+              "description": "This error occurs when the same idempotency key is reused with a different request payload. To retry this request, generate a new unique idempotency key.\n",
+              "items": {
+                "$ref": "#/components/schemas/422IdempotencyMismatchError"
               }
             }
           }
@@ -40801,6 +41688,200 @@
               }
             }
           ]
+        }
+      },
+      "PaymentIntentResponsePixKeyInitial": {
+        "summary": "Pix Key",
+        "description": "Pix Key Payment Intent",
+        "value": {
+          "id": "0d3ffb69-f83b-456e-ad8e-208d0998d71d",
+          "customer": "1c83ead8-6665-429c-a17a-ddc76cb3a95e",
+          "external_id": "4b8a81a0-e33c-45a6-8567-479efb105f73",
+          "created_at": "2022-02-09T08:45:50.406032Z",
+          "created_by": "bcef7f35-67f2-4b19-b009-cb38795faf09",
+          "updated_at": "2022-02-09T08:45:50.406032Z",
+          "status": "REQUIRES_ACTION",
+          "amount": "1234.12",
+          "currency": "BRL",
+          "description": "Training shoes",
+          "statement_description": "Super Shoe Store - Brown Sneakers",
+          "selected_payment_method_type": "open_finance",
+          "allowed_payment_method_types": [
+            "open_finance"
+          ],
+          "payment_method_details": {
+            "open_finance": {
+              "pix_key": "53497b80-81a2-4ea8-9296-83a909c05bdf",
+              "payer_institution": "600f1b4a-1ef9-4f89-b341-1a35f0c32cc0",
+              "callback_url": "https://www.acmecorp.com/checkout/3487321",
+              "cpf": "23******00",
+              "schedule": {
+                "single": {
+                  "date": "2024-10-22"
+                }
+              }
+            }
+          },
+          "payment_method_information": {
+            "open_finance": {
+              "pix_key_details": {
+                "identifier": "23******00",
+                "name": "Jo\u00e3o da Silva"
+              }
+            }
+          },
+          "failure_code": null,
+          "failure_message": null,
+          "metadata": {
+            "internal_reference_id": "GGq73487w2"
+          },
+          "charges": [],
+          "provider": "belvo",
+          "last_error": {
+            "error_code": "payment_error",
+            "error_message": "Unexpected error to confirm the payment"
+          },
+          "next_step": null
+        }
+      },
+      "PaymentIntentResponseOfpiBankAccount": {
+        "summary": "Bank Account",
+        "description": "Bank Account (Confirmed)",
+        "value": {
+          "id": "0d3ffb69-f83b-456e-ad8e-208d0998d71d",
+          "customer": "1c83ead8-6665-429c-a17a-ddc76cb3a95e",
+          "external_id": "4b8a81a0-e33c-45a6-8567-479efb105f73",
+          "created_at": "2022-02-09T08:45:50.406032Z",
+          "created_by": "bcef7f35-67f2-4b19-b009-cb38795faf09",
+          "updated_at": "2022-02-09T08:45:50.406032Z",
+          "status": "REQUIRES_ACTION",
+          "amount": "1234.12",
+          "currency": "BRL",
+          "description": "Training shoes",
+          "statement_description": "Super Shoe Store - Brown Sneakers",
+          "selected_payment_method_type": "open_finance",
+          "allowed_payment_method_types": [
+            "open_finance"
+          ],
+          "payment_method_details": {
+            "open_finance": {
+              "beneficiary_bank_account": "a80d5a9d-20ae-479a-8dd7-ff3443bcbbfc",
+              "payer_institution": "600f1b4a-1ef9-4f89-b341-1a35f0c32cc0",
+              "schedule": {
+                "single": {
+                  "date": "2024-10-22"
+                }
+              },
+              "callback_url": "https://www.acmecorp.com/checkout/3487321",
+              "cpf": "23******00"
+            }
+          },
+          "payment_method_information": {
+            "open_finance": {
+              "provider_request_id": "978c0c97ea847e78e8849634473c1f1",
+              "redirect_url": "https://wakandanational.com/",
+              "end_to_end_id": "F203262942022211117487a213b1d140",
+              "settlement_date": "2024-10-22"
+            }
+          },
+          "failure_code": null,
+          "failure_message": null,
+          "metadata": {
+            "internal_reference_id": "GGq73487w2"
+          },
+          "charges": [
+            {
+              "id": "0d3ffb69-f83b-456e-ad8e-208d0998d71d",
+              "created_at": "2022-02-09T08:45:50.406032Z",
+              "updated_at": "2022-02-09T08:45:50.406032Z",
+              "created_by": "bcef7f35-67f2-4b19-b009-cb38795faf09",
+              "customer": "531aa631-70a0-4eeb-ab97-51dea3e90c89",
+              "payment_intent": "50c04229-7b1d-4a53-951c-8ad53e10c6ca",
+              "status": "PENDING",
+              "amount": "100.12",
+              "currency": "BRL",
+              "description": "Training shoes",
+              "statement_description": "Super Shoe Store - Brown Sneakers",
+              "beneficiary": "58524ccc-89ac-4ab6-b62b-c3da3f19a722",
+              "provider": "belvo",
+              "payment_method_type": "open_finance",
+              "payment_method_details": {
+                "open_finance": {
+                  "schedule": {
+                    "single": {
+                      "date": "2024-10-22"
+                    }
+                  },
+                  "payer_institution": "db201c6a-e0ee-4caa-92d6-72b480d6d86f",
+                  "beneficiary_bank_account": "a80d5a9d-20ae-479a-8dd7-ff3443bcbbfc"
+                }
+              },
+              "payment_method_information": {
+                "open_finance": {
+                  "provider_request_id": "978c0c97ea847e78e8849634473c1f1",
+                  "redirect_url": "https://wakandanational.com/",
+                  "end_to_end_id": "F203262942022211117487a213b1d140",
+                  "settlement_date": "2024-10-22"
+                }
+              },
+              "payer_information": {
+                "bank_account": {
+                  "code": "123345",
+                  "type": "CHECKINGS",
+                  "agency": "1234",
+                  "number": "123456789"
+                }
+              },
+              "transactions": [
+                {
+                  "id": "0d3ffb69-f83b-456e-ad8e-208d0998d71d",
+                  "created_at": "2022-02-09T08:45:50.406032Z",
+                  "created_by": "bcef7f35-67f2-4b19-b009-cb38795faf09",
+                  "amount": "1020.00",
+                  "currency": "BRL",
+                  "description": "Training shoes",
+                  "transaction_type": "INFLOW",
+                  "beneficiary": "a80d5a9d-20ae-479a-8dd7-ff3443bcbbfc",
+                  "payer": null,
+                  "payment_intent": "004a28bb-fac2-4172-884b-5b6ea15314ad",
+                  "customer": "9eebd63b-3339-44a9-8a5a-72bb6cb2f310"
+                }
+              ],
+              "failure_code": null,
+              "failure_message": null,
+              "metadata": {
+                "internal_reference_id": "GGq73487w2"
+              }
+            }
+          ],
+          "provider": "belvo",
+          "last_error": {
+            "error_code": "payment_error",
+            "error_message": "Unexpected error to confirm the payment"
+          },
+          "next_step": null
+        }
+      }
+    },
+    "headers": {
+      "header_idempotency_key_response": {
+        "description": "The idempotency key that was used in the request. This key helps prevent duplicate operations by allowing the server to recognize repeated requests with the same key and return the original response instead of processing the request again.\n",
+        "schema": {
+          "type": "string",
+          "format": "uuid",
+          "example": "82737f32-7730-4832-a985-dd86df70301c"
+        }
+      },
+      "header_idempotency_key_status_response": {
+        "description": "The status of the idempotent request associated with the `Belvo-Idempotency-Key` header.\n\nCan be one of the following values:\n- `AVAILABLE`: The original request has been processed successfully, and the response is available.\n- `PROCESSING`: The original request is still being processed.\n- `REPLAYED`: The original request has already been processed, and the response has been returned.\n",
+        "schema": {
+          "type": "string",
+          "enum": [
+            "AVAILABLE",
+            "PROCESSING",
+            "REPLAYED"
+          ],
+          "example": "AVAILABLE"
         }
       }
     }
