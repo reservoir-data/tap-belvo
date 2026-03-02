@@ -15,8 +15,6 @@ keywords = [
   "singer.io",
 ]
 license = "Apache-2.0"
-maintainers = [ { name = "Edgar Ramírez-Mondragón", email = "edgarrm358@gmail.com" } ]
-authors = [ { name = "Edgar Ramírez-Mondragón", email = "edgarrm358@gmail.com" } ]
 requires-python = ">=3.11"
 classifiers = [
   "Programming Language :: Python :: 3 :: Only",
@@ -34,10 +32,18 @@ dependencies = [
   "singer-sdk~=0.53.2",
   "typing-extensions>=4.15; python_full_version<'3.12'",
 ]
-urls.Documentation = "https://github.com/reservoir-data/tap-belvo#readme"
-urls.Homepage = "https://github.com/reservoir-data/tap-belvo"
-urls.Source = "https://github.com/reservoir-data/tap-belvo"
-scripts."tap-belvo" = "tap_belvo.tap:TapBelvo.cli"
+[[project.authors]]
+name = "Edgar Ramírez-Mondragón"
+email = "edgarrm358@gmail.com"
+[[project.maintainers]]
+name = "Edgar Ramírez-Mondragón"
+email = "edgarrm358@gmail.com"
+[project.scripts]
+"tap-belvo" = "tap_belvo.tap:TapBelvo.cli"
+[project.urls]
+Documentation = "https://github.com/reservoir-data/tap-belvo#readme"
+Homepage = "https://github.com/reservoir-data/tap-belvo"
+Source = "https://github.com/reservoir-data/tap-belvo"
 
 [dependency-groups]
 dev = [
@@ -65,35 +71,36 @@ typing = [
 source = "vcs"
 
 [tool.uv]
+required-version = ">=0.8"
 prerelease = "allow"
 preview = true
-required-version = ">=0.8"
 
 [tool.ruff]
 line-length = 88
-
-lint.select = [ "ALL" ]
-lint.ignore = [
+[tool.ruff.lint]
+select = [ "ALL" ]
+ignore = [
   "COM812", # missing-trailing-comma
   "DJ",     # flake8-django
   "FIX002", # line-contains-todo
   "ISC001", # single-line-implicit-string-concatenation
 ]
-lint.per-file-ignores."noxfile.py" = [ "ANN" ]
-lint.per-file-ignores."tests/*" = [
+per-file-ignores."noxfile.py" = [ "ANN" ]
+per-file-ignores."tests/*" = [
   "ANN201", # missing-return-type-public-function
   "S101",   # assert
   "SLF001", # private-member-access
 ]
-lint.unfixable = [
+unfixable = [
   "ERA001", # commented-out-code
 ]
-lint.isort.known-first-party = [ "tap_belvo" ]
-lint.isort.required-imports = [ "from __future__ import annotations" ]
-lint.pydocstyle.convention = "google"
+isort.known-first-party = [ "tap_belvo" ]
+isort.required-imports = [ "from __future__ import annotations" ]
+pydocstyle.convention = "google"
 
 [tool.pyproject-fmt]
 max_supported_python = "3.14"
+table_format = "long"
 
 [tool.pytest.ini_options]
 minversion = "9.0.0"
@@ -111,11 +118,9 @@ env_list = [
   "typing",
   "3.14",
 ]
-
 [tool.tox.env.dependencies]
 dependency_groups = [ "testing" ]
 commands = [ [ "deptry", "." ] ]
-
 [tool.tox.env.typing]
 dependency_groups = [ "testing", "typing" ]
 commands = [
