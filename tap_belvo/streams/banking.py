@@ -2,16 +2,10 @@
 
 from __future__ import annotations
 
-import sys
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, override
 
 from tap_belvo.client import BelvoStream
 from tap_belvo.streams.core import Links
-
-if sys.version_info >= (3, 12):
-    from typing import override
-else:
-    from typing_extensions import override
 
 if TYPE_CHECKING:
     from urllib.parse import ParseResult
