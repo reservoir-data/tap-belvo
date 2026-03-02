@@ -2,17 +2,12 @@
 
 from __future__ import annotations
 
-import sys
+from typing import override
 
 import singer_sdk
 from singer_sdk import typing as th
 
 from tap_belvo.streams import banking, core, enrichment, fiscal
-
-if sys.version_info >= (3, 12):
-    from typing import override
-else:
-    from typing_extensions import override
 
 
 class TapBelvo(singer_sdk.Tap):
