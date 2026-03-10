@@ -384,6 +384,7 @@
       "breadcrumb": [],
       "metadata": {
         "inclusion": "available",
+        "replication-key": "created_at",
         "selected": true,
         "selected-by-default": true,
         "table-key-properties": [
