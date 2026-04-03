@@ -2,7 +2,7 @@
 build-backend = "hatchling.build"
 requires = [
   "hatch-vcs==0.5",
-  "hatchling==1.28",
+  "hatchling==1.29",
 ]
 
 [project]
@@ -37,7 +37,7 @@ email = "edgarrm358@gmail.com"
 name = "Edgar Ramírez-Mondragón"
 email = "edgarrm358@gmail.com"
 [project.scripts]
-"tap-belvo" = "tap_belvo.tap:TapBelvo.cli"
+tap-belvo = "tap_belvo.tap:TapBelvo.cli"
 [project.urls]
 Documentation = "https://github.com/reservoir-data/tap-belvo#readme"
 Homepage = "https://github.com/reservoir-data/tap-belvo"
@@ -69,7 +69,7 @@ typing = [
 source = "vcs"
 
 [tool.uv]
-required-version = ">=0.8"
+required-version = ">=0.10"
 prerelease = "allow"
 preview = true
 
@@ -83,7 +83,6 @@ ignore = [
   "FIX002", # line-contains-todo
   "ISC001", # single-line-implicit-string-concatenation
 ]
-per-file-ignores."noxfile.py" = [ "ANN" ]
 per-file-ignores."tests/*" = [
   "ANN201", # missing-return-type-public-function
   "S101",   # assert
@@ -92,44 +91,15 @@ per-file-ignores."tests/*" = [
 unfixable = [
   "ERA001", # commented-out-code
 ]
-isort.known-first-party = [ "tap_belvo" ]
-isort.required-imports = [ "from __future__ import annotations" ]
 pydocstyle.convention = "google"
+
+[tool.deptry.package_module_name_map]
+mypy = "mypy"
+ty = "ty"
+types-requests = "requests"
 
 [tool.pyproject-fmt]
 table_format = "long"
-
-[tool.pytest.ini_options]
-minversion = "9"
-addopts = [ "-vvv" ]
-filterwarnings = [
-  "error",
-]
-
-[tool.tox]
-min_version = "4.22"
-env_list = [
-  "dependencies",
-  "typing",
-  { product = [
-    { prefix = "3.", start = 12 },
-  ] },
-]
-[tool.tox.env.dependencies]
-dependency_groups = [ "testing" ]
-commands = [ [ "deptry", "." ] ]
-[tool.tox.env.typing]
-dependency_groups = [ "testing", "typing" ]
-commands = [
-  [ "mypy", "--strict", { replace = "posargs", default = [ "tap_belvo", "tests" ], extend = true } ],
-  [ "ty", "check", { replace = "posargs", default = [ "tap_belvo", "tests" ], extend = true } ],
-]
-
-[tool.tox.env_run_base]
-runner = "uv-venv-lock-runner"
-pass_env = [ "TAP_BELVO_*" ]
-dependency_groups = [ "testing" ]
-commands = [ [ "pytest", { replace = "posargs", default = [ "tests" ], extend = true } ] ]
 
 [tool.mypy]
 enable_error_code = [
@@ -137,9 +107,56 @@ enable_error_code = [
   "redundant-expr",
   "truthy-bool",
 ]
+strict = true
 warn_redundant_casts = true
 warn_return_any = true
 warn_no_return = true
 warn_unreachable = true
 warn_unused_configs = true
 warn_unused_ignores = true
+
+[tool.ty.rules]
+unused-type-ignore-comment = "ignore"
+
+[tool.pytest]
+addopts = [
+  "-v",
+  "-ra",
+]
+filterwarnings = [
+  "error",
+]
+log_level = "INFO"
+minversion = "9"
+strict = true
+testpaths = [ "tests" ]
+
+[tool.tox]
+requires = [ "tox>=4.51", "tox-uv" ]
+env_list = [
+  "dependencies",
+  "typing",
+  "test",
+]
+[tool.tox.env.dependencies]
+description = "check for unused, missing and transitive dependencies"
+dependency_groups = [ "testing" ]
+labels = [ "check" ]
+commands = [ [ "deptry", "." ] ]
+[tool.tox.env.test]
+base_python_python = [ ".python-version" ]
+[tool.tox.env.typing]
+description = "type checks"
+dependency_groups = [ "testing", "typing" ]
+labels = [ "check" ]
+commands = [
+  [ "mypy", { replace = "posargs", default = [ "tap_belvo", "tests" ], extend = true } ],
+  [ "ty", "check", { replace = "posargs", default = [ "tap_belvo", "tests" ], extend = true } ],
+]
+
+[tool.tox.env_run_base]
+description = "run tests on Python {py_dot_ver}"
+runner = "uv-venv-lock-runner"
+pass_env = [ "TAP_BELVO_*" ]
+dependency_groups = [ "testing" ]
+commands = [ [ "pytest", { replace = "posargs", default = [ "tests" ], extend = true } ] ]
