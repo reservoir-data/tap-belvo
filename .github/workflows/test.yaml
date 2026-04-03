@@ -7,18 +7,15 @@ on:
     - tap_belvo/**
     - tests/**
     - pyproject.toml
-    - tox.ini
     - uv.lock
-    - .github/workflows/test.yml
+    - .github/workflows/test.yaml
   pull_request:
-    branches: [main]
     paths:
     - tap_belvo/**
     - tests/**
     - pyproject.toml
-    - tox.ini
     - uv.lock
-    - .github/workflows/test.yml
+    - .github/workflows/test.yaml
   workflow_dispatch:
   schedule:
   - cron: "0 10 * * *"
@@ -44,7 +41,7 @@ env:
 jobs:
   build-package:
     name: Build & verify package
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     outputs:
       supported-python-versions: ${{ steps.baipp.outputs.supported_python_classifiers_json_array }}
     steps:
@@ -56,11 +53,11 @@ jobs:
         id: baipp
 
   tests:
-    name: Integration
-    runs-on: ubuntu-latest
+    name: Test
+    runs-on: ubuntu-24.04
     needs: build-package
     strategy:
-      fail-fast: false
+      max-parallel: 2
       matrix:
         python-version: ${{ fromJson(needs.build-package.outputs.supported-python-versions) }}
 
@@ -82,25 +79,25 @@ jobs:
         tox -e ${{ matrix.python-version }}
 
   static:
-    name: Static analysis
+    name: Static Analysis
     runs-on: ubuntu-24.04
     steps:
     - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-    - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
-      id: setup-python
     - uses: astral-sh/setup-uv@5a095e7a2014a4212f075830d4f7277575a9d098 # v7.3.1
       with:
         version: ${{ env.UV_VERSION }}
-    - env:
-        UV_PYTHON: ${{ steps.setup-python.outputs.python-path }}
-      run: uv tool install --with tox-uv==${{ env.TOX_UV_VERSION }} --from tox==${{ env.TOX_VERSION }} tox
-    - name: Static type checking
-      run: tox -e typing
-    - name: Unused, missing and transitive dependencies
-      run: tox -e dependencies
+    - name: Install tools
+      run: >
+        uv tool install
+        --managed-python
+        --with tox-uv==${{ env.TOX_UV_VERSION }}
+        --from tox==${{ env.TOX_VERSION }}
+        tox
+    - name: Static Analysis
+      run: tox -m check
 
   pre-commit:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
     - name: Checkout code
       uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
