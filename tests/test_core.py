@@ -57,9 +57,9 @@ def test_paginator() -> None:
         query="page=2&page_size=100",
         fragment="",
     )
-    assert paginator.count == 1
+    assert paginator.count == 1  # type: ignore[unreachable]
 
     response._content = b'{"next": null}'
     paginator.advance(response)
     assert paginator.finished
-    assert paginator.count == 2  # type: ignore[unreachable] # noqa: PLR2004
+    assert paginator.count == 2  # noqa: PLR2004
