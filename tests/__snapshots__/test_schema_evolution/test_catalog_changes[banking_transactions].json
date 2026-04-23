@@ -15,6 +15,37 @@
     {
       "breadcrumb": [
         "properties",
+        "internal_identification"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "id"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
         "link"
       ],
       "metadata": {
@@ -24,6 +55,8 @@
     {
       "breadcrumb": [
         "properties",
+        "account",
+        "properties",
         "institution"
       ],
       "metadata": {
@@ -32,6 +65,8 @@
     },
     {
       "breadcrumb": [
+        "properties",
+        "account",
         "properties",
         "institution",
         "properties",
@@ -44,9 +79,1024 @@
     {
       "breadcrumb": [
         "properties",
+        "account",
+        "properties",
         "institution",
         "properties",
         "type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "collected_at"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "created_at"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "last_accessed_at"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "category"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "balance_type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "overdraft"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "overdraft",
+        "properties",
+        "arranged"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "overdraft",
+        "properties",
+        "used"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "overdraft",
+        "properties",
+        "unarranged"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "subtype"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "number"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "agency"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "check_digit"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "balance"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "balance",
+        "properties",
+        "current"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "balance",
+        "properties",
+        "available"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "balance",
+        "properties",
+        "blocked"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "balance",
+        "properties",
+        "automatically_invested"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "currency"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "public_identification_name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "public_identification_value"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "internal_identification"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "credit_data"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "credit_data",
+        "properties",
+        "collected_at"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "credit_data",
+        "properties",
+        "credit_limit"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "credit_data",
+        "properties",
+        "limits"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "credit_data",
+        "properties",
+        "cutting_date"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "credit_data",
+        "properties",
+        "minimum_payment"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "credit_data",
+        "properties",
+        "network"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "credit_data",
+        "properties",
+        "network_additional_info"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "credit_data",
+        "properties",
+        "cards"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "credit_data",
+        "properties",
+        "next_payment_date"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "credit_data",
+        "properties",
+        "no_interest_payment"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "credit_data",
+        "properties",
+        "interest_rate"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "credit_data",
+        "properties",
+        "monthly_payment"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "credit_data",
+        "properties",
+        "last_payment_date"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "collected_at"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "loan_code"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "contract_amount"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "total_effective_cost"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "loan_type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "outstanding_balance"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "interest_rates"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "fees"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "contracted_charges"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "collaterals"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "balloon_payments"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "installments_contract_term_frequency"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "installment_frequency"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "installment_frequency_info"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "first_installment_due_date"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "number_of_installments_total"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "number_of_installments_outstanding"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "number_of_installments_paid"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "number_of_installments_past_due"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "disbursement_dates"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "settlement_date"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "contract_start_date"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "contract_end_date"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "contract_remaining_frequency"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "contract_remaining_total"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "amortization_schedule"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "amortization_schedule_info"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "consignee_id"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "contract_number"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "monthly_payment"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "principal"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "payment_day"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "outstanding_principal"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "credit_limit"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "last_period_balance"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "interest_rate"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "limit_day"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "cutting_day"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "cutting_date"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "last_payment_date"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "loan_data",
+        "properties",
+        "no_interest_payment"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
+        "funds_data"
       ],
       "metadata": {
         "inclusion": "available"
@@ -73,7 +1123,7 @@
     {
       "breadcrumb": [
         "properties",
-        "category"
+        "value_date"
       ],
       "metadata": {
         "inclusion": "available"
@@ -82,7 +1132,7 @@
     {
       "breadcrumb": [
         "properties",
-        "balance_type"
+        "transacted_at"
       ],
       "metadata": {
         "inclusion": "available"
@@ -91,7 +1141,7 @@
     {
       "breadcrumb": [
         "properties",
-        "type"
+        "accounting_date"
       ],
       "metadata": {
         "inclusion": "available"
@@ -100,7 +1150,7 @@
     {
       "breadcrumb": [
         "properties",
-        "name"
+        "inferred_accounting_date"
       ],
       "metadata": {
         "inclusion": "available"
@@ -109,7 +1159,16 @@
     {
       "breadcrumb": [
         "properties",
-        "number"
+        "amount"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "local_currency_amount"
       ],
       "metadata": {
         "inclusion": "available"
@@ -127,28 +1186,6 @@
     {
       "breadcrumb": [
         "properties",
-        "balance",
-        "properties",
-        "current"
-      ],
-      "metadata": {
-        "inclusion": "available"
-      }
-    },
-    {
-      "breadcrumb": [
-        "properties",
-        "balance",
-        "properties",
-        "available"
-      ],
-      "metadata": {
-        "inclusion": "available"
-      }
-    },
-    {
-      "breadcrumb": [
-        "properties",
         "currency"
       ],
       "metadata": {
@@ -158,7 +1195,7 @@
     {
       "breadcrumb": [
         "properties",
-        "public_identification_name"
+        "description"
       ],
       "metadata": {
         "inclusion": "available"
@@ -167,7 +1204,7 @@
     {
       "breadcrumb": [
         "properties",
-        "public_identification_value"
+        "observations"
       ],
       "metadata": {
         "inclusion": "available"
@@ -176,7 +1213,7 @@
     {
       "breadcrumb": [
         "properties",
-        "last_accessed_at"
+        "merchant"
       ],
       "metadata": {
         "inclusion": "available"
@@ -185,7 +1222,9 @@
     {
       "breadcrumb": [
         "properties",
-        "credit_data"
+        "merchant",
+        "properties",
+        "logo"
       ],
       "metadata": {
         "inclusion": "available"
@@ -194,9 +1233,9 @@
     {
       "breadcrumb": [
         "properties",
-        "credit_data",
+        "merchant",
         "properties",
-        "credit_limit"
+        "website"
       ],
       "metadata": {
         "inclusion": "available"
@@ -205,7 +1244,72 @@
     {
       "breadcrumb": [
         "properties",
-        "credit_data",
+        "merchant",
+        "properties",
+        "merchant_name"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "category"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "subcategory"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "reference"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "status"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "credit_card_data"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "credit_card_data",
         "properties",
         "collected_at"
       ],
@@ -216,9 +1320,9 @@
     {
       "breadcrumb": [
         "properties",
-        "credit_data",
+        "credit_card_data",
         "properties",
-        "cutting_date"
+        "bill_name"
       ],
       "metadata": {
         "inclusion": "available"
@@ -227,9 +1331,9 @@
     {
       "breadcrumb": [
         "properties",
-        "credit_data",
+        "credit_card_data",
         "properties",
-        "next_payment_date"
+        "bill_due_date"
       ],
       "metadata": {
         "inclusion": "available"
@@ -238,9 +1342,9 @@
     {
       "breadcrumb": [
         "properties",
-        "credit_data",
+        "credit_card_data",
         "properties",
-        "minimum_payment"
+        "bill_internal_identification"
       ],
       "metadata": {
         "inclusion": "available"
@@ -249,9 +1353,9 @@
     {
       "breadcrumb": [
         "properties",
-        "credit_data",
+        "credit_card_data",
         "properties",
-        "no_interest_payment"
+        "bill_status"
       ],
       "metadata": {
         "inclusion": "available"
@@ -260,9 +1364,9 @@
     {
       "breadcrumb": [
         "properties",
-        "credit_data",
+        "credit_card_data",
         "properties",
-        "interest_rate"
+        "previous_bill_total"
       ],
       "metadata": {
         "inclusion": "available"
@@ -271,9 +1375,9 @@
     {
       "breadcrumb": [
         "properties",
-        "credit_data",
+        "credit_card_data",
         "properties",
-        "monthly_payment"
+        "bill_amount"
       ],
       "metadata": {
         "inclusion": "available"
@@ -282,9 +1386,9 @@
     {
       "breadcrumb": [
         "properties",
-        "credit_data",
+        "credit_card_data",
         "properties",
-        "last_payment_date"
+        "card_number"
       ],
       "metadata": {
         "inclusion": "available"
@@ -293,9 +1397,176 @@
     {
       "breadcrumb": [
         "properties",
-        "credit_data",
+        "credit_card_data",
         "properties",
-        "last_period_balance"
+        "fee_type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "credit_card_data",
+        "properties",
+        "fee_type_additional_info"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "credit_card_data",
+        "properties",
+        "credits_type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "credit_card_data",
+        "properties",
+        "credits_type_additional_info"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "credit_card_data",
+        "properties",
+        "installment_identifier"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "credit_card_data",
+        "properties",
+        "number_of_installments"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "credit_card_data",
+        "properties",
+        "credit_card_bill"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "credit_card_data",
+        "properties",
+        "credit_card_bill",
+        "properties",
+        "id"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "credit_card_data",
+        "properties",
+        "credit_card_bill",
+        "properties",
+        "internal_identification"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "counterparty"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "counterparty",
+        "properties",
+        "type"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "counterparty",
+        "properties",
+        "document_number"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "counterparty",
+        "properties",
+        "clearing_code"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "counterparty",
+        "properties",
+        "agency"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "counterparty",
+        "properties",
+        "check_digit"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "counterparty",
+        "properties",
+        "number"
       ],
       "metadata": {
         "inclusion": "available"
@@ -315,7 +1586,7 @@
         "properties",
         "loan_data",
         "properties",
-        "collected_at"
+        "is_detached"
       ],
       "metadata": {
         "inclusion": "available"
@@ -326,84 +1597,7 @@
         "properties",
         "loan_data",
         "properties",
-        "contract_amount"
-      ],
-      "metadata": {
-        "inclusion": "available"
-      }
-    },
-    {
-      "breadcrumb": [
-        "properties",
-        "loan_data",
-        "properties",
-        "principal"
-      ],
-      "metadata": {
-        "inclusion": "available"
-      }
-    },
-    {
-      "breadcrumb": [
-        "properties",
-        "loan_data",
-        "properties",
-        "loan_type"
-      ],
-      "metadata": {
-        "inclusion": "available"
-      }
-    },
-    {
-      "breadcrumb": [
-        "properties",
-        "loan_data",
-        "properties",
-        "payment_day"
-      ],
-      "metadata": {
-        "inclusion": "available"
-      }
-    },
-    {
-      "breadcrumb": [
-        "properties",
-        "loan_data",
-        "properties",
-        "outstanding_principal"
-      ],
-      "metadata": {
-        "inclusion": "available"
-      }
-    },
-    {
-      "breadcrumb": [
-        "properties",
-        "loan_data",
-        "properties",
-        "outstanding_balance"
-      ],
-      "metadata": {
-        "inclusion": "available"
-      }
-    },
-    {
-      "breadcrumb": [
-        "properties",
-        "loan_data",
-        "properties",
-        "monthly_payment"
-      ],
-      "metadata": {
-        "inclusion": "available"
-      }
-    },
-    {
-      "breadcrumb": [
-        "properties",
-        "loan_data",
-        "properties",
-        "interest_rates"
+        "installment_id"
       ],
       "metadata": {
         "inclusion": "available"
@@ -425,7 +1619,7 @@
         "properties",
         "loan_data",
         "properties",
-        "number_of_installments_total"
+        "charges"
       ],
       "metadata": {
         "inclusion": "available"
@@ -434,9 +1628,7 @@
     {
       "breadcrumb": [
         "properties",
-        "loan_data",
-        "properties",
-        "number_of_installments_outstanding"
+        "payment_type"
       ],
       "metadata": {
         "inclusion": "available"
@@ -445,9 +1637,7 @@
     {
       "breadcrumb": [
         "properties",
-        "loan_data",
-        "properties",
-        "contract_start_date"
+        "operation_type"
       ],
       "metadata": {
         "inclusion": "available"
@@ -456,9 +1646,7 @@
     {
       "breadcrumb": [
         "properties",
-        "loan_data",
-        "properties",
-        "contract_end_date"
+        "operation_type_additional_info"
       ],
       "metadata": {
         "inclusion": "available"
@@ -467,135 +1655,7 @@
     {
       "breadcrumb": [
         "properties",
-        "loan_data",
-        "properties",
-        "contract_number"
-      ],
-      "metadata": {
-        "inclusion": "available"
-      }
-    },
-    {
-      "breadcrumb": [
-        "properties",
-        "loan_data",
-        "properties",
-        "credit_limit"
-      ],
-      "metadata": {
-        "inclusion": "available"
-      }
-    },
-    {
-      "breadcrumb": [
-        "properties",
-        "loan_data",
-        "properties",
-        "last_period_balance"
-      ],
-      "metadata": {
-        "inclusion": "available"
-      }
-    },
-    {
-      "breadcrumb": [
-        "properties",
-        "loan_data",
-        "properties",
-        "interest_rate"
-      ],
-      "metadata": {
-        "inclusion": "available"
-      }
-    },
-    {
-      "breadcrumb": [
-        "properties",
-        "loan_data",
-        "properties",
-        "limit_day"
-      ],
-      "metadata": {
-        "inclusion": "available"
-      }
-    },
-    {
-      "breadcrumb": [
-        "properties",
-        "loan_data",
-        "properties",
-        "cutting_day"
-      ],
-      "metadata": {
-        "inclusion": "available"
-      }
-    },
-    {
-      "breadcrumb": [
-        "properties",
-        "loan_data",
-        "properties",
-        "cutting_date"
-      ],
-      "metadata": {
-        "inclusion": "available"
-      }
-    },
-    {
-      "breadcrumb": [
-        "properties",
-        "loan_data",
-        "properties",
-        "last_payment_date"
-      ],
-      "metadata": {
-        "inclusion": "available"
-      }
-    },
-    {
-      "breadcrumb": [
-        "properties",
-        "loan_data",
-        "properties",
-        "next_payment_date"
-      ],
-      "metadata": {
-        "inclusion": "available"
-      }
-    },
-    {
-      "breadcrumb": [
-        "properties",
-        "loan_data",
-        "properties",
-        "no_interest_payment"
-      ],
-      "metadata": {
-        "inclusion": "available"
-      }
-    },
-    {
-      "breadcrumb": [
-        "properties",
-        "funds_data"
-      ],
-      "metadata": {
-        "inclusion": "available"
-      }
-    },
-    {
-      "breadcrumb": [
-        "properties",
-        "bank_product_id"
-      ],
-      "metadata": {
-        "inclusion": "available"
-      }
-    },
-    {
-      "breadcrumb": [
-        "properties",
-        "internal_identification"
+        "mcc"
       ],
       "metadata": {
         "inclusion": "available"
@@ -620,58 +1680,1256 @@
   "replication_key": "created_at",
   "replication_method": "INCREMENTAL",
   "schema": {
-    "description": "Details regarding the account.\n\n**Note**: For our recurring expenses resource, this account relates to the account that was analyzed to generate the recurring expenses report.\n",
     "properties": {
-      "balance": {
-        "description": "Details regarding the current and available balances for the account.\n",
+      "account": {
+        "description": "Details regarding the account.\n",
         "properties": {
-          "available": {
-            "description": "The balance that the account owner can use.\n\n- **💰 Checking and saving accounts**:\n\n\nThe available balance may be different to the `current` balance due to pending transactions.\n\n- **💳 Credit cards**:\n\n\nThe credit amount the user still has available for the current period. The `available` balance may be different to the `current` balance due to pending transactions or future instalments.\n\n- **🏡 Loan accounts**:\n\n\nThe present value required to pay off the loan, as provided by the institution.\n\n\n**Note:** If the institution does not provide this value, we return `null`.\n",
-            "format": "float",
+          "agency": {
+            "description": "The branch code where the product was opened.\n",
+            "maxLength": 4,
+            "pattern": "^\\d{1,4}$",
             "type": [
-              "number",
+              "string",
               "null"
             ]
           },
-          "current": {
-            "description": "The current balance is calculated differently according to the type of account.\n\n\n- **💰 Checking and saving accounts**:\n\n\nThe user's account balance at the `collected_at` timestamp.\n\n- **💳 Credit cards**:\n\n\nThe amount the user has spent in the current card billing period (see `credit_data.cutting_date` for information on when the current billing period finishes).\n\n- **🏡 Loan accounts**:\n\n\nThe amount remaining to pay on the users's loan.\n",
-            "format": "float",
+          "balance": {
+            "description": "Details regarding the current and available balances for the account.\n",
+            "properties": {
+              "automatically_invested": {
+                "description": "The amount that is automatically invested (as agreed upon with the institution).\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network if the `balances` field is available.\n",
+                "format": "float",
+                "pattern": "^\\d{1,15}\\.\\d{2,4}$",
+                "type": "number"
+              },
+              "available": {
+                "description": "The balance that the account owner can use.\n\n- **💰 Checking and saving accounts**:\n\n\nThe available balance may be different to the `current` balance due to pending transactions.\n\n- **💳 Credit cards**:\n\n\nThe credit amount the user still has available for the current period. The amount is calculated as `credit_data.credit_limit` minus `balance.current`.\n\n- **🏡 Loan accounts**:\n\n\nThe present value required to pay off the loan, as provided by the institution.\n\n\n**Note:** If the institution does not provide this value, we return `null`.\n",
+                "format": "float",
+                "pattern": "^\\d{1,15}\\.\\d{2,4}$",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "blocked": {
+                "description": "The amount that is currently blocked due to pending transactions.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network if the `balances` field is available.\n",
+                "format": "float",
+                "pattern": "^\\d{1,15}\\.\\d{2,4}$",
+                "type": "number"
+              },
+              "current": {
+                "description": "The current balance is calculated differently according to the type of account.\n\n\n- **💰 Checking and saving accounts**:\n\n\nThe user's account balance at the `collected_at` timestamp.\n\n- **💳 Credit cards**:\n\n\nThe amount the user has spent in the current card billing period (see `credit_data.cutting_date` for information on when the current billing period finishes).\n\n- **🏡 Loan accounts**:\n\n\nThe amount remaining to pay on the users's loan.\n",
+                "format": "float",
+                "pattern": "^\\d{1,15}\\.\\d{2,4}$",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "current"
+            ],
+            "type": "object"
+          },
+          "balance_type": {
+            "description": "Indicates whether this account is either an `ASSET` or a `LIABILITY`. You can consider the balance of an `ASSET` as being positive, while the balance of a `LIABILITY` as negative.\n",
             "type": [
-              "number",
+              "string",
               "null"
             ]
+          },
+          "category": {
+            "description": "The type of account.\nWe return one of the following enum values:\n  - `ADVANCE_DEPOSIT_ACCOUNT`\n  - `CHECKING_ACCOUNT`\n  - `CREDIT_CARD`\n  - `FINANCING_ACCOUNT`\n  - `INVESTMENT_ACCOUNT`\n  - `INVOICE_FINANCING_ACCOUNT`\n  - `LOAN_ACCOUNT`\n  - `PENSION_FUND_ACCOUNT`\n  - `SAVINGS_ACCOUNT`\n  - `UNCATEGORIZED`\n",
+            "enum": [
+              "ADVANCE_DEPOSIT_ACCOUNT",
+              "CHECKING_ACCOUNT",
+              "CREDIT_CARD",
+              "FINANCING_ACCOUNT",
+              "INVESTMENT_ACCOUNT",
+              "INVOICE_FINANCING_ACCOUNT",
+              "LOAN_ACCOUNT",
+              "PENSION_FUND_ACCOUNT",
+              "SAVINGS_ACCOUNT",
+              "UNCATEGORIZED",
+              null
+            ],
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "check_digit": {
+            "description": "The check digit of the product's number, if applicable.\n",
+            "maxLength": 2,
+            "pattern": "[\\w\\W\\s]*",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "collected_at": {
+            "description": "The ISO-8601 timestamp when the data point was collected.\n",
+            "format": "date-time",
+            "type": "string"
+          },
+          "created_at": {
+            "description": "The ISO-8601 timestamp of when the data point was created in Belvo's database.\n",
+            "format": "date-time",
+            "type": "string"
+          },
+          "credit_data": {
+            "description": "Details regarding the credit cards associated with this account.",
+            "properties": {
+              "cards": {
+                "description": "Details regarding the cards associated with the account.",
+                "items": {
+                  "description": "Details regarding all the cards associated with the account.",
+                  "properties": {
+                    "identification_number": {
+                      "description": "The credit card number.\n\n**Note:** Often, this is just the last four digit of the credit card.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+                      "maxLength": 100,
+                      "minLength": 1,
+                      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9-]{0,99}$",
+                      "type": "string"
+                    },
+                    "is_multiple": {
+                      "description": "Boolean to indicate if this account has multiple credit cards.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+                      "type": "boolean"
+                    }
+                  },
+                  "required": [
+                    "is_multiple",
+                    "identification_number"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "collected_at": {
+                "description": "The ISO-8601 timestamp when the data point was collected.\n",
+                "format": "date-time",
+                "type": "string"
+              },
+              "credit_limit": {
+                "description": "The upper credit limit of the card.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+                "format": "float",
+                "maxLength": 20,
+                "pattern": "^\\d{1,15}\\.\\d{2,4}$",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "cutting_date": {
+                "description": "The date when the credit card's bill is due.",
+                "format": "date",
+                "maxLength": 10,
+                "pattern": "^(\\d{4})-(1[0-2]|0?[1-9])-(3[01]|[12][0-9]|0?[1-9])$",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "interest_rate": {
+                "description": "**Note:** This field is not applicable for OF Brazil and will return null.\n",
+                "format": "float",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "last_payment_date": {
+                "deprecated": true,
+                "description": "**Note:** This field is not applicable for OF Brazil and will return null.\n",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "limits": {
+                "items": {
+                  "description": "Detailed information regarding the credit limits for the credit cards.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+                  "properties": {
+                    "available_amount": {
+                      "description": "The amount still available.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+                      "format": "float",
+                      "pattern": "^\\d{1,15}\\.\\d{2,4}$",
+                      "type": "number"
+                    },
+                    "consolidation_type": {
+                      "description": "Indicates whether or not the credit limit is consolidated or individual.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+                      "type": "string"
+                    },
+                    "credit_limit": {
+                      "description": "The limit of the credit card.\n",
+                      "format": "float",
+                      "pattern": "^\\d{1,15}\\.\\d{2,4}$",
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "identification_number": {
+                      "description": "The credit card number.\n\n**Note:** Often, this is just the last four digit of the credit card.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+                      "maxLength": 100,
+                      "minLength": 1,
+                      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9-]{0,99}$",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "is_limit_flexible": {
+                      "description": "Boolean to indicate if the `credit_limit` is flexible.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+                      "type": "boolean"
+                    },
+                    "line_name": {
+                      "description": "The credit limit line name.\n",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "line_name_additional_info": {
+                      "description": "Additional information about the line name.\n",
+                      "maxLength": 100,
+                      "pattern": "[\\w\\W\\s]*",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "type": {
+                      "description": "The type of limit. We return one of the following values:\n\n  - `TOTAL_LIMIT`\n  - `MODAL_LIMIT`\n\n  > **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+                      "enum": [
+                        "TOTAL_LIMIT",
+                        "MODAL_LIMIT",
+                        null
+                      ],
+                      "type": "string"
+                    },
+                    "used_amount": {
+                      "description": "The amount used.\n",
+                      "format": "float",
+                      "pattern": "^\\d{1,15}\\.\\d{2,4}$",
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "identification_number",
+                    "credit_limit",
+                    "used_amount",
+                    "available_amount",
+                    "is_limit_flexible",
+                    "type",
+                    "consolidation_type",
+                    "line_name",
+                    "line_name_additional_info"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "minimum_payment": {
+                "description": "The minimum amount that the account owner needs to pay in the current credit period.\n",
+                "format": "float",
+                "maxLength": 20,
+                "pattern": "^\\d{1,15}\\.\\d{2,4}$",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "monthly_payment": {
+                "deprecated": true,
+                "description": "**Note:** This field is not applicable for OF Brazil and will return null.\n",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "network": {
+                "description": "The credit network that the card is associated with. We return one of the following values:\n\n  - `VISA`\n  - `MASTERCARD`\n  - `AMERICAN_EXPRESS`\n  - `DINERS_CLUB`\n  - `HIPERCARD`\n  - `BANDEIRA_PROPRIA`\n  - `CHEQUE_ELETRONICO`\n  - `ELO`\n  - `OTHER`\n\n  > **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+                "enum": [
+                  "VISA",
+                  "MASTERCARD",
+                  "AMERICAN_EXPRESS",
+                  "DINERS_CLUB",
+                  "HIPERCARD",
+                  "BANDEIRA_PROPRIA",
+                  "CHEQUE_ELETRONICO",
+                  "ELO",
+                  "OTHER",
+                  null
+                ],
+                "type": "string"
+              },
+              "network_additional_info": {
+                "description": "Additional information about the credit card network.\n",
+                "maxLength": 100,
+                "pattern": "[\\w\\W\\s]*",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "next_payment_date": {
+                "description": "**Note:** This field is not applicable for OF Brazil and will return null.\n",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "no_interest_payment": {
+                "description": "**Note:** This field is not applicable for OF Brazil and will return null.\n",
+                "format": "float",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "collected_at",
+              "credit_limit"
+            ],
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "currency": {
+            "description": "The three-letter currency code (ISO-4217).\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network if the `balances` field is available.\n",
+            "maxLength": 3,
+            "pattern": "^[A-Z]{3}$",
+            "type": "string"
+          },
+          "funds_data": {
+            "description": "**Note:** This field is not applicable for OF Brazil and will return null.\n",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "id": {
+            "description": "Belvo's unique identifier for the current item.\n",
+            "format": "uuid",
+            "type": "string"
+          },
+          "institution": {
+            "description": "Details regarding the institution.",
+            "properties": {
+              "name": {
+                "description": "The name of the institution, as designated by Belvo.",
+                "type": "string"
+              },
+              "type": {
+                "description": "The type of institution. We return one of the following values:\n\n  - `bank`\n  - `fiscal`\n  - `employment`\n",
+                "enum": [
+                  "bank",
+                  "fiscal",
+                  "employment",
+                  null
+                ],
+                "type": "string"
+              }
+            },
+            "type": "object"
+          },
+          "internal_identification": {
+            "description": "The institution's internal identification for the account.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network if the `balances` field is available.\n",
+            "maxLength": 100,
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9-]{0,99}$",
+            "type": "string"
+          },
+          "last_accessed_at": {
+            "description": "The ISO-8601 timestamp of Belvo's most recent successful access to the institution for the given link.\n",
+            "format": "date-time",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "link": {
+            "description": "The `link.id` the data belongs to.",
+            "format": "uuid",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "loan_data": {
+            "description": "The loan options associated with this account.",
+            "properties": {
+              "amortization_schedule": {
+                "description": "The loan amortization schedule.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+                "type": "string"
+              },
+              "amortization_schedule_info": {
+                "description": "Additional information regarding the `amortization_schedule`.\n",
+                "maxLength": 200,
+                "pattern": "[\\w\\W\\s]*",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "balloon_payments": {
+                "description": "Detailed information regarding any balloon payments for the loan, if applicable.\n",
+                "items": {
+                  "description": "Detailed information regarding any balloon payments for the loan, if applicable.",
+                  "properties": {
+                    "amount": {
+                      "description": "The total amount of the balloon payment.\n",
+                      "format": "float",
+                      "pattern": "^\\d{1,15}\\.\\d{2,4}$",
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "currency": {
+                      "description": "The three-letter currency code (ISO-4217).\n",
+                      "maxLength": 3,
+                      "pattern": "^[A-Z]{3}$",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "due_date": {
+                      "description": "The date that the balloon payment is to be paid, in `YYYY-MM-DD` format.\n",
+                      "format": "date",
+                      "maxLength": 10,
+                      "pattern": "^(\\d{4})-(1[0-2]|0?[1-9])-(3[01]|[12][0-9]|0?[1-9])$",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "due_date",
+                    "currency",
+                    "amount"
+                  ],
+                  "type": "object"
+                },
+                "type": [
+                  "array",
+                  "null"
+                ]
+              },
+              "collaterals": {
+                "description": "Details regarding any loan collaterals that the individual or business supplied.\n",
+                "items": {
+                  "description": "Details regarding any loan collaterals that the individual or business supplied.",
+                  "properties": {
+                    "amount": {
+                      "description": "The total amount of the bill.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network if the `collaterals` field is available.\n",
+                      "format": "float",
+                      "pattern": "^\\d{1,15}\\.\\d{2,4}$",
+                      "type": "number"
+                    },
+                    "currency": {
+                      "description": "The three-letter currency code (ISO-4217).\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network if the `collaterals` field is available.\n",
+                      "maxLength": 3,
+                      "pattern": "^[A-Z]{3}$",
+                      "type": "string"
+                    },
+                    "subtype": {
+                      "description": "The subtype of the collateral, as defined by the institution.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network if the `collaterals` field is available.\n",
+                      "type": "string"
+                    },
+                    "type": {
+                      "description": "The type of collateral, as defined by the institution.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network if the `collaterals` field is available.\n",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "subtype",
+                    "currency",
+                    "amount"
+                  ],
+                  "type": "object"
+                },
+                "type": [
+                  "array",
+                  "null"
+                ]
+              },
+              "collected_at": {
+                "description": "The ISO-8601 timestamp when the data point was collected.\n",
+                "format": "date-time",
+                "type": "string"
+              },
+              "consignee_id": {
+                "description": "The ID of the consignee of the loan.\n",
+                "maxLength": 14,
+                "pattern": "^\\d{14}$",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "contract_amount": {
+                "description": "The initial total loan amount when the contract was signed, calculated by the institution. This amount includes the principal + interest + taxes + fees.\n",
+                "format": "float",
+                "pattern": "^\\d{1,15}\\.\\d{2,4}$",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "contract_end_date": {
+                "description": "The date when the loan is expected to be completed, in `YYYY-MM-DD` format.\n",
+                "format": "date",
+                "maxLength": 10,
+                "pattern": "^(\\d{4})-(1[0-2]|0?[1-9])-(3[01]|[12][0-9]|0?[1-9])$",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "contract_number": {
+                "description": "The contract number of the loan, as given by the institution.\n",
+                "maxLength": 100,
+                "minLength": 1,
+                "pattern": "^\\d{1,100}$",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "contract_remaining_frequency": {
+                "description": "The frequency of the remaining contracted installment payments, as defined when the contract was first signed. We return one of the following:\n- `DAY`\n- `WEEK`\n- `MONTH`\n- `YEAR`\n- `NO_DEADLINE_REMAINING`\n- `null`\n",
+                "enum": [
+                  "DAY",
+                  "WEEK",
+                  "MONTH",
+                  "YEAR",
+                  "NO_DEADLINE_REMAINING",
+                  null
+                ],
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "contract_remaining_total": {
+                "description": "The total number of installments remaining on the loan.\n",
+                "format": "int32",
+                "maximum": 999999999,
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "contract_start_date": {
+                "description": "The date when the loan contract was signed, in `YYYY-MM-DD` format.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+                "format": "date",
+                "maxLength": 10,
+                "pattern": "^(\\d{4})-(1[0-2]|0?[1-9])-(3[01]|[12][0-9]|0?[1-9])$",
+                "type": "string"
+              },
+              "contracted_charges": {
+                "description": "",
+                "items": {
+                  "description": "Details regarding any contracted charges.\n",
+                  "properties": {
+                    "info": {
+                      "description": "Additional information regarding the contracted charge.\n",
+                      "maxLength": 140,
+                      "pattern": "^[\\w\\W\\s]{0,140}$",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "rate": {
+                      "description": "The percentage rate of the charge, calculated based on the amount of the loan.\n",
+                      "format": "float",
+                      "pattern": "^[01]\\.\\d{6}$",
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "type": {
+                      "description": "The type of contracted charge. We return one of the following values:\n\n  - `LATE_PAYMENT_INTEREST_FEE`\n  - `LATE_PAYMENT_PENALTY_FEE`\n  - `DEFAULT_INTEREST_FEE`\n  - `LOAN_CONTRACT_TAX`\n  - `LATE_PAYMENT_TAX`\n  - `NO_CHARGE`\n  - `OTHER`\n\n  > **Non-nullable:** A value must be returned by Brazil's open finance network if the `contracted_charges` field is available.\n",
+                      "enum": [
+                        "LATE_PAYMENT_INTEREST_FEE",
+                        "LATE_PAYMENT_PENALTY_FEE",
+                        "DEFAULT_INTEREST_FEE",
+                        "LOAN_CONTRACT_TAX",
+                        "LATE_PAYMENT_TAX",
+                        "NO_CHARGE",
+                        "OTHER",
+                        null
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                },
+                "type": [
+                  "array",
+                  "null"
+                ]
+              },
+              "credit_limit": {
+                "deprecated": true,
+                "description": "**Note:** This field is not applicable for OF Brazil and will return null.\n",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "cutting_date": {
+                "deprecated": true,
+                "description": "**Note:** This field is not applicable for OF Brazil and will return null.\n",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "cutting_day": {
+                "deprecated": true,
+                "description": "**Note:** This field is not applicable for OF Brazil and will return null.\n",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "disbursement_dates": {
+                "description": "An array of dates when the loan was disbursed.\n",
+                "items": {
+                  "description": "The date that the loan was disbursed, in `YYYY-MM-DD` format.\n",
+                  "maxLength": 10,
+                  "pattern": "^(\\d{4})-(1[0-2]|0?[1-9])-(3[01]|[12][0-9]|0?[1-9])$",
+                  "type": "string"
+                },
+                "type": [
+                  "array",
+                  "null"
+                ]
+              },
+              "fees": {
+                "description": "Breakdown of the fees applied to the loan.\n",
+                "items": {
+                  "description": "Breakdown of the fees applied to the loan.",
+                  "properties": {
+                    "code": {
+                      "description": "The fee code.\n\n > **Non-nullable:** A value must be returned by Brazil's open finance network if the `fees` field is available.\n",
+                      "maxLength": 140,
+                      "pattern": "^[\\w\\W\\s]{0,140}$",
+                      "type": "string"
+                    },
+                    "fee_charge": {
+                      "description": "Billing method, as agreed upon with the institution. We return one of the following values:\n\n  - `MINIMUM`\n  - `MAXIMUM`\n  - `FIXED`\n  - `PERCENTAGE`\n\n   > **Non-nullable:** A value must be returned by Brazil's open finance network if the `fees` field is available.\n",
+                      "enum": [
+                        "MINIMUM",
+                        "MAXIMUM",
+                        "FIXED",
+                        "PERCENTAGE",
+                        null
+                      ],
+                      "type": "string"
+                    },
+                    "fee_charge_type": {
+                      "description": "Indicates the type of charge. We return one of the following values:\n\n  - `SINGLE`\n  - `PER_INSTALLMENT`\n\n   > **Non-nullable:** A value must be returned by Brazil's open finance network if the `fees` field is available.\n",
+                      "enum": [
+                        "SINGLE",
+                        "PER_INSTALLMENT",
+                        null
+                      ],
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "The fee name.\n\n > **Non-nullable:** A value must be returned by Brazil's open finance network if the `fees` field is available.\n",
+                      "maxLength": 140,
+                      "pattern": "^[\\w\\W\\s]{0,140}$",
+                      "type": "string"
+                    },
+                    "rate": {
+                      "description": "The percentage rate of the fee. Required when `fee_charge` is set to `PERCENTAGE`.\n",
+                      "format": "float",
+                      "pattern": "^[01]\\.\\d{6}$",
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    },
+                    "type": {
+                      "description": "**Note:** This field is not applicable for OF Brazil and will return null.\n",
+                      "enum": [
+                        "OPERATION_FEE",
+                        "INSURANCE_FEE",
+                        "OTHERS",
+                        null
+                      ],
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "value": {
+                      "description": "The total value of the fee. Same currency as the loan.\n",
+                      "format": "float",
+                      "pattern": "^\\d{1,15}\\.\\d{2,4}$",
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "type",
+                    "value",
+                    "name",
+                    "code",
+                    "fee_charge_type",
+                    "fee_charge",
+                    "rate"
+                  ],
+                  "type": "object"
+                },
+                "type": [
+                  "array",
+                  "null"
+                ]
+              },
+              "first_installment_due_date": {
+                "description": "The date when the first installment of the loan is to be paid, in `YYYY-MM-DD` format.\n",
+                "format": "date",
+                "maxLength": 10,
+                "pattern": "^(\\d{4})-(1[0-2]|0?[1-9])-(3[01]|[12][0-9]|0?[1-9])$",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "installment_frequency": {
+                "description": "The frequency that the installments are paid. We return one of the following values:\n\n  - `IRREGULAR`\n  - `WEEKLY`\n  - `FORTNIGHTLY`\n  - `MONTHLY`\n  - `BIMONTHLY`\n  - `QUARTERLY`\n  - `BIANNUALLY`\n  - `ANNUALLY`\n  - `OTHER`\n\n  > **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+                "enum": [
+                  "IRREGULAR",
+                  "WEEKLY",
+                  "FORTNIGHTLY",
+                  "MONTHLY",
+                  "BIMONTHLY",
+                  "QUARTERLY",
+                  "BIANNUALLY",
+                  "ANNUALLY",
+                  "OTHER",
+                  null
+                ],
+                "type": "string"
+              },
+              "installment_frequency_info": {
+                "description": "Additional information regarding the `installment_frequency`.\n",
+                "maxLength": 100,
+                "pattern": "^[\\w\\W\\s]{0,99}$$",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "installments_contract_term_frequency": {
+                "description": "The frequency of contracted installment payments, as defined when the contract was first signed. We return one of the following:\n\n  - `DAY`\n  - `WEEK`\n  - `MONTH`\n  - `YEAR`\n  - `NO_DEADLINE_REMAINING`\n  - `null`\n",
+                "enum": [
+                  "DAY",
+                  "WEEK",
+                  "MONTH",
+                  "YEAR",
+                  "NO_DEADLINE_REMAINING",
+                  null
+                ],
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "interest_rate": {
+                "deprecated": true,
+                "description": "**Note:** This field is not applicable for OF Brazil and will return null.\n",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "interest_rates": {
+                "description": "Breakdown of the interest applied to the loan. With OF Brazil, we highly recommend using the information in `interest_rate_data` for in-depth information.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+                "items": {
+                  "description": "Breakdown of the interest applied to the loan. With OF Brazil, we highly recommend using the `interest_rate_data` object for in-depth information.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+                  "properties": {
+                    "interest_rate_data": {
+                      "description": "Detailed information regarding the interest rate.",
+                      "properties": {
+                        "additional_info": {
+                          "description": "Additional information regarding the interest rate.\n",
+                          "maxLength": 1200,
+                          "pattern": "[\\w\\W\\s]*",
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "calculation_base": {
+                          "description": "The base calculation for the interest rate.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+                          "pattern": "^[0-9]{2}\\/[0-9]{3}$",
+                          "type": "string"
+                        },
+                        "post_fixed_rate": {
+                          "description": "The post-fixed percentage rate of the interest rate.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+                          "format": "float",
+                          "pattern": "^[01]\\.\\d{6}$",
+                          "type": "number"
+                        },
+                        "pre_fixed_rate": {
+                          "description": "The pre-fixed percentage rate of the interest rate.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+                          "format": "float",
+                          "pattern": "^[01]\\.\\d{6}$",
+                          "type": "number"
+                        },
+                        "rate_type": {
+                          "description": "The type of interest rate. We return one of the following values:\n\n  - `SIMPLE`\n  - `COMPOUND`\n\n  > **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+                          "enum": [
+                            "SIMPLE",
+                            "COMPOUND",
+                            null
+                          ],
+                          "type": "string"
+                        },
+                        "reference_index_info": {
+                          "description": "Additional information regarding the reference index rate.\n",
+                          "maxLength": 140,
+                          "pattern": "^[\\w\\W\\s]{0,140}$",
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "reference_index_subtype": {
+                          "description": "The subtype of the reference index rate.\n",
+                          "type": [
+                            "string",
+                            "null"
+                          ]
+                        },
+                        "reference_index_type": {
+                          "description": "The reference index rate. We return one of the following values:\n\n  - `WITHOUT_INDEX_TYPE`\n  - `PRE_FIXED`\n  - `POST_FIXED`\n  - `FLOATING`\n  - `INDEXED_PRICE`\n  - `RURAL_CREDIT`\n  - `OTHER_INDEX`\n\n  > **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+                          "enum": [
+                            "WITHOUT_INDEX_TYPE",
+                            "PRE_FIXED",
+                            "POST_FIXED",
+                            "FLOATING",
+                            "INDEXED_PRICE",
+                            "RURAL_CREDIT",
+                            "OTHER_INDEX",
+                            null
+                          ],
+                          "type": "string"
+                        },
+                        "tax_type": {
+                          "description": "The type of interest rate tax. We return one of the following values:\n\n  - `NOMINAL`\n  - `EFFECTIVE`\n  \n  > **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+                          "enum": [
+                            "NOMINAL",
+                            "EFFECTIVE",
+                            null
+                          ],
+                          "type": "string"
+                        },
+                        "type": {
+                          "description": "The period that the interest is applied to the loan.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+                          "enum": [
+                            "MONTHLY",
+                            "YEARLY",
+                            null
+                          ],
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "tax_type",
+                        "rate_type",
+                        "calculation_base",
+                        "reference_index_type",
+                        "reference_index_subtype",
+                        "reference_index_info",
+                        "pre_fixed_rate",
+                        "post_fixed_rate",
+                        "additional_info"
+                      ],
+                      "type": [
+                        "object",
+                        "null"
+                      ]
+                    },
+                    "name": {
+                      "description": "The name of the type of interest rate applied to the loan.\n\n**Note:** For OFDA Brazil, we recommend you use the `interest_rate_data.tax_type` parameter.\n",
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "type": {
+                      "description": "The period that the interest is applied to the loan.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+                      "enum": [
+                        "MONTHLY",
+                        "YEARLY",
+                        null
+                      ],
+                      "type": "string"
+                    },
+                    "value": {
+                      "description": "The interest rate (in percent or currency value).\n\n**Note:** For OFDA Brazil, we recommend you use the `interest_rate_data.pre_fixed_rate` and `interest_rate_data.post_fixed_rate`parameter.\n",
+                      "format": "float",
+                      "type": [
+                        "number",
+                        "null"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "name",
+                    "type",
+                    "value",
+                    "interest_rate_data"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "last_payment_date": {
+                "deprecated": true,
+                "description": "**Note:** This field is not applicable for OF Brazil and will return null.\n",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "last_period_balance": {
+                "deprecated": true,
+                "description": "**Note:** This field is not applicable for OF Brazil and will return null.\n",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "limit_day": {
+                "deprecated": true,
+                "description": "**Note:** This field is not applicable for OF Brazil and will return null.\n",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "loan_code": {
+                "description": "The country-specific standardized contract number.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+                "maxLength": 67,
+                "minLength": 22,
+                "pattern": "^\\d{22,67}$",
+                "type": "string"
+              },
+              "loan_type": {
+                "description": "The type of the loan, according to the institution.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+                "type": "string"
+              },
+              "monthly_payment": {
+                "description": "**Note:** This field is not applicable for OF Brazil and will return null.\n",
+                "format": "float",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "no_interest_payment": {
+                "deprecated": true,
+                "description": "**Note:** This field is not applicable for OF Brazil and will return null.\n",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "number_of_installments_outstanding": {
+                "description": "The number of installments left to pay.\n",
+                "format": "int32",
+                "maximum": 999999999,
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "number_of_installments_paid": {
+                "description": "The number of installments already paid.\n",
+                "format": "int32",
+                "maximum": 999999999,
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "number_of_installments_past_due": {
+                "description": "The number of installments that are overdue.\n",
+                "format": "int32",
+                "maximum": 999,
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "number_of_installments_total": {
+                "description": "The total number of installments required to pay the loan.\n",
+                "format": "int32",
+                "maximum": 999999999,
+                "type": [
+                  "integer",
+                  "null"
+                ]
+              },
+              "outstanding_balance": {
+                "description": "The amount remaining to pay in total, including interest.\n",
+                "format": "float",
+                "maxLength": 20,
+                "minLength": 4,
+                "pattern": "^\\d{1,15}\\.\\d{2,4}$",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "outstanding_principal": {
+                "description": "**Note:** This field is not applicable for OF Brazil and will return null.\n",
+                "format": "float",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "payment_day": {
+                "description": "**Note:** This field is not applicable for OF Brazil and will return null.\n",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "principal": {
+                "description": "**Note:** This field is not applicable for OF Brazil and will return null.\n",
+                "format": "float",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              },
+              "settlement_date": {
+                "description": "The date that the loan was settled, in `YYYY-MM-DD` format.\n",
+                "maxLength": 10,
+                "pattern": "^(\\d{4})-(1[0-2]|0?[1-9])-(3[01]|[12][0-9]|0?[1-9])$",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "total_effective_cost": {
+                "description": "The initial total effective cost of the loan.\n",
+                "format": "float",
+                "pattern": "^\\d{1,15}\\.\\d{2,4}$",
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "collected_at",
+              "loan_code",
+              "contract_amount",
+              "total_effectove_cost",
+              "loan_type",
+              "outstanding_balance",
+              "interest_rates",
+              "fees",
+              "collaterals",
+              "balloon_payments",
+              "installments_contract_term_frequency",
+              "installment_frequency",
+              "installment_frequency_info",
+              "first_installment_due_date",
+              "number_of_installments_total",
+              "number_of_installments_outstanding",
+              "number_of_installments_paid",
+              "number_of_installments_past_due",
+              "disbursement_dates",
+              "settlement_date",
+              "contract_start_date",
+              "contract_end_date",
+              "contract_remaining_frequency",
+              "contract_remaining_total",
+              "amortization_schedule",
+              "amortization_schedule_info",
+              "consignee_id",
+              "contract_number",
+              "monthly_payment",
+              "principal",
+              "payment_day",
+              "outstanding_principal",
+              "credit_limit",
+              "last_period_balance",
+              "interest_rate",
+              "limit_day",
+              "cutting_day",
+              "cutting_date",
+              "last_payment_date",
+              "no_interest_payment"
+            ],
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "name": {
+            "description": "The account name, as given by the institution.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "number": {
+            "description": "The account number, as designated by the institution.\n",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "overdraft": {
+            "properties": {
+              "arranged": {
+                "description": "The agreed upon overdraft limit between the account holder and the institution.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network if the `overdraft` field is available.\n",
+                "format": "float",
+                "pattern": "^\\d{1,15}\\.\\d{2,4}$",
+                "type": "number"
+              },
+              "unarranged": {
+                "description": "The overdraft used that was not arranged between the account holder and the institution.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network if the `overdraft` field is available.\n",
+                "format": "float",
+                "pattern": "^\\d{1,15}\\.\\d{2,4}$",
+                "type": "number"
+              },
+              "used": {
+                "description": "The overdraft value used.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network if the `overdraft` field is available.\n",
+                "format": "float",
+                "pattern": "^\\d{1,15}\\.\\d{2,4}$",
+                "type": "number"
+              }
+            },
+            "required": [
+              "arranged",
+              "used",
+              "unarranged"
+            ],
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "public_identification_name": {
+            "description": "The public name for the type of identification. For 🇧🇷 Brazilian savings and checking accounts, this field will be `AGENCY/ACCOUNT`.\n",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "public_identification_value": {
+            "description": "The value for the `public_identification_name`.\n\nFor 🇧🇷 OFDA Brazilian savings and checking accounts, this field will be the agency and bank account number, separated by a slash. For example: `0444/45722-0`.\n\nFor 🇧🇷 OFDA Brazilian credit card accounts, we will return a string of concatenated credit card numbers associated with the account. For example: \"8763,9076,5522\"\n",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "subtype": {
+            "description": "The account subtype, as designated by the institution.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+            "type": "string"
+          },
+          "type": {
+            "description": "The account type, as designated by the institution.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+            "type": "string"
           }
         },
         "required": [
-          "current"
+          "id",
+          "link",
+          "institution",
+          "collected_at",
+          "created_at",
+          "last_accessed_at",
+          "category",
+          "balance_type",
+          "type",
+          "subtype",
+          "name",
+          "number",
+          "agency",
+          "check_digit",
+          "balance",
+          "currency",
+          "public_identification_name",
+          "public_identification_value",
+          "internal_identification",
+          "credit_data",
+          "loan_data",
+          "funds_data"
         ],
-        "type": "object"
+        "title": "Account Object (OFDA Brazil)",
+        "type": [
+          "object",
+          "null"
+        ]
       },
-      "balance_type": {
-        "description": "Indicates whether this account is either an `ASSET` or a `LIABILITY`. You can consider the balance of an `ASSET` as being positive, while the balance of a `LIABILITY` as negative.\n",
+      "accounting_date": {
+        "description": "The date when the transaction was processed and accounted for by the institution, in `YYYY-MM-DD` format.\n> **Non-nullable:** A value must be returned by Brazil's open finance network for **credit card transactions**.",
         "type": [
           "string",
           "null"
         ]
       },
-      "bank_product_id": {
-        "deprecated": true,
-        "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\n*The institution's product ID for the account type.*\n",
+      "amount": {
+        "description": "The transaction amount.\nℹ️ The amount displayed is always positive as we indicate the direction of the transaction in the `type` parameter.\n> **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+        "format": "float",
+        "pattern": "^\\d{1,15}\\.\\d{2,4}$",
+        "type": "number"
+      },
+      "balance": {
+        "description": "**Note:** This field is not applicable for OF Brazil and will return null.\n",
+        "format": "float",
         "type": [
-          "string",
+          "number",
           "null"
         ]
       },
       "category": {
-        "description": "The type of account.\nWe return one of the following enum values:\n  - `CHECKING_ACCOUNT`\n  - `CREDIT_CARD`\n  - `INVESTMENT_ACCOUNT`\n  - `LOAN_ACCOUNT`\n  - `PENSION_FUND_ACCOUNT`\n  - `SAVINGS_ACCOUNT`\n  - `UNCATEGORIZED`\n  - `null`\n",
+        "description": "The name of the transaction category.\n\n> **Get transaction categorization**\nWith <a href=\"https://developers.belvo.com/docs/banking#categorizing-transactions\" target=\"_blank\">Transaction categorization</a>, we clean and categorize transactions for you, turning raw data into actionable insights. To enable this feature, just <a href=\"https://belvo.com/contact/?utm_source=documentation\" target=\"_blank\">reach out</a> to us, and we'll get right to it.\n\nWe return one of the following enum values:\n\n  - `Bills & Utilities`\n  - `Credits & Loans`\n  - `Deposits`\n  - `Fees & Charges`\n  - `Food & Groceries`\n  - `Home & Life`\n  - `Income & Payments`\n  - `Insurance`\n  - `Investments & Savings`\n  - `Online Platforms & Leisure`\n  - `Personal Shopping`\n  - `Taxes`\n  - `Transfers`\n  - `Transport & Travel`\n  - `Unknown`*\n  - `Withdrawal & ATM`\n  - `null`\n\n\n  \\* For clients not using our Transaction Categorization product, we return `null` instead.\n",
         "enum": [
-          "CHECKING_ACCOUNT",
-          "CREDIT_CARD",
-          "INVESTMENT_ACCOUNT",
-          "LOAN_ACCOUNT",
-          "PENSION_FUND_ACCOUNT",
-          "SAVINGS_ACCOUNT",
-          "UNCATEGORIZED",
+          "Bills & Utilities",
+          "Credits & Loans",
+          "Deposits",
+          "Fees & Charges",
+          "Food & Groceries",
+          "Home & Life",
+          "Income & Payments",
+          "Insurance",
+          "Investments & Savings",
+          "Online Platforms & Leisure",
+          "Personal Shopping",
+          "Taxes",
+          "Transfers",
+          "Transport & Travel",
+          "Unknown",
+          "Withdrawal & ATM",
           null
         ],
         "type": [
@@ -684,95 +2942,250 @@
         "format": "date-time",
         "type": "string"
       },
-      "created_at": {
-        "description": "The ISO-8601 timestamp of when the data point was created in Belvo's database.\n",
-        "format": "date-time",
-        "type": "string"
-      },
-      "credit_data": {
-        "description": "The credit options associated with this account.",
+      "counterparty": {
+        "description": "Information regarding the other party of this transaction, if available.",
         "properties": {
-          "collected_at": {
-            "description": "The ISO-8601 timestamp when the data point was collected.\n",
-            "format": "date-time",
-            "type": "string"
-          },
-          "credit_limit": {
-            "description": "The maximum amount of credit the owner can receive.",
-            "format": "float",
-            "type": [
-              "number",
-              "null"
-            ]
-          },
-          "cutting_date": {
-            "description": "The closing date of the credit period, in `YYYY-MM-DD` format.",
+          "agency": {
+            "description": "The branch code where the account was opened.\n",
+            "maxLength": 4,
+            "pattern": "^\\d{1,4}$",
             "type": [
               "string",
               "null"
             ]
           },
-          "interest_rate": {
-            "description": "The annualized interest rate of the credit.",
-            "format": "float",
-            "type": [
-              "number",
-              "null"
-            ]
-          },
-          "last_payment_date": {
-            "deprecated": true,
-            "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\n\n*The date when the last credit payment was made, in `YYYY-MM-DD` format.*\n",
+          "check_digit": {
+            "description": "The check digit of the account number, if applicable.\n",
+            "maxLength": 2,
+            "pattern": "[\\w\\W\\s]*",
             "type": [
               "string",
               "null"
             ]
           },
-          "last_period_balance": {
-            "deprecated": true,
-            "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\n\n*The balance remaining after the `last_payment_date`.*\n",
+          "clearing_code": {
+            "description": "The banking clearing code.\n",
+            "maxLength": 3,
+            "pattern": "^\\d{3}$",
             "type": [
               "string",
               "null"
             ]
           },
-          "minimum_payment": {
-            "description": "The minimum amount to be paid on the `next_payment_date`.",
-            "format": "float",
+          "document_number": {
+            "description": "The document number of the representative.\n\n**Note**: \n\nFor Brazil:\n  - When the `type` is `INDIVIDUAL`, this is the CPF number.\n  - When the `type` is `COMPANY`, this is the CNPJ number.\n",
+            "maxLength": 11,
+            "pattern": "^\\d{11}$",
             "type": [
-              "number",
+              "string",
               "null"
             ]
           },
-          "monthly_payment": {
-            "deprecated": true,
-            "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\n*The recurrent monthly payment, if applicable.*\n",
+          "number": {
+            "description": "The account number of the product.\n",
+            "maxLength": 20,
+            "pattern": "^\\d{8,20}$",
             "type": [
-              "number",
+              "string",
               "null"
             ]
           },
-          "next_payment_date": {
-            "description": "The due date for the next payment , in `YYYY-MM-DD` format.",
-            "type": "string"
-          },
-          "no_interest_payment": {
-            "description": "The minimum amount required to pay to avoid generating interest.",
-            "format": "float",
+          "type": {
+            "description": "The transaction counterparty type. We return one of the following values:\n\n  - `INDIVIDUAL`\n  - `COMPANY`\n  - `null`\n",
+            "enum": [
+              "INDIVIDUAL",
+              "COMPANY",
+              null
+            ],
             "type": [
-              "number",
+              "string",
               "null"
             ]
           }
         },
         "required": [
-          "credit_limit",
-          "cutting_date",
-          "next_payment_date",
-          "minimum_payment",
-          "no_interest_payment",
-          "interest_rate",
-          "collected_at"
+          "type",
+          "document_number",
+          "clearing_code",
+          "agency",
+          "check_digit",
+          "number"
+        ],
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "created_at": {
+        "description": "The ISO-8601 timestamp of when the data point was created in Belvo's database.\n",
+        "format": "date-time",
+        "type": "string"
+      },
+      "credit_card_data": {
+        "description": "Additional data provided by the institution for credit card transactions.",
+        "properties": {
+          "bill_amount": {
+            "description": "The bill amount, as of `collected_at`. For more information, see `credit_card_bill`.",
+            "format": "float",
+            "pattern": "^-?\\d{1,15}\\.\\d{2,4}$",
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "bill_due_date": {
+            "description": "The date that the bill is due to be paid, in `YYYY-MM-DD` format.\n\n> **Note**: This field is only returned for 'closed' bills (meaning the billing period has ended and the bill has been emitted). If the billing period is still ongoing, we return `null`.\n",
+            "format": "date",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "bill_internal_identification": {
+            "description": "The institution's internal identifier for the bill.\n\n> **Note**: This field is only returned for 'closed' bills (meaning the billing period has ended and the bill has been emitted). If the billing period is still ongoing, we return `null`.\n",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9-]{0,99}$",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "bill_name": {
+            "description": "The title of the monthly credit card bill the transaction belongs to. The format of the returned value is institution specific, however, some common examples are:\n\n- diciembre-2021\n- dec-2021\n- dec-21\n\n> **Note**: This field is only returned for 'closed' bills (meaning the billing period has ended and the bill has been emitted). If the billing period is still ongoing, we return `null`.\n",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "bill_status": {
+            "description": "**Note:** This field is not applicable for OFDA Brazil and will return `null`.\n",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "card_number": {
+            "description": "The credit card number.\n\n**Note:** Often, this is just the last four digit of the credit card.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9-]{0,99}$",
+            "type": "string"
+          },
+          "collected_at": {
+            "description": "The ISO-8601 timestamp when the data point was collected.\n",
+            "format": "date-time",
+            "type": "string"
+          },
+          "credit_card_bill": {
+            "description": "Information regarding the bill that this transaction appears on.\n",
+            "properties": {
+              "id": {
+                "description": "The unique identifier created by Belvo used to reference the current credit card bill.\n\n> **Note**: This field is only returned for 'closed' bills (meaning the billing period has ended and the bill has been emitted). If the billing period is still ongoing, we return `null`.\n",
+                "format": "uuid",
+                "type": "string"
+              },
+              "internal_identification": {
+                "description": "The institution's internal identifier for the bill.\n\n> **Note**: This field is only returned for 'closed' bills (meaning the billing period has ended and the bill has been emitted). If the billing period is still ongoing, we return `null`.\n",
+                "maxLength": 100,
+                "minLength": 1,
+                "pattern": "^[a-zA-Z0-9][a-zA-Z0-9-]{0,99}$",
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "credits_type": {
+            "description": "Other types of credit that have been contracted on the card. We return one of the following values:\n\n  - `REVOLVING_CREDIT`\n  - `BILL_INSTALLMENT_PAYMENT`\n  - `LOAN`\n  - `OTHERS`\n  - `null`\n",
+            "enum": [
+              "REVOLVING_CREDIT",
+              "BILL_INSTALLMENT_PAYMENT",
+              "LOAN",
+              "OTHERS",
+              null
+            ],
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "credits_type_additional_info": {
+            "description": "Additional information regarding the credit type.\n",
+            "maxLength": 140,
+            "pattern": "^[\\w\\W\\s]{0,140}$",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "fee_type": {
+            "description": "The fee that can be charged for a card transaction. We return one of the following values:\n\n  - `ANNUAL_FEE`\n  - `NATIONAL_WITHDRAWAL`\n  - `INTERNATIONAL_WITHDRAWAL`\n  - `EMERGENCY_CREDIT_EVALUATION_FEE`\n  - `DUPLICATE_ISSUANCE_FEE`\n  - `PAYMENT_FEE`\n  - `SMS_FEE`\n  - `OTHERS`\n  - `null`\n",
+            "enum": [
+              "ANNUAL_FEE",
+              "NATIONAL_WITHDRAWAL",
+              "INTERNATIONAL_WITHDRAWAL",
+              "EMERGENCY_CREDIT_EVALUATION_FEE",
+              "DUPLICATE_ISSUANCE_FEE",
+              "PAYMENT_FEE",
+              "SMS_FEE",
+              "OTHERS",
+              null
+            ],
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "fee_type_additional_info": {
+            "description": "Additional information regarding the fee.\n",
+            "maxLength": 140,
+            "pattern": "^[\\w\\W\\s]{0,140}$",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "installment_identifier": {
+            "description": "An identifier for the installment, according to the institution.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+            "maxLength": 140,
+            "pattern": "^[\\w\\W\\s]{0,140}$",
+            "type": "string"
+          },
+          "number_of_installments": {
+            "description": "The total number of installments for the card transaction, if applicable.\n",
+            "maximum": 999,
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "previous_bill_total": {
+            "description": "**Note:** This field is not applicable for OFDA Brazil and will return `null`.\n",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "collected_at",
+          "bill_name",
+          "bill_status",
+          "previous_bill_total",
+          "bill_amount",
+          "card_number",
+          "fee_type",
+          "fee_type_additional_info",
+          "credits_type",
+          "credits_type_additional_info",
+          "installment_identifier",
+          "number_of_installments"
         ],
         "type": [
           "object",
@@ -780,83 +3193,18 @@
         ]
       },
       "currency": {
-        "description": "The currency of the account. For example:\n- 🇧🇷 BRL (Brazilian Real)\n- 🇨🇴 COP (Colombian Peso)\n- 🇲🇽 MXN (Mexican Peso)\n\n Please note that other currencies other than in the list above may be returned.",
+        "description": "The three-letter currency code (ISO-4217).\n",
+        "maxLength": 3,
+        "pattern": "^[A-Z]{3}$",
         "type": [
           "string",
           "null"
         ]
       },
-      "funds_data": {
-        "description": "One or more funds that contribute to the the pension account.",
-        "items": {
-          "properties": {
-            "balance": {
-              "description": "The amount in the fund.",
-              "format": "float",
-              "type": [
-                "number",
-                "null"
-              ]
-            },
-            "collected_at": {
-              "description": "The ISO-8601 timestamp when the data point was collected.\n",
-              "format": "date-time",
-              "type": "string"
-            },
-            "name": {
-              "description": "The pension fund name.",
-              "type": [
-                "string",
-                "null"
-              ]
-            },
-            "percentage": {
-              "description": "How much this fund, as a percentage, contributes to the pension\naccount's total.\n",
-              "format": "float",
-              "type": [
-                "number",
-                "null"
-              ]
-            },
-            "public_identifications": {
-              "description": "The fund's public IDs.",
-              "items": {
-                "properties": {
-                  "name": {
-                    "description": "The type of identification number for the fund.",
-                    "type": "string"
-                  },
-                  "value": {
-                    "description": "The fund's identification number.",
-                    "type": [
-                      "string",
-                      "null"
-                    ]
-                  }
-                },
-                "required": [
-                  "name",
-                  "value"
-                ],
-                "type": "object"
-              },
-              "type": [
-                "array",
-                "null"
-              ]
-            },
-            "type": {
-              "description": "Type of pension fund.",
-              "type": [
-                "string",
-                "null"
-              ]
-            }
-          },
-          "type": "object"
-        },
+      "description": {
+        "description": "The description of transaction provided by the institution. Usually this\nis the text that the end user sees in the online platform.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
         "type": [
-          "array",
+          "string",
           "null"
         ]
       },
@@ -865,361 +3213,358 @@
         "format": "uuid",
         "type": "string"
       },
-      "institution": {
-        "description": "Details regarding the institution.",
-        "properties": {
-          "name": {
-            "description": "The name of the institution, as designated by Belvo.",
-            "type": "string"
-          },
-          "type": {
-            "description": "The type of institution. We return one of the following values:\n\n  - `bank`\n  - `fiscal`\n  - `employment`\n",
-            "enum": [
-              "bank",
-              "fiscal",
-              "employment",
-              null
-            ],
-            "type": "string"
-          }
-        },
-        "type": "object"
+      "inferred_accounting_date": {
+        "description": "In the case that the transaction occured on a weekend or public holiday, Belvo will infer the date that the transaction is accounted for by the institution. Typically, this is the next business day.\n",
+        "format": "date",
+        "type": "string"
       },
       "internal_identification": {
-        "deprecated": true,
-        "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\n*The institution's internal identification for the account.*\n",
-        "type": [
-          "string",
-          "null"
-        ]
-      },
-      "last_accessed_at": {
-        "description": "The ISO-8601 timestamp of Belvo's most recent successful access to the institution for the given link.\n",
-        "format": "date-time",
-        "type": [
-          "string",
-          "null"
-        ]
-      },
-      "link": {
-        "description": "The `link.id` the data belongs to.",
-        "format": "uuid",
-        "type": [
-          "string",
-          "null"
-        ]
+        "description": "The institution's internal identification for the transaction.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+        "maxLength": 100,
+        "minLength": 1,
+        "pattern": "^[a-zA-Z0-9][a-zA-Z0-9-]{0,99}$",
+        "type": "string"
       },
       "loan_data": {
-        "description": "The loan options associated with this account.",
+        "description": "Information regarding the loan transactional data, if applicable.",
         "properties": {
-          "collected_at": {
-            "description": "The ISO-8601 timestamp when the data point was collected.\n",
-            "format": "date-time",
-            "type": "string"
-          },
-          "contract_amount": {
-            "description": "The initial total loan amount, calculated by the institution, when the contract was signed. This amount includes the principal + interest + taxes + fees.",
-            "format": "float",
-            "type": [
-              "number",
-              "null"
-            ]
-          },
-          "contract_end_date": {
-            "description": "The date when the loan is expected to be completed, in `YYYY-MM-DD` format.",
-            "format": "date",
-            "type": "string"
-          },
-          "contract_number": {
-            "description": "The contract number of the loan, as given by the institution.",
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "contract_start_date": {
-            "description": "The date when the loan contract was signed , in `YYYY-MM-DD` format.",
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "credit_limit": {
-            "deprecated": true,
-            "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\nPlease see `principal` instead.\n",
-            "type": [
-              "number",
-              "null"
-            ]
-          },
-          "cutting_date": {
-            "deprecated": true,
-            "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\nThe closing date of the loan period, in `YYYY-MM-DD` format.\n",
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "cutting_day": {
-            "deprecated": true,
-            "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\nThe closing day of the month for the loan.\n",
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "fees": {
-            "description": "Breakdown of the fees applied to the loan.",
+          "charges": {
+            "description": "Details regarding the charges associated with this payment. Only applicable when `is_detached` = `true`.",
             "items": {
-              "description": "Breakdown of the fees applied to the loan.",
+              "description": "Details regarding the charges associated with this payment. Only applicable when `is_detached` = `true`.",
               "properties": {
-                "type": {
-                  "description": "The type of fee. We return one of the following values:\n\n  - `OPERATION_FEE`\n  - `INSURANCE_FEE`\n  - `OTHERS`\n",
-                  "enum": [
-                    "OPERATION_FEE",
-                    "INSURANCE_FEE",
-                    "OTHERS",
-                    null
-                  ],
+                "amount": {
+                  "description": "The amount of the charge.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network when the `charges` field is present\n",
+                  "format": "float",
+                  "pattern": "^-?\\d{1,15}\\.\\d{2,4}$",
+                  "type": "number"
+                },
+                "info": {
+                  "description": "Additional information regarding the charge `type`.\n",
+                  "maxLength": 140,
+                  "pattern": "^[\\w\\W\\s]{0,140}$",
                   "type": "string"
                 },
-                "value": {
-                  "description": "The total value of the fee. Same currency of the Loan.\n",
-                  "format": "float",
-                  "type": "number"
+                "type": {
+                  "description": "The type of charge.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network when the `charges` field is present\n",
+                  "maxLength": 140,
+                  "pattern": "^[\\w\\W\\s]{0,140}$",
+                  "type": "string"
                 }
               },
               "required": [
                 "type",
-                "value"
+                "info",
+                "amount"
               ],
               "type": "object"
             },
-            "type": [
-              "array",
-              "null"
-            ]
+            "type": "array"
           },
-          "interest_rate": {
-            "deprecated": true,
-            "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\nPlease see the `interest_rates` object instead.\n",
-            "type": [
-              "number",
-              "null"
-            ]
-          },
-          "interest_rates": {
-            "description": "Breakdown of the interest applied to the loan.",
+          "fees": {
+            "description": "Details regarding the fees associated with this payment. Only applicable when `is_detached` = `true`.",
             "items": {
-              "description": "Breakdown of the interest applied to the loan.",
+              "description": "Details regarding the fees associated with this payment. Only applicable when `is_detached` = `true`.",
               "properties": {
-                "name": {
-                  "description": "The name of the type of interest rate applied to the loan.",
-                  "type": [
-                    "string",
-                    "null"
-                  ]
-                },
-                "type": {
-                  "description": "The period that the interest is applied to the loan. We return one of the following values:\n\n  - `MONTHLY`\n  - `YEARLY`\n",
-                  "enum": [
-                    "MONTHLY",
-                    "YEARLY",
-                    null
-                  ],
-                  "type": [
-                    "string",
-                    "null"
-                  ]
-                },
-                "value": {
-                  "description": "The interest rate (in percent or currency value).",
+                "amount": {
+                  "description": "The amount of the fee.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network when the `fees` field is present.\n",
                   "format": "float",
+                  "pattern": "^-?\\d{1,15}\\.\\d{2,4}$",
                   "type": [
                     "number",
                     "null"
                   ]
+                },
+                "code": {
+                  "description": "The institution's code for the fee.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network when the `fees` field is present.\n",
+                  "maxLength": 140,
+                  "pattern": "^[\\w\\W\\s]{0,140}$",
+                  "type": "string"
+                },
+                "name": {
+                  "description": "The name of the fee.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network when the `fees` field is present.\n",
+                  "maxLength": 140,
+                  "pattern": "^[\\w\\W\\s]{0,140}$",
+                  "type": "string"
                 }
               },
               "required": [
                 "name",
-                "type",
-                "value"
+                "code",
+                "amount"
               ],
               "type": "object"
             },
-            "type": [
-              "array",
-              "null"
-            ]
+            "type": "array"
           },
-          "last_payment_date": {
-            "deprecated": true,
-            "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\nThe date when the last loan payment was made, in `YYYY-MM-DD` format.\n",
+          "installment_id": {
+            "description": "The institution's unique ID for this payment installment.\n",
+            "maxLength": 100,
+            "minLength": 1,
+            "pattern": "^[a-zA-Z0-9][a-zA-Z0-9-]{0,99}$",
             "type": [
               "string",
               "null"
             ]
           },
-          "last_period_balance": {
-            "deprecated": true,
-            "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\nPlease see `outstanding_balance` instead.\n",
-            "type": [
-              "number",
-              "null"
-            ]
-          },
-          "limit_day": {
-            "deprecated": true,
-            "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\nPlease see `payment_day` instead.\n",
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "loan_type": {
-            "description": "The type of the loan, according to the institution.",
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "monthly_payment": {
-            "description": "The recurrent monthly payment, if applicable.",
-            "format": "float",
-            "type": [
-              "number",
-              "null"
-            ]
-          },
-          "next_payment_date": {
-            "deprecated": true,
-            "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\nPlease use `payment_day` instead, in `YYYY-MM-DD` format.\n",
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "no_interest_payment": {
-            "deprecated": true,
-            "description": "*This field has been deprecated. For more information regarding Belvo and deprecation, see our Deprecated fields explanation.*\n\nThe minimum amount required to pay to avoid generating interest.\n",
-            "type": [
-              "number",
-              "null"
-            ]
-          },
-          "number_of_installments_outstanding": {
-            "description": "The number of installments left to pay.",
-            "format": "int32",
-            "type": [
-              "integer",
-              "null"
-            ]
-          },
-          "number_of_installments_total": {
-            "description": "The total number of installments required to pay the loan.",
-            "format": "int32",
-            "type": [
-              "integer",
-              "null"
-            ]
-          },
-          "outstanding_balance": {
-            "description": "The amount remaining to pay in total, including interest.",
-            "format": "float",
-            "type": [
-              "number",
-              "null"
-            ]
-          },
-          "outstanding_principal": {
-            "description": "Outstanding loan amount, that is, how much remains to pay on the principal (not including interest).\n",
-            "format": "float",
-            "type": [
-              "number",
-              "null"
-            ]
-          },
-          "payment_day": {
-            "description": "The day of the month by which the owner needs to pay the loan (`DD`).",
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "principal": {
-            "description": "Total amount of the loan (the amount the user receives).",
-            "format": "float",
-            "type": [
-              "number",
-              "null"
-            ]
+          "is_detached": {
+            "description": "Boolean to indicate whether or not this loan payment was part of the original payment schedule.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+            "type": "boolean"
           }
         },
         "required": [
-          "principal",
-          "monthly_payment",
-          "outstanding_balance",
-          "interest_rates",
-          "collected_at"
+          "is_detached",
+          "installment_id",
+          "fees",
+          "charges"
         ],
         "type": [
           "object",
           "null"
         ]
       },
-      "name": {
-        "description": "The account name, as given by the institution.",
+      "local_currency_amount": {
+        "description": "The value of the transaction in the local currency.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network for **credit card transactions**.\n",
+        "format": "float",
+        "maxLength": 20,
+        "pattern": "^\\d{1,15}\\.\\d{2,4}$",
+        "type": [
+          "number",
+          "null"
+        ]
+      },
+      "mcc": {
+        "description": "The four-digit (ISO-18245 compliant) Merchant Category Code (MCC) for the transaction. This field is only applicable for credit card transactions.\n",
+        "format": "int32",
+        "pattern": "^[0-9]{4}$",
+        "type": [
+          "integer",
+          "null"
+        ]
+      },
+      "merchant": {
+        "description": "Additional data regarding the merchant involved in the transaction.\nWe only return merchant information for new transactions made from *checking* or *credit card* accounts.\n> **Get merchant information**\n We retrieve the merchant information for a transaction as part of our <a href=\"https://developers.belvo.com/docs/banking#categorizing-transactions\" target=\"_blank\">Transaction categorization</a> product, turning raw data into actionable insights. To enable this product, just <a href=\"https://belvo.com/contact/?utm_source=documentation\" target=\"_blank\">reach out</a> to us, and we'll get right to it.\n",
+        "properties": {
+          "logo": {
+            "description": "The URL to the merchant's logo.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "merchant_name": {
+            "description": "The name of the merchant.",
+            "type": "string"
+          },
+          "website": {
+            "description": "The URL to the merchant's website.",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "type": [
+          "object",
+          "null"
+        ]
+      },
+      "observations": {
+        "description": "**Note:** This field is not applicable for OF Brazil and will return null.\n",
         "type": [
           "string",
           "null"
         ]
       },
-      "number": {
-        "description": "The account number, as designated by the institution.",
+      "operation_type": {
+        "description": "The type of transaction. For example, a PIX payment or a deposit.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network for **non-loan account transactions**.\n",
+        "maxLength": 50,
+        "pattern": "^[A-Za-z_]{0,50}$",
+        "type": "string"
+      },
+      "operation_type_additional_info": {
+        "description": "Additional information regarding the `operation_type`, if applicable.\n",
+        "maxLength": 140,
+        "pattern": "^\\S[\\s\\S]*$",
         "type": [
           "string",
           "null"
         ]
       },
-      "public_identification_name": {
-        "description": "The public name for the type of identification. For example: `\"CLABE\"`.\n\nℹ️ For 🇧🇷 Brazilian savings and checking accounts, this field will be `AGENCY/ACCOUNT`.\n",
+      "payment_type": {
+        "description": "The transaction payment type. We return one of the following values:\n\n  - `FULL`\n  - `INSTALLMENT`\n  - `null`\n",
+        "enum": [
+          "FULL",
+          "INSTALLMENT",
+          null
+        ],
         "type": [
           "string",
           "null"
         ]
       },
-      "public_identification_value": {
-        "description": "The value for the `public_identification_name`.\n\nℹ️ For 🇧🇷 Brazilian savings and checking accounts, this field will be the agency and bank account number, separated by a slash.\nFor example: `0444/45722-0`.\n",
+      "reference": {
+        "description": "**Note:** This field is not applicable for OF Brazil and will return null.\n",
+        "maxLength": 128,
         "type": [
           "string",
           "null"
         ]
+      },
+      "status": {
+        "description": "The status of the transaction. We return one of the following values:\n\n  - `PROCESSED` (The transaction has been processed by the institution.)\n  - `PENDING` (The institution clearly states that the transaction has not yet been processed.)\n  - `UNCATEGORIZED` (deprecated)\n  - `null` (deprecated)\n  \n",
+        "enum": [
+          "PENDING",
+          "PROCESSED",
+          "UNCATEGORIZED",
+          null
+        ],
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "subcategory": {
+        "description": "The transaction subcategory.\n\n  > **Get transaction categorization**\n  For clients not using our <a href=\"https://developers.belvo.com/docs/banking#categorizing-transactions\" target=\"_blank\">Transaction categorization</a>, we return `null` instead. To enable this feature, just <a href=\"https://belvo.com/contact/?utm_source=documentation\" target=\"_blank\">reach out</a> to us, and we'll get right to it.\n\n\nWe return one of the following enum values:\n\n  - `Electricity & Energy`\n  - `Rent`\n  - `Telecommunications`\n  - `Water`\n  - `Auto`\n  - `Credit Card`\n  - `Instalment`\n  - `Interest & Charges`\n  - `Mortgage`\n  - `Pay Advance`\n  - `Personal`\n  - `Adjustments`\n  - `Bank Fees`\n  - `Chargeback`\n  - `Refund`\n  - `Blocked Balances`\n  - `Alimony`\n  - `Alcohol & Tobacco`\n  - `Bakery & Coffee`\n  - `Bars & Nightclubs`\n  - `Convenience Store`\n  - `Delivery`\n  - `Groceries`\n  - `Restaurants`\n  - `Education`\n  - `Gyms & Fitness`\n  - `Hair & Beauty`\n  - `Health`\n  - `Home Decor & Appliances`\n  - `Laundry & Dry Cleaning`\n  - `Pharmacies`\n  - `Professional Services`\n  - `Veterinary Services`\n  - `Freelance`\n  - `Interest`\n  - `Retirement`\n  - `Salary`\n  - `Government`\n  - `Home Insurance`\n  - `Auto Insurance`\n  - `Health & Life Insurance`\n  - `Savings`\n  - `Fixed income`\n  - `Equity`\n  - `Investment Funds`\n  - `Derivatives`\n  - `Cryptocurrencies`\n  - `Apps, Software and Cloud Services`\n  - `Events, Parks and Museums`\n  - `Gambling`\n  - `Gaming`\n  - `Lottery`\n  - `Movie & Audio`\n  - `Books & News`\n  - `Clothing & Accessories`\n  - `Department Store`\n  - `Electronics`\n  - `E-commerce`\n  - `Gifts`\n  - `Office Supplies`\n  - `Pet Supplies`\n  - `Auto Tax & Fees`\n  - `Donation`\n  - `Government Fees`\n  - `Income Tax`\n  - `Real Estate Tax & Fees`\n  - `Tax Return`\n  - `Accommodation`\n  - `Auto Expenses`\n  - `Auto Rental`\n  - `Flights`\n  - `Gas`\n  - `Mileage Programs`\n  - `Parking & Tolls`\n  - `Public Transit`\n  - `Taxis & Rideshares`\n  - `Other`\n  - `null`\n",
+        "enum": [
+          "Electricity & Energy",
+          "Rent",
+          "Telecommunications",
+          "Water",
+          "Auto",
+          "Credit Card",
+          "Instalment",
+          "Interest & Charges",
+          "Mortgage",
+          "Pay Advance",
+          "Personal",
+          "Adjustments",
+          "Bank Fees",
+          "Chargeback",
+          "Refund",
+          "Blocked Balances",
+          "Alimony",
+          "Alcohol & Tobacco",
+          "Bakery & Coffee",
+          "Bars & Nightclubs",
+          "Convenience Store",
+          "Delivery",
+          "Groceries",
+          "Restaurants",
+          "Education",
+          "Gyms & Fitness",
+          "Hair & Beauty",
+          "Health",
+          "Home Decor & Appliances",
+          "Laundry & Dry Cleaning",
+          "Pharmacies",
+          "Professional Services",
+          "Veterinary Services",
+          "Freelance",
+          "Interest",
+          "Retirement",
+          "Salary",
+          "Government",
+          "Home Insurance",
+          "Auto Insurance",
+          "Health & Life Insurance",
+          "Savings",
+          "Fixed income",
+          "Equity",
+          "Investment Funds",
+          "Derivatives",
+          "Cryptocurrencies",
+          "Apps, Software and Cloud Services",
+          "Events, Parks and Museums",
+          "Gambling",
+          "Gaming",
+          "Lottery",
+          "Movie & Audio",
+          "Books & News",
+          "Clothing & Accessories",
+          "Department Store",
+          "Electronics",
+          "E-commerce",
+          "Gifts",
+          "Office Supplies",
+          "Pet Supplies",
+          "Auto Tax & Fees",
+          "Donation",
+          "Government Fees",
+          "Income Tax",
+          "Real Estate Tax & Fees",
+          "Tax Return",
+          "Accommodation",
+          "Auto Expenses",
+          "Auto Rental",
+          "Flights",
+          "Gas",
+          "Mileage Programs",
+          "Parking & Tolls",
+          "Public Transit",
+          "Taxis & Rideshares",
+          "Other",
+          null
+        ],
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "transacted_at": {
+        "description": "The ISO-8601 timestamp of when the transaction occurred (in the UTC timezone).\n\n> **Note:** For transactions that occurred before 31.01.2024, the timestamp may only indicate the day (for example, `2016-01-29T00:00:00.000Z`). However, transactions that occurred after this date must include the date and time (`2024-02-20T12:29:03.374Z`).\n\n> **Institutions not abiding by this format:**\n> Some institutions may not provide the exact time of the transaction. In this case, the timestamp will be set to `00:00:00.000Z`.\n> Belvo has identified the following institutions as not abiding by the regulation and have raised the issue with regulators: Bradesco, Itau, and Sicoob.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network for **credit card and checking account transactions**.\n",
+        "format": "date-time",
+        "pattern": "(^(\\d{4})-(1[0-2]|0?[1-9])-(3[01]|[12][0-9]|0?[1-9])T(?:[01]\\d|2[0123]):(?:[012345]\\d):(?:[012345]\\d)\\.(?:[0-9]){3}Z$)",
+        "type": "string"
       },
       "type": {
-        "description": "The account type, as designated by the institution.",
+        "description": "The direction of the transaction:\n- `INFLOW` indicates money coming into the account.\n- `OUTFLOW` indicates money going out of the account.\n- `null` when no information was present regarding the direction of the transaction.\n",
+        "enum": [
+          "OUTFLOW",
+          "INFLOW",
+          null
+        ],
         "type": [
           "string",
           "null"
         ]
+      },
+      "value_date": {
+        "description": "The date when the transaction occurred, in `YYYY-MM-DD` format, in `YYYY-MM-DD` format.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
+        "format": "date",
+        "pattern": "^(\\d{4})-(1[0-2]|0?[1-9])-(3[01]|[12][0-9]|0?[1-9])$",
+        "type": "string"
       }
     },
     "required": [
-      "name",
-      "number",
-      "type",
-      "category",
-      "public_identification_name",
-      "public_identification_value",
-      "currency",
-      "balance",
-      "balance_type",
-      "credit_data",
-      "loan_data",
+      "id",
+      "internal_identification",
+      "account",
       "collected_at",
-      "last_accessed_at"
+      "created_at",
+      "value_date",
+      "accounting_date",
+      "amount",
+      "local_currency_amount",
+      "balance",
+      "currency",
+      "description",
+      "observations",
+      "merchant",
+      "category",
+      "subcategory",
+      "reference",
+      "type",
+      "status",
+      "credit_card_data",
+      "counterparty",
+      "loan_data",
+      "payment_type",
+      "operation_type",
+      "operation_type_additional_info",
+      "mcc"
     ],
-    "title": "Accounts Standard (Multi-Region)",
+    "title": "Transaction Object (Brazil)",
     "type": "object"
   },
   "stream": "banking_transactions",

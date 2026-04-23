@@ -20,7 +20,7 @@ class Accounts(BelvoStream):
     path = "/api/accounts"
     primary_keys = ("id",)
     replication_key = "created_at"
-    openapi_ref = "Account"
+    openapi_ref = "AccountOpenFinanceBrazil"
 
 
 class Transactions(BelvoStream):
@@ -30,7 +30,7 @@ class Transactions(BelvoStream):
     path = "/api/transactions"
     primary_keys = ("id",)
     replication_key = "created_at"
-    openapi_ref = "Account"
+    openapi_ref = "TransactionOpenFinanceBrazil"
     parent_stream_type = Links
 
     @override

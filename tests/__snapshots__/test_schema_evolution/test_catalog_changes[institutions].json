@@ -96,6 +96,15 @@
     {
       "breadcrumb": [
         "properties",
+        "code"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
         "form_fields"
       ],
       "metadata": {
@@ -196,6 +205,14 @@
   "schema": {
     "description": "Object detailing the aggregation institution.",
     "properties": {
+      "code": {
+        "deprecated": true,
+        "description": "This field is **deprecated** and will be removed in a future release. Please use the `id` field instead, which is the unique identifier for the institution.",
+        "type": [
+          "string",
+          "null"
+        ]
+      },
       "country_codes": {
         "description": "The country codes where the institution is available, for example:\n- 🇧🇷 BR (Brazil)\n- 🇨🇴 CO (Colombia)\n- 🇲🇽 MX (Mexico)  \n",
         "items": {
