@@ -1,4 +1,7 @@
-"""Test schema evolution."""
+"""Test schema evolution.
+
+Copyright (c) 2026 Edgar-Ramírez Mondragón
+"""
 
 from __future__ import annotations
 
