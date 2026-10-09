@@ -103,8 +103,8 @@
       "description": "A Payment Authorization is the consent that your user gives you to charge (debit money from) their accounts. You need to perform one Payment Authorization per \u2018contract\u2019 (for example, if your company does both electricity and water but they are billed separately, then you will create two separate Payment Authorizations).\n\nOnce the user confirms the authorization, you will need to listen for a a `PAYMENT_AUTHORIZATION` webhook with the status set to `AUTHORIZED`. Once you receive this webhook, the authorization process is complete, and you will be able to charge your user.\n\n{% admonition type=\"info\" name=\"What is a charge?\" %}\nA **charge** represents the individual payment (debit) that your customer will make.\n{% /admonition %}\n\n{% admonition type=\"danger\" name=\"Version Header\" %}\n  The Payment Authorization resource requires that you send through the `X-Belvo-API-Resource-Version` header set to `Payments-BR.V2`.\n{% /admonition %}"
     },
     {
-      "name": "Biometric Pix Widget Access Token (Brazil)",
-      "description": "Use the Biometric Pix Widget Token requests to create a access token for Biometric Payments.\n"
+      "name": "Biometric payments Widget Access Token (Brazil)",
+      "description": "Use the Biometric payments widget token request to create an access token for Biometric payments.\n"
     },
     {
       "name": "Payment Transactions (Brazil)",
@@ -5137,75 +5137,6 @@
             "$ref": "#/components/responses/500_unexpected_error"
           }
         }
-      },
-      "patch": {
-        "tags": [
-          "Incomes"
-        ],
-        "operationId": "PatchIncomes",
-        "summary": "Complete an incomes request",
-        "description": "Used to resume an Income retrieve session that was paused because an MFA\ntoken was required by the institution.\n",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/omit"
-          },
-          {
-            "$ref": "#/components/parameters/fields"
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PatchBody"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Ok (when `save_data=false`)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Income"
-                  }
-                }
-              }
-            }
-          },
-          "201": {
-            "description": "Created (when `save_data=true`)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Income"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "$ref": "#/components/responses/400_bad_request_error"
-          },
-          "401": {
-            "$ref": "#/components/responses/401_unauthorized_error"
-          },
-          "408": {
-            "$ref": "#/components/responses/408_request_timeout_error"
-          },
-          "428": {
-            "$ref": "#/components/responses/428_token_required_error"
-          },
-          "500": {
-            "$ref": "#/components/responses/500_unexpected_error"
-          }
-        }
       }
     },
     "/api/incomes/{id}/": {
@@ -5432,81 +5363,6 @@
                     "$ref": "#/components/schemas/date_to"
                   }
                 }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Ok (when save_data=false)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/RecurringExpenses"
-                  }
-                }
-              }
-            }
-          },
-          "201": {
-            "description": "Created (when save_data=true)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/RecurringExpenses"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "$ref": "#/components/responses/400_bad_request_error"
-          },
-          "401": {
-            "$ref": "#/components/responses/401_unauthorized_error"
-          },
-          "403": {
-            "$ref": "#/components/responses/403_access_denied_error"
-          },
-          "404": {
-            "$ref": "#/components/responses/404_not_found_error"
-          },
-          "408": {
-            "$ref": "#/components/responses/408_request_timeout_error"
-          },
-          "428": {
-            "$ref": "#/components/responses/428_token_required_error"
-          },
-          "500": {
-            "$ref": "#/components/responses/500_unexpected_error"
-          }
-        }
-      },
-      "patch": {
-        "tags": [
-          "Recurring Expenses"
-        ],
-        "operationId": "PatchRecurringExpenses",
-        "summary": "Complete a recurring expenses request",
-        "description": "Used to resume an Recurring Expenses retrieve session that was paused because an MFA\ntoken was required by the institution.\n",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/omit"
-          },
-          {
-            "$ref": "#/components/parameters/fields"
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PatchBody"
               }
             }
           }
@@ -5833,81 +5689,6 @@
             "$ref": "#/components/responses/500_unexpected_error"
           }
         }
-      },
-      "patch": {
-        "tags": [
-          "Risk Insights"
-        ],
-        "operationId": "PatchRiskInsights",
-        "summary": "Complete a risk insights request",
-        "description": "Used to resume an Risk insights retrieve session that was paused because an MFA\ntoken was required by the institution.\n",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/omit"
-          },
-          {
-            "$ref": "#/components/parameters/fields"
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PatchBody"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Ok (when save_data=false)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/RiskInsights"
-                  }
-                }
-              }
-            }
-          },
-          "201": {
-            "description": "Created (when save_data=true)",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/RiskInsights"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "$ref": "#/components/responses/400_bad_request_error"
-          },
-          "401": {
-            "$ref": "#/components/responses/401_unauthorized_error"
-          },
-          "403": {
-            "$ref": "#/components/responses/403_access_denied_error"
-          },
-          "404": {
-            "$ref": "#/components/responses/404_not_found_error"
-          },
-          "408": {
-            "$ref": "#/components/responses/408_request_timeout_error"
-          },
-          "428": {
-            "$ref": "#/components/responses/428_token_required_error"
-          },
-          "500": {
-            "$ref": "#/components/responses/500_unexpected_error"
-          }
-        }
       }
     },
     "/api/risk-insights/{id}/": {
@@ -6092,7 +5873,7 @@
         ],
         "operationId": "RetrieveEmploymentMetricDetails",
         "summary": "Retrieve employment metrics",
-        "description": "Retrieve employment metrics for an individual.\n\n> **Note:** Before requesting employment metrics, make sure to first make a <a href=\"https://developers.belvo.com/reference/retrieveemploymentrecorddetails\" target=\"_blank\">POST Retrieve employment record details</a> request. \n",
+        "description": "Retrieve employment metrics for an individual.\n\n> **Note:** Employment metrics are only available for **IMSS** links (`imss_mx_employment`), as a paid opt-in add-on. They aren't available for ISSSTE (`issste_mx_employment`) or the Sandbox institution (`planet_mx_employment`). Contact your Belvo representative to enable them.\n\n> **Note:** Before requesting employment metrics, make sure to first make a <a href=\"https://developers.belvo.com/reference/retrieveemploymentrecorddetails\" target=\"_blank\">POST Retrieve employment record details</a> request. \n",
         "parameters": [
           {
             "$ref": "#/components/parameters/omit"
@@ -9280,7 +9061,7 @@
                   "type": "object",
                   "allOf": [
                     {
-                      "$ref": "#/components/schemas/payments_common_pagination_properties"
+                      "$ref": "#/components/schemas/common_pagination_properties"
                     },
                     {
                       "properties": {
@@ -9389,7 +9170,7 @@
                   "type": "object",
                   "allOf": [
                     {
-                      "$ref": "#/components/schemas/payments_common_pagination_properties"
+                      "$ref": "#/components/schemas/common_pagination_properties"
                     },
                     {
                       "properties": {
@@ -9632,7 +9413,7 @@
                   "type": "object",
                   "allOf": [
                     {
-                      "$ref": "#/components/schemas/payments_common_pagination_properties"
+                      "$ref": "#/components/schemas/common_pagination_properties"
                     },
                     {
                       "properties": {
@@ -9887,7 +9668,7 @@
                   "type": "object",
                   "allOf": [
                     {
-                      "$ref": "#/components/schemas/payments_common_pagination_properties"
+                      "$ref": "#/components/schemas/common_pagination_properties"
                     },
                     {
                       "properties": {
@@ -9939,6 +9720,87 @@
       }
     },
     "/payments/br/bank-accounts/{id}/": {
+      "patch": {
+        "tags": [
+          "Bank Accounts (Brazil)"
+        ],
+        "operationId": "PatchBankAccountBrazil",
+        "summary": "Activate or deactivate a bank account",
+        "description": "Updates whether a bank account is active by setting `active` to `true` or `false`.\n\nSetting `active` to `false` deactivates the bank account identified in the path. Deactivated accounts are ignored for duplicate checks on the same institution, agency, and account number, which lets you register a new bank account with the same banking details when you need to fix incorrect holder information (such as name or CPF/CNPJ) or similar mistakes from an initial registration.\n",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/header_version"
+          },
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "description": "The `bank-account.id` you want to activate or deactivate.",
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "example": "a3b92311-1888-449f-acaa-49ae28d68fcd"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PatchBankAccountActive"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/BankAccountV2"
+                    },
+                    {
+                      "$ref": "#/components/schemas/BankAccountOfpiResponse"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/400_validation_error"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/401_unauthorized_error"
+          },
+          "403": {
+            "$ref": "#/components/responses/403_access_denied_error"
+          },
+          "404": {
+            "$ref": "#/components/responses/404_not_found_error"
+          },
+          "408": {
+            "$ref": "#/components/responses/408_request_timeout_error"
+          },
+          "500": {
+            "$ref": "#/components/responses/500_unexpected_error"
+          }
+        }
+      },
       "get": {
         "tags": [
           "Bank Accounts (Brazil)"
@@ -10225,7 +10087,7 @@
                   "type": "object",
                   "allOf": [
                     {
-                      "$ref": "#/components/schemas/payments_common_pagination_properties"
+                      "$ref": "#/components/schemas/common_pagination_properties"
                     },
                     {
                       "properties": {
@@ -10506,7 +10368,7 @@
                   "type": "object",
                   "allOf": [
                     {
-                      "$ref": "#/components/schemas/payments_common_pagination_properties"
+                      "$ref": "#/components/schemas/common_pagination_properties"
                     },
                     {
                       "properties": {
@@ -10852,7 +10714,7 @@
                   "type": "object",
                   "allOf": [
                     {
-                      "$ref": "#/components/schemas/payments_common_pagination_properties"
+                      "$ref": "#/components/schemas/common_pagination_properties"
                     },
                     {
                       "properties": {
@@ -11072,7 +10934,7 @@
                   "type": "object",
                   "allOf": [
                     {
-                      "$ref": "#/components/schemas/payments_common_pagination_properties"
+                      "$ref": "#/components/schemas/common_pagination_properties"
                     },
                     {
                       "properties": {
@@ -11445,7 +11307,7 @@
                   "type": "object",
                   "allOf": [
                     {
-                      "$ref": "#/components/schemas/payments_common_pagination_properties"
+                      "$ref": "#/components/schemas/common_pagination_properties"
                     },
                     {
                       "properties": {
@@ -11538,7 +11400,7 @@
         ],
         "operationId": "CreateEnrollmentBrazil",
         "summary": "Enroll a new user device",
-        "description": "\n\n## \u25b6\ufe0f Usage\n\nWith the **Enroll a new user device** method, you can begin the enrollment process for a new device to allow for Biometric Pix payments.\n\n> \ud83d\udea7 Create a customer first\n>\n> Before you can enroll a user device, you must first create a customer.\n",
+        "description": "\n\n## \u25b6\ufe0f Usage\n\nWith the **Enroll a new user device** method, you can begin the enrollment process for a new device to allow for Biometric payments.\n\n> \ud83d\udea7 Create a customer first\n>\n> Before you can enroll a user device, you must first create a customer.\n",
         "parameters": [],
         "requestBody": {
           "content": {
@@ -11635,7 +11497,7 @@
                   "type": "object",
                   "allOf": [
                     {
-                      "$ref": "#/components/schemas/payments_common_pagination_properties"
+                      "$ref": "#/components/schemas/common_pagination_properties"
                     },
                     {
                       "properties": {
@@ -11737,11 +11599,11 @@
     "/payments/br/token/": {
       "post": {
         "tags": [
-          "Biometric Pix Widget Access Token (Brazil)"
+          "Biometric payments Widget Access Token (Brazil)"
         ],
         "summary": "Generate a payment widget access token",
         "operationId": "GeneratePaymentWidgetAccessToken",
-        "description": "Generate a payment widget access token for the Biometric Pix enrollment or payment process.\n",
+        "description": "Generate a payment widget access token for the Biometric payments enrollment or payment process.\n",
         "requestBody": {
           "required": true,
           "content": {
@@ -12264,7 +12126,7 @@
         "description": "Return links with this specific institution user ID.",
         "schema": {
           "type": "string",
-          "example": "ezFoxjPDr7YnASnOaft5F3zt7D0kurgDNlLtZFjxUo0="
+          "example": "test_institution_user_id_1234567890abcdef123"
         }
       },
       "institution_user_id__in": {
@@ -12277,7 +12139,7 @@
           "type": "array",
           "items": {
             "type": "string",
-            "example": "ezFoxjPDr7YnASnOaft5F3zt7D0kurgDNlLtZFjxUo0="
+            "example": "test_institution_user_id_1234567890abcdef123"
           }
         }
       },
@@ -14353,7 +14215,7 @@
             "nullable": true,
             "format": "uri",
             "description": "The URL to next page of results. Each page consists of up to 100 items. If there are not enough results for an additional page, the value is `null`.\n\nIn our documentation example, we use `{endpoint}` as a placeholder value. In production, this value will be replaced by the actual endpoint you are currently using (for example, `accounts` or `owners`).\n",
-            "example": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908page=2"
+            "example": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908&page=2"
           },
           "previous": {
             "type": "string",
@@ -14859,7 +14721,7 @@
             "type": "string",
             "pattern": "[A-Za-z0-9\\-=_]{44}",
             "description": "> \ud83d\udcd8 Info\n>\n> Only applicable for links created **after 08-02-2022**.\n\n\nA unique 44-character string that can be used to identify a user at a given institution.\n\n\n\ud83d\udcda Check out our <a href=\"https://developers.belvo.com/docs/link-creation-best-practices#avoiding-duplicated-links\" target=\"_blank\">Avoiding duplicated links</a> DevPortal article for more information and tips on how to use it.\n",
-            "example": "sooE7XJWEKypZJR603ecaWYk-8Ap0oD8Nr1pBQ4eG9c="
+            "example": "test_institution_user_id_1234567890abcdef123"
           },
           "status": {
             "$ref": "#/components/schemas/EnumLinkStatus"
@@ -14918,7 +14780,8 @@
       "LinksRequestEmploymentBrazil": {
         "type": "object",
         "title": "Employment Links (Brazil)",
-        "description": "The request body to create a link for employment institutions in Brazil.",
+        "deprecated": true,
+        "description": "**Note**: Creating links for employment institutions in Brazil directly through the API is not supported. Use the Belvo Hosted Widget instead.\n\n*The request body to create a link for employment institutions in Brazil.*\n",
         "required": [
           "institution",
           "username",
@@ -14999,7 +14862,7 @@
           },
           "username2": {
             "type": "string",
-            "description": "The user's email address used to log in to the institution. Note required for `issste_mx_employment`.",
+            "description": "The user's email address used to log in to the institution. Required for `issste_mx_employment`. Optional for `imss_mx_employment`.",
             "example": "carlos@bex.com"
           },
           "external_id": {
@@ -16443,12 +16306,12 @@
           "access": {
             "type": "string",
             "description": "The access token to be used to authenticate the widget.",
-            "example": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI3MzYwMTk1LCJpYXQiOjE3MjczNTg5OTUsImp0aSI6ImRhN2Q3OTM1ZDZlZTQ0MTBhYTMwYTc3NWQ1OWMxZWIzIiwidXNlcl9pZCI6IjZlOWJlODg0LTQ3ODEtNDE0My1iNjczLWFjYTAyNDc1ZWU4YyIsIm9yZ2FuaXphdGlvbl9uYW1lIjoiRG9taW5payBDaG9sZXdza2kncyB0ZWFtIiwib3JnYW5pemF0aW9uX2lkIjoiNmU5YmU4ODQtNDc4MS00MTQzLWI2NzMtYWNhMDI0NzVlZThjIiwic2NvcGVzIjpbInJlYWRfaW5zdGl0dXRpb25zIiwid3JpdGVfbGlua3MiXSwiZW52aXJvbm1lbnQiOiJzYW5kYm94IiwiYXBpX3VybCI6InNhbmRib3guYmVsdm8uY29tIiwiY3JlZGVudGlhbHNfc3RvcmFnZSI6IjMwZCIsInN0YWxlX2luIjoiMzY1ZCIsImZldGNoX3Jlc291cmNlcyI6WyJPV05FUlMiLCJFTVBMT1lNRU5UUyJdLCJpc3MiOiJzYW5kYm94LmJlbHZvLmNvbSJ9.DaQ8xVTEjA4BD-0SbBCQDylO3NrjhsHiWXTaoPdKWRucS2E0jxNUHC5lwrejrz73-GytgcXTeiI1fhZBYW719A"
+            "example": "jwt_test_ey.........."
           },
           "refresh": {
             "type": "string",
             "description": "The refresh token to be used to authenticate the widget.",
-            "example": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MjM0OTQzODk5NSwiaWF0IjoxNzI3MzU4OTk1LCJqdGkiOiI2YmUyMGFmNTcxZDU0NjQzYjA0Y2U3YTVhNjI5ZDRiMSIsInVzZXJfaWQiOiI2ZTliZTg4NC00NzgxLTQxNDMtYjY3My1hY2EwMjQ3NWVlOGMiLCJvcmdhbml6YXRpb25fbmFtZSI6IkRvbWluaWsgQ2hvbGV3c2tpJ3MgdGVhbSIsIm9yZ2FuaXphdGlvbl9pZCI6IjZlOWJlODg0LTQ3ODEtNDE0My1iNjczLWFjYTAyNDc1ZWU4YyIsInNjb3BlcyI6WyJyZWFkX2luc3RpdHV0aW9ucyIsIndyaXRlX2xpbmtzIl0sImVudmlyb25tZW50Ijoic2FuZGJveCIsImFwaV91cmwiOiJzYW5kYm94LmJlbHZvLmNvbSIsImNyZWRlbnRpYWxzX3N0b3JhZ2UiOiIzMGQiLCJzdGFsZV9pbiI6IjM2NWQiLCJmZXRjaF9yZXNvdXJjZXMiOlsiT1dORVJTIiwiRU1QTE9ZTUVOVFMiXSwiaXNzIjoic2FuZGJveC5iZWx2by5jb20ifQ.T-tnX2BwAjQI0MaYCO686bZD6H7EMIgi_CbOWtHDexGIiTKLer0d7RJGisXJqM6oA_L4y_A_774LEj8NNb7YXQ"
+            "example": "jwt_test_ey.........."
           }
         }
       },
@@ -18234,7 +18097,7 @@
       "TransactionMerchantData": {
         "type": "object",
         "nullable": true,
-        "description": "Additional data regarding the merchant involved in the transaction.\nWe only return merchant information for new transactions made from *checking* or *credit card* accounts.\n> **Get merchant information**\n We retrieve the merchant information for a transaction as part of our <a href=\"https://developers.belvo.com/docs/banking#categorizing-transactions\" target=\"_blank\">Transaction categorization</a> product, turning raw data into actionable insights. To enable this product, just <a href=\"https://belvo.com/contact/?utm_source=documentation\" target=\"_blank\">reach out</a> to us, and we'll get right to it.\n",
+        "description": "Additional data regarding the merchant involved in the transaction.\nWe only return merchant information for new transactions made from *checking* or *credit card* accounts.\n> **Get merchant information**\n We retrieve the merchant information for a transaction as part of our transaction categorization product, turning raw data into actionable insights. To enable this product, just <a href=\"https://belvo.com/contact/?utm_source=documentation\" target=\"_blank\">reach out</a> to us, and we'll get right to it.\n",
         "properties": {
           "logo": {
             "type": "string",
@@ -18277,7 +18140,7 @@
           "Withdrawal & ATM",
           null
         ],
-        "description": "The name of the transaction category.\n\n> **Get transaction categorization**\nWith <a href=\"https://developers.belvo.com/docs/banking#categorizing-transactions\" target=\"_blank\">Transaction categorization</a>, we clean and categorize transactions for you, turning raw data into actionable insights. To enable this feature, just <a href=\"https://belvo.com/contact/?utm_source=documentation\" target=\"_blank\">reach out</a> to us, and we'll get right to it.\n\nWe return one of the following enum values:\n\n  - `Bills & Utilities`\n  - `Credits & Loans`\n  - `Deposits`\n  - `Fees & Charges`\n  - `Food & Groceries`\n  - `Home & Life`\n  - `Income & Payments`\n  - `Insurance`\n  - `Investments & Savings`\n  - `Online Platforms & Leisure`\n  - `Personal Shopping`\n  - `Taxes`\n  - `Transfers`\n  - `Transport & Travel`\n  - `Unknown`*\n  - `Withdrawal & ATM`\n  - `null`\n\n\n  \\* For clients not using our Transaction Categorization product, we return `null` instead.\n",
+        "description": "The name of the transaction category.\n\n> **Get transaction categorization**\nWith transaction categorization, we clean and categorize transactions for you, turning raw data into actionable insights. To enable this feature, just <a href=\"https://belvo.com/contact/?utm_source=documentation\" target=\"_blank\">reach out</a> to us, and we'll get right to it.\n\nWe return one of the following enum values:\n\n  - `Bills & Utilities`\n  - `Credits & Loans`\n  - `Deposits`\n  - `Fees & Charges`\n  - `Food & Groceries`\n  - `Home & Life`\n  - `Income & Payments`\n  - `Insurance`\n  - `Investments & Savings`\n  - `Online Platforms & Leisure`\n  - `Personal Shopping`\n  - `Taxes`\n  - `Transfers`\n  - `Transport & Travel`\n  - `Unknown`*\n  - `Withdrawal & ATM`\n  - `null`\n\n\n  \\* For clients not using our Transaction Categorization product, we return `null` instead.\n",
         "example": "Income & Payments"
       },
       "EnumTransactionSubcategory": {
@@ -18363,7 +18226,7 @@
           "Other",
           null
         ],
-        "description": "The transaction subcategory.\n\n  > **Get transaction categorization**\n  For clients not using our <a href=\"https://developers.belvo.com/docs/banking#categorizing-transactions\" target=\"_blank\">Transaction categorization</a>, we return `null` instead. To enable this feature, just <a href=\"https://belvo.com/contact/?utm_source=documentation\" target=\"_blank\">reach out</a> to us, and we'll get right to it.\n\n\nWe return one of the following enum values:\n\n  - `Electricity & Energy`\n  - `Rent`\n  - `Telecommunications`\n  - `Water`\n  - `Auto`\n  - `Credit Card`\n  - `Instalment`\n  - `Interest & Charges`\n  - `Mortgage`\n  - `Pay Advance`\n  - `Personal`\n  - `Adjustments`\n  - `Bank Fees`\n  - `Chargeback`\n  - `Refund`\n  - `Blocked Balances`\n  - `Alimony`\n  - `Alcohol & Tobacco`\n  - `Bakery & Coffee`\n  - `Bars & Nightclubs`\n  - `Convenience Store`\n  - `Delivery`\n  - `Groceries`\n  - `Restaurants`\n  - `Education`\n  - `Gyms & Fitness`\n  - `Hair & Beauty`\n  - `Health`\n  - `Home Decor & Appliances`\n  - `Laundry & Dry Cleaning`\n  - `Pharmacies`\n  - `Professional Services`\n  - `Veterinary Services`\n  - `Freelance`\n  - `Interest`\n  - `Retirement`\n  - `Salary`\n  - `Government`\n  - `Home Insurance`\n  - `Auto Insurance`\n  - `Health & Life Insurance`\n  - `Savings`\n  - `Fixed income`\n  - `Equity`\n  - `Investment Funds`\n  - `Derivatives`\n  - `Cryptocurrencies`\n  - `Apps, Software and Cloud Services`\n  - `Events, Parks and Museums`\n  - `Gambling`\n  - `Gaming`\n  - `Lottery`\n  - `Movie & Audio`\n  - `Books & News`\n  - `Clothing & Accessories`\n  - `Department Store`\n  - `Electronics`\n  - `E-commerce`\n  - `Gifts`\n  - `Office Supplies`\n  - `Pet Supplies`\n  - `Auto Tax & Fees`\n  - `Donation`\n  - `Government Fees`\n  - `Income Tax`\n  - `Real Estate Tax & Fees`\n  - `Tax Return`\n  - `Accommodation`\n  - `Auto Expenses`\n  - `Auto Rental`\n  - `Flights`\n  - `Gas`\n  - `Mileage Programs`\n  - `Parking & Tolls`\n  - `Public Transit`\n  - `Taxis & Rideshares`\n  - `Other`\n  - `null`\n",
+        "description": "The transaction subcategory.\n\n  > **Get transaction categorization**\n  For clients not using our transaction categorization, we return `null` instead. To enable this feature, just <a href=\"https://belvo.com/contact/?utm_source=documentation\" target=\"_blank\">reach out</a> to us, and we'll get right to it.\n\n\nWe return one of the following enum values:\n\n  - `Electricity & Energy`\n  - `Rent`\n  - `Telecommunications`\n  - `Water`\n  - `Auto`\n  - `Credit Card`\n  - `Instalment`\n  - `Interest & Charges`\n  - `Mortgage`\n  - `Pay Advance`\n  - `Personal`\n  - `Adjustments`\n  - `Bank Fees`\n  - `Chargeback`\n  - `Refund`\n  - `Blocked Balances`\n  - `Alimony`\n  - `Alcohol & Tobacco`\n  - `Bakery & Coffee`\n  - `Bars & Nightclubs`\n  - `Convenience Store`\n  - `Delivery`\n  - `Groceries`\n  - `Restaurants`\n  - `Education`\n  - `Gyms & Fitness`\n  - `Hair & Beauty`\n  - `Health`\n  - `Home Decor & Appliances`\n  - `Laundry & Dry Cleaning`\n  - `Pharmacies`\n  - `Professional Services`\n  - `Veterinary Services`\n  - `Freelance`\n  - `Interest`\n  - `Retirement`\n  - `Salary`\n  - `Government`\n  - `Home Insurance`\n  - `Auto Insurance`\n  - `Health & Life Insurance`\n  - `Savings`\n  - `Fixed income`\n  - `Equity`\n  - `Investment Funds`\n  - `Derivatives`\n  - `Cryptocurrencies`\n  - `Apps, Software and Cloud Services`\n  - `Events, Parks and Museums`\n  - `Gambling`\n  - `Gaming`\n  - `Lottery`\n  - `Movie & Audio`\n  - `Books & News`\n  - `Clothing & Accessories`\n  - `Department Store`\n  - `Electronics`\n  - `E-commerce`\n  - `Gifts`\n  - `Office Supplies`\n  - `Pet Supplies`\n  - `Auto Tax & Fees`\n  - `Donation`\n  - `Government Fees`\n  - `Income Tax`\n  - `Real Estate Tax & Fees`\n  - `Tax Return`\n  - `Accommodation`\n  - `Auto Expenses`\n  - `Auto Rental`\n  - `Flights`\n  - `Gas`\n  - `Mileage Programs`\n  - `Parking & Tolls`\n  - `Public Transit`\n  - `Taxis & Rideshares`\n  - `Other`\n  - `null`\n",
         "example": "Freelance"
       },
       "EnumTransactionType": {
@@ -22791,7 +22654,7 @@
           "Transport & Travel",
           "Taxes"
         ],
-        "description": "The transaction category for the recurring expense. For more information on the available categories, please see our <a href=\"https://developers.belvo.com/docs/banking#categorizing-transactions\" target=\"_blank\">Transaction categorization documentation</a>.\n\n- `Online Platforms & Leisure` (Netflix, Spotify, Gym Memberships)\n- `Bills & Utilities` (electricity, telephone, internet)\n- `Credits & Loans` (credit card cash advances, student loan, watercraft lease)\n- `Insurance` (home, car, and health & life insurance)\n- `Transport & Travel` (Uber trip, airbnb, parking)\n- `Taxes` (service fee, donation, court taxes)\n",
+        "description": "The transaction category for the recurring expense.\n\n- `Online Platforms & Leisure` (Netflix, Spotify, Gym Memberships)\n- `Bills & Utilities` (electricity, telephone, internet)\n- `Credits & Loans` (credit card cash advances, student loan, watercraft lease)\n- `Insurance` (home, car, and health & life insurance)\n- `Transport & Travel` (Uber trip, airbnb, parking)\n- `Taxes` (service fee, donation, court taxes)\n",
         "example": "Online Platforms & Leisure"
       },
       "EnumRecurringExpensePaymentType": {
@@ -29440,31 +29303,6 @@
           }
         }
       },
-      "payments_common_pagination_properties": {
-        "type": "object",
-        "properties": {
-          "count": {
-            "type": "integer",
-            "format": "int32",
-            "description": "The total number of results in your Belvo account.",
-            "example": 130
-          },
-          "next": {
-            "type": "string",
-            "nullable": true,
-            "format": "uri",
-            "description": "The URL to next page of results. Each page consists of up to 100 items. If there are not enough results for an additional page, the value is `null`.\n\nIn our documentation example, we use `{endpoint}` as a placeholder value. In production, this value will be replaced by the actual endpoint you are currently using (for example, `accounts` or `owners`).\n",
-            "example": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908page=2"
-          },
-          "previous": {
-            "type": "string",
-            "nullable": true,
-            "format": "uri",
-            "description": "The URL to the previous page of results. If there is no previous page, the\nvalue is `null`.\n",
-            "example": null
-          }
-        }
-      },
       "paymentInstitutionBR": {
         "type": "object",
         "required": [
@@ -31372,6 +31210,20 @@
           },
           "details": {
             "$ref": "#/components/schemas/BankAccountDetailsOfpi"
+          }
+        }
+      },
+      "PatchBankAccountActive": {
+        "type": "object",
+        "title": "Patch bank account active status",
+        "required": [
+          "active"
+        ],
+        "properties": {
+          "active": {
+            "type": "boolean",
+            "description": "When set to `false`, deactivates this bank account. A deactivated account no longer counts toward uniqueness for the same institution, agency, and account number, so you can register a new bank account with the same banking details (for example, after correcting the holder name, CPF/CNPJ, or other metadata).\n\nWhen set to `true`, reactivates a previously deactivated bank account.\n",
+            "example": false
           }
         }
       },
@@ -34133,7 +33985,7 @@
       },
       "EnrollmentBiometricPix": {
         "type": "object",
-        "description": "Details regarding the device enrollment for Biometric Pix payments.",
+        "description": "Details regarding the device enrollment for Biometric payments.",
         "properties": {
           "id": {
             "type": "string",
@@ -34206,7 +34058,7 @@
                   "REJECTED",
                   "REVOKED"
                 ],
-                "description": "The status of the Biometric Pix enrollment. Can be either:\n\n  - `AWAITING_ACCOUNT_HOLDER_VALIDATION`: The account holder needs to validate the enrollment by sending their biometric data.\n  - `AWAITING_ENROLLMENT`: The enrollment information has been sent to the institution and is being evaluated.\n  - `AUTHORIZED`: The enrollment has been authorized.\n  - `REJECTED`: The institution has rejected the enrollment.\n  - `REVOKED`: The user or the institution has revoked the enrollment.\n",
+                "description": "The status of the Biometric payments enrollment. Can be either:\n\n  - `AWAITING_ACCOUNT_HOLDER_VALIDATION`: The account holder needs to validate the enrollment by sending their biometric data.\n  - `AWAITING_ENROLLMENT`: The enrollment information has been sent to the institution and is being evaluated.\n  - `AUTHORIZED`: The enrollment has been authorized.\n  - `REJECTED`: The institution has rejected the enrollment.\n  - `REVOKED`: The user or the institution has revoked the enrollment.\n",
                 "example": "AWAITING_ACCOUNT_HOLDER_VALIDATION"
               },
               "customer": {
@@ -34438,14 +34290,14 @@
       "IndividualRequestBiometricPix": {
         "type": "object",
         "title": "INDIVIDUAL",
-        "description": "Details about the Biometric Pix payment method.",
+        "description": "Details about the payment method used for Biometric payments.",
         "required": [
           "open_finance_biometric_pix"
         ],
         "properties": {
           "open_finance_biometric_pix": {
             "type": "object",
-            "description": "Details regarding the Biometric Pix payment method for individual customers.",
+            "description": "Details regarding the payment method used for Biometric payments by individual customers.",
             "required": [
               "beneficiary_bank_account"
             ],
@@ -34468,8 +34320,8 @@
       },
       "PaymentIntentBiometricWidget": {
         "type": "object",
-        "title": "Payment Intent for Biometric Pix",
-        "description": "Create a Biometric Pix Payment for Brazil (OFPI).\n",
+        "title": "Payment Intent for Biometric payments",
+        "description": "Create a payment using Biometric payments in Brazil (OFPI).\n",
         "required": [
           "amount",
           "description",
@@ -34509,7 +34361,7 @@
               "enum": [
                 "open_finance_biometric_pix"
               ],
-              "description": "Selected payment method type. For Biometric Pix payments in Brazil, this must be set to `open_finance_biometric_pix`.\n",
+              "description": "Selected payment method type. For Biometric payments in Brazil, this must be set to `open_finance_biometric_pix`.\n",
               "example": "open_finance_biometric_pix"
             }
           },
@@ -34547,7 +34399,7 @@
       },
       "BrandingBiometricWidget": {
         "type": "object",
-        "description": "Add customized branding elements to the Biometric Pix widget.",
+        "description": "Add customized branding elements to the Biometric payments widget.",
         "required": [
           "company_name"
         ],
@@ -34571,7 +34423,7 @@
       },
       "ThemeBiometricWidget": {
         "type": "object",
-        "description": "Use the `theme` array to add further customization to your chosen color scheme. For details regarding all the possible customizations, please see our dedicated <a href=\"https://developers.belvo.com/docs/branding-and-customization-biometric-pix-widget\" target=\"_blank\">Branding and Customization (Biometric Pix Widget)</a> guide.\n",
+        "description": "Use the `theme` array to add further customization to your chosen color scheme. For details regarding all the possible customizations, please see our dedicated <a href=\"https://developers.belvo.com/docs/branding-and-customization-biometric-pix-widget\" target=\"_blank\">Branding and Customization (Biometric payments widget)</a> guide.\n",
         "required": [
           "css_key",
           "value"
@@ -34591,7 +34443,7 @@
       },
       "BiometricPaymentWidgetRequest": {
         "type": "object",
-        "title": "Payment Widget (Biometric Pix) Access Token",
+        "title": "Payment Widget (Biometric payments) Access Token",
         "required": [
           "use_cases",
           "widget"
@@ -34601,7 +34453,7 @@
             "type": "array",
             "minItems": 1,
             "maxItems": 2,
-            "description": "The use case of the Biometric Pix widget. You can choose:\n\n  - `ENROLLMENT`: Use this option if you want to enroll you user's device in the Biometric Pix service.\n  - `PAYMENT_INTENT`: Use this option if you want to create a payment for a Biometric Pix transaction.\n\n> \ud83d\udcd8 Using the widget for both enrollment and payments.\n>\n> If you pass both the `ENROLLMENT` and `PAYMENT_INTENT` use cases, the widget will first enroll the user and then create a payment intent.\n",
+            "description": "The use case of the Biometric payments widget. You can choose:\n\n  - `ENROLLMENT`: Use this option to enroll the user's device in the Biometric payments service.\n  - `PAYMENT_INTENT`: Use this option if you want to create a payment for a Biometric payments transaction.\n\n> \ud83d\udcd8 Using the widget for both enrollment and payments.\n>\n> If you pass both the `ENROLLMENT` and `PAYMENT_INTENT` use cases, the widget will first enroll the user and then create a payment intent.\n",
             "items": {
               "type": "string",
               "enum": [
@@ -34668,7 +34520,7 @@
               },
               "theme": {
                 "type": "array",
-                "description": "Use the `theme` array to add further customization to your chosen color scheme. For details regarding all the possible customizations, please see our dedicated <a href=\"https://developers.belvo.com/docs/branding-and-customization-biometric-pix-widget\" target=\"_blank\">Branding and Customization (Biometric Pix Widget)</a> guide.\n",
+                "description": "Use the `theme` array to add further customization to your chosen color scheme. For details regarding all the possible customizations, please see our dedicated <a href=\"https://developers.belvo.com/docs/branding-and-customization-biometric-pix-widget\" target=\"_blank\">Branding and Customization (Biometric payments widget)</a> guide.\n",
                 "items": {
                   "$ref": "#/components/schemas/ThemeBiometricWidget"
                 }
@@ -35392,7 +35244,7 @@
         "description": "Example of an individual (OFDA Brazil).",
         "value": {
           "count": 108,
-          "next": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908page=2",
+          "next": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908&page=2",
           "previous": null,
           "results": [
             {
@@ -35535,7 +35387,7 @@
         "description": "Example of a business (OFDA Brazil).",
         "value": {
           "count": 108,
-          "next": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908page=2",
+          "next": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908&page=2",
           "previous": null,
           "results": [
             {
@@ -36727,7 +36579,7 @@
         "description": "Example of an *Igreso* type invoice.",
         "value": {
           "count": 110,
-          "next": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908page=2",
+          "next": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908&page=2",
           "previous": null,
           "results": [
             {
@@ -36795,7 +36647,7 @@
         "description": "Example of a *Pago* type invoice.",
         "value": {
           "count": 110,
-          "next": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908page=2",
+          "next": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908&page=2",
           "previous": null,
           "results": [
             {
@@ -36887,7 +36739,7 @@
         "description": "Example of a *Nomina* type invoice.",
         "value": {
           "count": 110,
-          "next": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908page=2",
+          "next": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908&page=2",
           "previous": null,
           "results": [
             {
@@ -36964,7 +36816,7 @@
         "description": "Example of an *Egreso* type invoice.",
         "value": {
           "count": 110,
-          "next": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908page=2",
+          "next": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908&page=2",
           "previous": null,
           "results": [
             {
@@ -37032,7 +36884,7 @@
         "description": "Example of a *Traslado* type invoice.",
         "value": {
           "count": 110,
-          "next": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908page=2",
+          "next": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908&page=2",
           "previous": null,
           "results": [
             {
@@ -37836,7 +37688,7 @@
         "description": "Example of a list of personal tax returns",
         "value": {
           "count": 101,
-          "next": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908page=2",
+          "next": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908&page=2",
           "previous": null,
           "results": [
             {
@@ -38052,7 +37904,7 @@
         "description": "Example of a list of PFAE-type monthly personal tax returns",
         "value": {
           "count": 101,
-          "next": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908page=2",
+          "next": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908&page=2",
           "previous": null,
           "results": [
             {
@@ -38124,7 +37976,7 @@
         "description": "Example of a list of PFAI-type monthly personal tax returns",
         "value": {
           "count": 101,
-          "next": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908page=2",
+          "next": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908&page=2",
           "previous": null,
           "results": [
             {
@@ -38204,7 +38056,7 @@
         "description": "Example of a list of business tax returns",
         "value": {
           "count": 101,
-          "next": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908page=2",
+          "next": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908&page=2",
           "previous": null,
           "results": [
             {
@@ -38624,7 +38476,7 @@
         "description": "Example of a list of monthly business tax returns",
         "value": {
           "count": 101,
-          "next": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908page=2",
+          "next": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908&page=2",
           "previous": null,
           "results": [
             {
@@ -40982,7 +40834,7 @@
         "description": "Example of a list of personal tax status",
         "value": {
           "count": 101,
-          "next": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908page=2",
+          "next": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908&page=2",
           "previous": null,
           "results": [
             {
@@ -41066,7 +40918,7 @@
         "description": "Example of a list of business tax status",
         "value": {
           "count": 101,
-          "next": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908page=2",
+          "next": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908&page=2",
           "previous": null,
           "results": [
             {
@@ -41304,7 +41156,7 @@
         "description": "Example of a list of all possible invoices.",
         "value": {
           "count": 10,
-          "next": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908page=2",
+          "next": "https://sandbox.belvo.com/api/{endpoint}/?link=1bd948f7-245d-4313-b604-34d1044cb908&page=2",
           "previous": null,
           "results": [
             {
@@ -42084,7 +41936,7 @@
         "Payment Authorizations (Brazil)",
         "Charges (Brazil)",
         "Payment Intents (Brazil)",
-        "Biometric Pix Widget Access Token (Brazil)",
+        "Biometric payments Widget Access Token (Brazil)",
         "Enrollments (Brazil)",
         "Payment Transactions (Brazil)"
       ]
