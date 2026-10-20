@@ -16431,6 +16431,118 @@
           }
         }
       },
+      "AccountReservedBalanceRemunerationOpenFinanceBrazil": {
+        "type": "object",
+        "nullable": true,
+        "title": "Reserved Balance Remuneration (OFDA Brazil)",
+        "description": "The yield applied to the reserved amount, as reported by the institution. `null` when the reserve has no yield.\n",
+        "properties": {
+          "pre_fixed_rate": {
+            "type": "number",
+            "format": "float",
+            "nullable": true,
+            "description": "The pre-fixed rate applied to the reserve, expressed as a decimal (for example, `0.145` represents 14.5%).\n\nReturned when `post_fixed_rate` is not.\n",
+            "example": null
+          },
+          "post_fixed_rate": {
+            "type": "number",
+            "format": "float",
+            "nullable": true,
+            "description": "The percentage of the `indexer` applied to the reserve, expressed as a decimal (for example, `1.2` represents 120% of the CDI).\n\nReturned when `pre_fixed_rate` is not.\n",
+            "example": 1.2
+          },
+          "rate_type": {
+            "type": "string",
+            "nullable": true,
+            "description": "The type of remuneration rate. Can be either:\n  - `LINEAR`\n  - `EXPONENCIAL`\n",
+            "example": "LINEAR"
+          },
+          "rate_periodicity": {
+            "type": "string",
+            "nullable": true,
+            "description": "The frequency that the remuneration rate is applied. Can be either:\n  - `DIARIO`\n  - `MENSAL`\n  - `ANUAL`\n  - `SEMESTRAL`\n",
+            "example": "ANUAL"
+          },
+          "calculation_base": {
+            "type": "string",
+            "nullable": true,
+            "description": "Indicates whether the remuneration is calculated over business days (*dias \u00fateis*) or calendar days (*dias corridos*). Can be either:\n  - `DIAS_UTEIS`\n  - `DIAS_CORRIDOS`\n",
+            "example": "DIAS_UTEIS"
+          },
+          "indexer": {
+            "type": "string",
+            "nullable": true,
+            "description": "The index used as a reference for the remuneration. Can be either:\n  - `CDI`\n  - `DI`\n  - `TR`\n  - `IPCA`\n  - `IGP_M`\n  - `IGP_DI`\n  - `INPC`\n  - `BCP`\n  - `TLC`\n  - `SELIC`\n  - `PRE_FIXADO`\n  - `OUTROS`\n",
+            "example": "CDI"
+          },
+          "indexer_additional_info": {
+            "type": "string",
+            "nullable": true,
+            "description": "Additional information about the `indexer`. Returned when `indexer` is `OUTROS`.\n",
+            "example": null
+          }
+        }
+      },
+      "AccountReservedBalanceAmountOpenFinanceBrazil": {
+        "type": "object",
+        "title": "Reserved Balance Amount (OFDA Brazil)",
+        "description": "An amount held in the reserve, with its currency and remuneration.\n",
+        "properties": {
+          "amount": {
+            "type": "number",
+            "format": "float",
+            "nullable": true,
+            "description": "The amount available in the reserve.\n",
+            "example": 1565.51
+          },
+          "currency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "pattern": "^[A-Z]{3}$",
+            "description": "The three-letter currency code (ISO-4217).\n",
+            "example": "BRL"
+          },
+          "remuneration": {
+            "$ref": "#/components/schemas/AccountReservedBalanceRemunerationOpenFinanceBrazil"
+          }
+        }
+      },
+      "AccountReservedBalanceOpenFinanceBrazil": {
+        "type": "object",
+        "title": "Reserved Balance (OFDA Brazil)",
+        "description": "A reserve (for example, a *caixinha* or *cofrinho*) the account holder keeps inside the account.\n",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true,
+            "description": "The name the account holder gave to the reserve.\n",
+            "example": "Cofrinho"
+          },
+          "identification": {
+            "type": "string",
+            "nullable": true,
+            "description": "The institution's unique identifier for the reserve.\n",
+            "example": "d78fc4e5-37ca-4da3-adf2-9b082bf92280"
+          },
+          "amounts": {
+            "type": "array",
+            "nullable": true,
+            "description": "The amounts held in the reserve. Usually a single BRL amount.\n",
+            "items": {
+              "$ref": "#/components/schemas/AccountReservedBalanceAmountOpenFinanceBrazil"
+            }
+          }
+        }
+      },
+      "AccountReservedBalancesOpenFinanceBrazil": {
+        "type": "array",
+        "title": "Reserved Balances (OFDA Brazil)",
+        "description": "The account's reserves (for example, *caixinhas* or *cofrinhos*): money the account holder has set aside inside the account, with or without yield. Reserves that are investments registered to the account holder are not included here and are returned by the investments endpoints instead.\n\nReserved amounts are **not** included in `balance.current`, `balance.available` or `balance.automatically_invested`.\n\nAlways returned. Reserves only exist on checking, savings and prepaid payment accounts, so this field is always an empty list (`[]`) for other accounts, such as credit cards and loans. For checking, savings and prepaid payment accounts, an empty list means that the institution reported no reserves for the account, or that they could not be retrieved.\n",
+        "items": {
+          "$ref": "#/components/schemas/AccountReservedBalanceOpenFinanceBrazil"
+        }
+      },
       "EnumCreditCardLimitType": {
         "type": "string",
         "enum": [
@@ -17422,7 +17534,8 @@
           "internal_identification",
           "credit_data",
           "loan_data",
-          "funds_data"
+          "funds_data",
+          "reserved_balances"
         ],
         "properties": {
           "id": {
@@ -17496,6 +17609,9 @@
           "balance": {
             "$ref": "#/components/schemas/AccountBalanceOpenFinanceBrazil"
           },
+          "reserved_balances": {
+            "$ref": "#/components/schemas/AccountReservedBalancesOpenFinanceBrazil"
+          },
           "currency": {
             "type": "string",
             "maxLength": 3,
@@ -17559,7 +17675,8 @@
           "currency",
           "available",
           "blocked",
-          "automatically_invested"
+          "automatically_invested",
+          "reserved_balances"
         ],
         "properties": {
           "id": {
@@ -17634,6 +17751,13 @@
             "minimum": 0,
             "description": "The amount that is automatically invested (as agreed upon with the institution).",
             "example": 1000.02
+          },
+          "reserved_balances": {
+            "type": "array",
+            "description": "The account's reserves (for example, *caixinhas* or *cofrinhos*): money the account holder has set aside inside the account, with or without yield. Reserves that are investments registered to the account holder are not included here and are returned by the investments endpoints instead.\n\nAn empty list (`[]`) means that the institution reported no reserves for the account, or that they could not be retrieved.\n",
+            "items": {
+              "$ref": "#/components/schemas/AccountReservedBalanceOpenFinanceBrazil"
+            }
           }
         }
       },
@@ -34786,6 +34910,27 @@
               "blocked": 41233.07,
               "automatically_invested": 15000
             },
+            "reserved_balances": [
+              {
+                "name": "Cofrinho",
+                "identification": "d78fc4e5-37ca-4da3-adf2-9b082bf92280",
+                "amounts": [
+                  {
+                    "amount": 1565.51,
+                    "currency": "BRL",
+                    "remuneration": {
+                      "pre_fixed_rate": null,
+                      "post_fixed_rate": 1.2,
+                      "rate_type": "LINEAR",
+                      "rate_periodicity": "ANUAL",
+                      "calculation_base": "DIAS_UTEIS",
+                      "indexer": "CDI",
+                      "indexer_additional_info": null
+                    }
+                  }
+                ]
+              }
+            ],
             "currency": "BRL",
             "public_identification_name": "AGENCY/NUMBER",
             "public_identification_value": "6272/11188222",
@@ -34825,6 +34970,7 @@
               "blocked": 60.32,
               "automatically_invested": 131.5
             },
+            "reserved_balances": [],
             "currency": "BRL",
             "public_identification_name": "CREDIT_CARD_NUMBER",
             "public_identification_value": "8921",
@@ -34896,6 +35042,7 @@
               "blocked": 0,
               "automatically_invested": 0
             },
+            "reserved_balances": [],
             "currency": "BRL",
             "public_identification_name": "NUMBER",
             "public_identification_value": "90847453264",
@@ -35031,6 +35178,27 @@
             "blocked": 41233.07,
             "automatically_invested": 15000
           },
+          "reserved_balances": [
+            {
+              "name": "Cofrinho",
+              "identification": "d78fc4e5-37ca-4da3-adf2-9b082bf92280",
+              "amounts": [
+                {
+                  "amount": 1565.51,
+                  "currency": "BRL",
+                  "remuneration": {
+                    "pre_fixed_rate": null,
+                    "post_fixed_rate": 1.2,
+                    "rate_type": "LINEAR",
+                    "rate_periodicity": "ANUAL",
+                    "calculation_base": "DIAS_UTEIS",
+                    "indexer": "CDI",
+                    "indexer_additional_info": null
+                  }
+                }
+              ]
+            }
+          ],
           "currency": "BRL",
           "public_identification_name": "AGENCY/NUMBER",
           "public_identification_value": "6272/11188222",
@@ -35068,6 +35236,7 @@
             "blocked": 60.32,
             "automatically_invested": 131.5
           },
+          "reserved_balances": [],
           "currency": "BRL",
           "public_identification_name": "CREDIT_CARD_NUMBER",
           "public_identification_value": "8921",
@@ -35137,6 +35306,7 @@
             "blocked": 0,
             "automatically_invested": 0
           },
+          "reserved_balances": [],
           "currency": "BRL",
           "public_identification_name": "NUMBER",
           "public_identification_value": "90847453264",

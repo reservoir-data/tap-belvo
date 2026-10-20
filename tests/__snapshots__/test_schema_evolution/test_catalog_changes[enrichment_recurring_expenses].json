@@ -319,6 +319,17 @@
         "properties",
         "account",
         "properties",
+        "reserved_balances"
+      ],
+      "metadata": {
+        "inclusion": "available"
+      }
+    },
+    {
+      "breadcrumb": [
+        "properties",
+        "account",
+        "properties",
         "currency"
       ],
       "metadata": {
@@ -2351,6 +2362,124 @@
               "null"
             ]
           },
+          "reserved_balances": {
+            "description": "The account's reserves (for example, *caixinhas* or *cofrinhos*): money the account holder has set aside inside the account, with or without yield. Reserves that are investments registered to the account holder are not included here and are returned by the investments endpoints instead.\n\nReserved amounts are **not** included in `balance.current`, `balance.available` or `balance.automatically_invested`.\n\nAlways returned. Reserves only exist on checking, savings and prepaid payment accounts, so this field is always an empty list (`[]`) for other accounts, such as credit cards and loans. For checking, savings and prepaid payment accounts, an empty list means that the institution reported no reserves for the account, or that they could not be retrieved.\n",
+            "items": {
+              "description": "A reserve (for example, a *caixinha* or *cofrinho*) the account holder keeps inside the account.\n",
+              "properties": {
+                "amounts": {
+                  "description": "The amounts held in the reserve. Usually a single BRL amount.\n",
+                  "items": {
+                    "description": "An amount held in the reserve, with its currency and remuneration.\n",
+                    "properties": {
+                      "amount": {
+                        "description": "The amount available in the reserve.\n",
+                        "format": "float",
+                        "type": [
+                          "number",
+                          "null"
+                        ]
+                      },
+                      "currency": {
+                        "description": "The three-letter currency code (ISO-4217).\n",
+                        "maxLength": 3,
+                        "pattern": "^[A-Z]{3}$",
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "remuneration": {
+                        "description": "The yield applied to the reserved amount, as reported by the institution. `null` when the reserve has no yield.\n",
+                        "properties": {
+                          "calculation_base": {
+                            "description": "Indicates whether the remuneration is calculated over business days (*dias úteis*) or calendar days (*dias corridos*). Can be either:\n  - `DIAS_UTEIS`\n  - `DIAS_CORRIDOS`\n",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "indexer": {
+                            "description": "The index used as a reference for the remuneration. Can be either:\n  - `CDI`\n  - `DI`\n  - `TR`\n  - `IPCA`\n  - `IGP_M`\n  - `IGP_DI`\n  - `INPC`\n  - `BCP`\n  - `TLC`\n  - `SELIC`\n  - `PRE_FIXADO`\n  - `OUTROS`\n",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "indexer_additional_info": {
+                            "description": "Additional information about the `indexer`. Returned when `indexer` is `OUTROS`.\n",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "post_fixed_rate": {
+                            "description": "The percentage of the `indexer` applied to the reserve, expressed as a decimal (for example, `1.2` represents 120% of the CDI).\n\nReturned when `pre_fixed_rate` is not.\n",
+                            "format": "float",
+                            "type": [
+                              "number",
+                              "null"
+                            ]
+                          },
+                          "pre_fixed_rate": {
+                            "description": "The pre-fixed rate applied to the reserve, expressed as a decimal (for example, `0.145` represents 14.5%).\n\nReturned when `post_fixed_rate` is not.\n",
+                            "format": "float",
+                            "type": [
+                              "number",
+                              "null"
+                            ]
+                          },
+                          "rate_periodicity": {
+                            "description": "The frequency that the remuneration rate is applied. Can be either:\n  - `DIARIO`\n  - `MENSAL`\n  - `ANUAL`\n  - `SEMESTRAL`\n",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          },
+                          "rate_type": {
+                            "description": "The type of remuneration rate. Can be either:\n  - `LINEAR`\n  - `EXPONENCIAL`\n",
+                            "type": [
+                              "string",
+                              "null"
+                            ]
+                          }
+                        },
+                        "title": "Reserved Balance Remuneration (OFDA Brazil)",
+                        "type": [
+                          "object",
+                          "null"
+                        ]
+                      }
+                    },
+                    "title": "Reserved Balance Amount (OFDA Brazil)",
+                    "type": "object"
+                  },
+                  "type": [
+                    "array",
+                    "null"
+                  ]
+                },
+                "identification": {
+                  "description": "The institution's unique identifier for the reserve.\n",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "name": {
+                  "description": "The name the account holder gave to the reserve.\n",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "title": "Reserved Balance (OFDA Brazil)",
+              "type": "object"
+            },
+            "title": "Reserved Balances (OFDA Brazil)",
+            "type": "array"
+          },
           "subtype": {
             "description": "The account subtype, as designated by the institution.\n\n> **Non-nullable:** A value must be returned by Brazil's open finance network.\n",
             "type": "string"
@@ -2382,7 +2511,8 @@
           "internal_identification",
           "credit_data",
           "loan_data",
-          "funds_data"
+          "funds_data",
+          "reserved_balances"
         ],
         "title": "Account Object (OFDA Brazil)",
         "type": [
